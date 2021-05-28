@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
+import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard';
+import SignIn from './pages/SignIn';
+import { SignInContext } from './context';
+
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <SignInContext.Provider value={{loggedIn, setLoggedIn}}>
+  {!loggedIn? <SignIn/> : <Router>
+<Sidebar />
+<Switch>
+<Route path='/interview/dashboard' exact component={Dashboard} />
+
+</Switch>
+
+</Router>}
+
+
+</SignInContext.Provider>
+    </>
   );
 }
 
