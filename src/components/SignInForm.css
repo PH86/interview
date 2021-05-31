@@ -1,95 +1,91 @@
 :root {
-    /*primary background, text blue */
-    --clr-primary-grey: #252832;
-    /*primary background, text blue */
-    --clr-secondary-grey: #f5f4f4;
-  
-    /*secondary footer blue */
-    --clr-primary-blue: #33acd1;
-  
-   
-    /*primary button colour */
-    --clr-button-primary: #33d188;
-    /*primary text colour*/
-    --clr-text-primary: #252832;
-    /*secondary text colour*/
-    --clr-text-secondary: #fff;
-    /* tertiary text coloyr*/
-    --clr-text-tertiary:#70737C;
-    
-    --transition: all 0.1s linear;
-    --spacing: 0.1rem;
-    --radius: 0.5rem;
-    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    --max-width: 1170px;
-    --fixed-width: 620px;
-  }
+  /*primary background, text blue */
+  --clr-primary-grey: #252832;
+  /*primary background, text blue */
+  --clr-secondary-grey: #f5f4f4;
 
-.form-container{
-    margin: 0 auto;
+  /*secondary footer blue */
+  --clr-primary-blue: #33acd1;
 
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-justify-content: center;
-align-items: center;
-font-family: 'Open Sans', sans-serif;
+  /*primary button colour */
+  --clr-button-primary: #33d188;
+  /*primary text colour*/
+  --clr-text-primary: #252832;
+  /*secondary text colour*/
+  --clr-text-secondary: #fff;
+  /* tertiary text coloyr*/
+  --clr-text-tertiary: #70737c;
+
+  --transition: all 0.1s linear;
+  --spacing: 0.1rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+.form-container {
+  margin: 0 auto;
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
 }
 
 .form-container form {
-width: 100%;
-margin-bottom: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .form-logo {
-    width: 35%;
-    margin-bottom: 3rem;
+  width: 35%;
+  margin-bottom: 3rem;
 }
 
-.input-container{
-    margin: 0 auto;
-    margin-bottom: 1rem;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    
+.input-container {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
-.input-container label{
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding-bottom: 0.3rem;
-    color: var(--clr-text-tertiary);
- }
+.input-container label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding-bottom: 0.3rem;
+  color: var(--clr-text-tertiary);
+}
 
-.input-container input{
-    height: 2rem;
-    background-color: var(--clr-secondary-grey);
-    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+.input-container input {
+  height: 2rem;
+  background-color: var(--clr-secondary-grey);
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
 
 .btn {
-    display: block;
-    margin: 0 auto;
-    background-color: var(--clr-button-primary);
-    color: var(--clr-text-secondary);
-    padding: 0.6rem 2.7rem;
-    border: 0.1rem solid rgba(0, 0, 0, 0.1);
-    font-size: 0.8rem;
-    cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  background-color: var(--clr-button-primary);
+  color: var(--clr-text-secondary);
+  padding: 0.6rem 2.7rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
-
-
 .text-btn {
-    background: none;
-	color: var(--clr-primary-blue);
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-    font-size: 0.8rem;
-    }
+  background: none;
+  color: var(--clr-primary-blue);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  font-size: 0.8rem;
+}

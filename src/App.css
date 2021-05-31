@@ -7,14 +7,13 @@
   /*secondary footer blue */
   --clr-primary-blue: #33acd1;
 
- 
   /*primary button colour */
   --clr-button-primary: #33d188;
   /*primary text colour*/
   --clr-text-primary: #252832;
   /*secondary text colour*/
   --clr-text-secondary: #fff;
-  
+
   --transition: all 0.1s linear;
   --spacing: 0.1rem;
   --radius: 0.5rem;
