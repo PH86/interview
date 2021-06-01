@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./SignInForm.css";
-import logo from "../images/InterviewLogo.PNG";
-import { SignInContext } from "../context";
+import logo from "../../images/InterviewLogo.PNG";
+import { SignInContext } from "../../context";
 
 function SignInForm() {
   const { loggedIn, setLoggedIn } = useContext(SignInContext);

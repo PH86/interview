@@ -1,29 +1,4 @@
-:root {
-  /*primary background, text blue */
-  --clr-primary-grey: #252832;
-  /*primary background, text blue */
-  --clr-secondary-grey: #f5f4f4;
 
-  /*secondary footer blue */
-  --clr-primary-blue: #33acd1;
-
-  /*primary button colour */
-  --clr-button-primary: #33d188;
-  /*primary text colour*/
-  --clr-text-primary: #252832;
-  /*secondary text colour*/
-  --clr-text-secondary: #fff;
-  /* tertiary text coloyr*/
-  --clr-text-tertiary: #70737c;
-
-  --transition: all 0.1s linear;
-  --spacing: 0.1rem;
-  --radius: 0.5rem;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  --max-width: 1170px;
-  --fixed-width: 620px;
-}
 
 .container {
   position: fixed;

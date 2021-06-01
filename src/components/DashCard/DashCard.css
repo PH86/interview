@@ -1,0 +1,13 @@
+
+.dashcard-container{
+    margin: 1rem;
+    color: var(--clr-text-secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--dark-shadow-inverse);
+
+}
+
+.dashcard-content{
+    margin: 1rem;
+    font-size: 5rem;
+}

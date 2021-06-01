@@ -1,7 +1,7 @@
 import React from "react";
-import SignInForm from "../components/SignInForm";
+import SignInForm from "../../components/SignInForm/SignInForm";
 import "./SignIn.css";
-import searchIcon from "../images/searchIcon.PNG";
+import searchIcon from "../../images/searchIcon.PNG";
 
 function SignIn() {
   return (
