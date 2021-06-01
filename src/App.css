@@ -13,17 +13,36 @@
   --clr-text-primary: #252832;
   /*secondary text colour*/
   --clr-text-secondary: #fff;
+  /* tertiary text coloyr*/
+  --clr-text-tertiary: #70737c;
 
   --transition: all 0.1s linear;
   --spacing: 0.1rem;
   --radius: 0.5rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --light-shadow-inverse:  0 5px 15px rgba(255, 255, 255, 0.1);
+  --dark-shadow-inverse: 0 5px 15px rgba(255, 255, 255, 0.3);
   --max-width: 1170px;
   --fixed-width: 620px;
 }
 
+
 html,
 body {
+  margin: 0;
+  padding: 0;
   background-color: var(--clr-primary-grey);
+  max-height: 100vh;
 }
+
+.content-container{
+  padding: 0;
+  margin: 0 auto;
+ overflow: hidden;
+     margin-left: 15vw;
+     height: 100%;
+     font-family: "Open Sans", sans-serif;
+     color: var(--clr-text-secondary);
+     text-align: center;
+ }
