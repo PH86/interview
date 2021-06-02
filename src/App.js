@@ -10,30 +10,29 @@ import UserSettings from './pages/UserSettings/UserSettings';
 import Account from './pages/Account/Account';
 import SignIn from './pages/SignIn/SignIn';
 import { SignInContext } from './context';
-
+import SingleJob from './pages/SingleJob/SingleJob';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
 
   return (
     <>
-    <SignInContext.Provider value={{loggedIn, setLoggedIn}}>
-  {!loggedIn? <SignIn/> : <Router>
-<Sidebar />
-<Switch>
-<Route path='/interview/dashboard' exact component={Dashboard} />
-<Route path='/interview/jobs' exact component={JobVacancies} />
-<Route path='/interview/candidates' exact component={CanditateSearch} />
-<Route path='/interview/studio' exact component={ReportingStudio} />
-<Route path='/interview/settings' exact component={UserSettings} />
-<Route path='/interview/account' exact component={Account} />
-
-</Switch>
-
-</Router>}
-
-
-</SignInContext.Provider>
+      <SignInContext.Provider value={{ loggedIn, setLoggedIn }}>
+        {!loggedIn ? <SignIn /> : <Router>
+          <Sidebar />
+          <Switch>
+            <Route path='/interview/dashboard' exact component={Dashboard} />
+            <Route path='/interview/jobs' exact component={JobVacancies} />
+            <Route path='/interview/candidates' exact component={CanditateSearch} />
+            <Route path='/interview/studio' exact component={ReportingStudio} />
+            <Route path='/interview/settings' exact component={UserSettings} />
+            <Route path='/interview/account' exact component={Account} />
+            <Route path='/interview/jobs/:id'>
+              <SingleJob />
+            </Route>
+          </Switch>
+        </Router>}
+      </SignInContext.Provider>
     </>
   );
 }

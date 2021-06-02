@@ -1,0 +1,9 @@
+.single-job-container{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    max-width: 750px;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--clr-text-secondary);
+    text-align: start;
+}

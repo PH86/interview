@@ -1,8 +1,23 @@
 .vacancy-card-container{
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    text-decoration: none;
-    color: var(--clr-text-secondary);
-    border-radius: var(--radius);
+  margin: 0rem 0rem;
+  display: grid;
+  grid-template-columns: 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6%;
+  text-decoration: none;
+  color: var(--clr-secondary-grey);
+  border: 1px groove var(--clr-secondary-grey);
+  box-shadow: var(--light-shadow-inverse);
+  transition: all 0.2s ease 0s;
+}
+.vacancy-card-container h4{
+  margin: 0.8rem;
+}
 
+.vacancy-card-container:hover {
+  color: var(--clr-text-secondary);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.vertical {
+  border: 1px groove var(--clr-secondary-grey);
 }
