@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import './VacancyCard.css'
 
-function VacancyCard({id, title, company, location, salary, applicants, endDate}) {
+function VacancyCard({ id, title, company, location, salary, applicants, endDate }) {
     return (
         <article key={id} >
             <Link to={`/interview/jobs/${id}`} className='vacancy-card-container'>

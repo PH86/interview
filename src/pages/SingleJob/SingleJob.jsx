@@ -4,25 +4,9 @@ import jobDataFull from '../JobVacancies/JobVacancyFull';
 import './SingleJob.css';
 
 function SingleJob() {
-
     const { id } = useParams();
-
     const job = jobDataFull.filter(job => job.id == id )
 
-    // id: 1,
-    // title:'Software Developer',
-    // company: 'Green',
-    // location: 'Remote',
-    // salary: 45000,
-    // applicants: 5,
-    // endDate: '11/11/2021',
-  	// jobDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-	// companyDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-	// salaryMin: 40000,
-    // salaryMax: 45000,
-    // requirementsEssential: ['Lorem ipsum dolor sit amet','consectetur adipiscing elit','sed do eiusmod tempor incididunt ut labore et dolore magna aliqua','Ut enim ad minim veniam'],
-    // requirementsDesirable: ['Lorem ipsum dolor sit amet','consectetur adipiscing elit','sed do eiusmod tempor incididunt ut labore et dolore magna aliqua','Ut enim ad minim veniam'],
-    // responsibilities: 
     return (
         <div className='content-container'>
             {job.map(item => 
@@ -55,8 +39,7 @@ function SingleJob() {
                         })}
                     </ul>
                 </article>
-                )}
-            
+                )}            
         </div>
     )
 }

@@ -27,7 +27,6 @@
   --fixed-width: 620px;
 }
 
-
 html,
 body {
   margin: 0;
@@ -40,15 +39,15 @@ body {
 .content-container{
   padding: 0;
   margin: 0 auto;
- overflow: hidden;
-     margin-left: 15vw;
-     height: 100%;
-     font-family: "Open Sans", sans-serif;
-     color: var(--clr-text-secondary);
-     text-align: center;
- }
+  overflow: hidden;
+  margin-left: 15vw;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  color: var(--clr-text-secondary);
+  text-align: center;
+}
 
- .standard-btn {
+.standard-btn {
   color: var(--clr-secondary-grey);
   text-transform: uppercase;
   text-decoration: none;
