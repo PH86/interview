@@ -1,0 +1,40 @@
+.applicant-card-container{
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    color: var(--clr-text-secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--dark-shadow-inverse);
+    text-align: left;
+}
+
+.applicant-name{
+    margin: 0;
+    font-size: 2rem;
+}
+
+.applicant-job{
+    margin: 0;
+    font-weight: normal;
+}
+
+.applicant-card-container h4{
+    margin: 0;
+    color: var(--clr-text-tertiary);
+    font-size: 1rem;
+}
+
+.applicant-icon{
+    vertical-align: middle;
+    font-size: 1.1rem;
+    padding-right: 0.5rem;
+}
+
+.applicant-cv{
+    padding-bottom: 0.5rem;
+}
+
+.applicant-cv a{
+    color: var(--clr-primary-blue);
+}
+
+

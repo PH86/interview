@@ -1,9 +1,78 @@
-.single-job-container{
+.job-content-container{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.applicant-container{
+    margin: 0 auto;
+    width: 80%;
     padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.job-container{
+    padding-top: 1rem;
+}
+
+.single-job-container{
     padding-bottom: 1rem;
     max-width: 750px;
     margin-right: auto;
     margin-left: auto;
     color: var(--clr-text-secondary);
     text-align: start;
+}
+
+.single-job-header{
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    color: var(--clr-text-secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--dark-shadow-inverse);
+}
+
+.single-job-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.single-job-header h1{
+    margin: 0;
+    font-size: 2rem;
+}
+
+.single-job-header h2{
+    margin: 0;
+    font-weight: normal;
+}
+
+.single-job-header h3{
+    margin: 0;
+    padding-top: 0.8rem;
+    padding-bottom: 0.2rem;
+    font-weight: normal;
+}
+
+.single-job-header h4{
+    margin: 0;
+    padding-bottom: 0.5rem;
+    margin-right: 1rem;
+    color: var(--clr-text-tertiary);
+    font-size: 1rem;
+}
+
+.single-job-header h5{
+    margin: 0;
+    padding-bottom: 1rem;
+    color: var(--clr-text-tertiary);
+}
+
+.single-job-header ul{
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--clr-text-tertiary);
 }

@@ -2,7 +2,7 @@
   /*primary background, text blue */
   --clr-primary-grey: #252832;
   /*primary background, text blue */
-  --clr-secondary-grey: #f5f4f4;
+  --clr-secondary-grey: #f4f4f4;
 
   /*secondary footer blue */
   --clr-primary-blue: #33acd1;
@@ -13,8 +13,8 @@
   --clr-text-primary: #252832;
   /*secondary text colour*/
   --clr-text-secondary: #fff;
-  /* tertiary text coloyr*/
-  --clr-text-tertiary: #70737c;
+  /* tertiary text coloyr will be #cccccc*/
+  --clr-text-tertiary: #cccccc;
 
   --transition: all 0.1s linear;
   --spacing: 0.1rem;
