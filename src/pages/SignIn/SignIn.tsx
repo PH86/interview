@@ -1,9 +1,8 @@
-import React from "react";
 import SignInForm from "../../components/SignInForm/SignInForm";
 import "./SignIn.css";
-import searchIcon from "../../images/searchIcon.PNG";
+import searchIcon from "../../images/searchIcon.png";
 
-function SignIn() {
+export const SignIn: React.FC<{}> = (): React.ReactElement => {
   return (
     <div className="container">
       <div className="form-container">
@@ -26,5 +25,3 @@ function SignIn() {
     </div>
   );
 }
-
-export default SignIn;

@@ -1,10 +1,9 @@
-import React from 'react'
-import jobData from '../../components/VacancyCard/DummyVacancyData';
-import VacancyCard from '../../components/VacancyCard/VacancyCard';
+import { jobData } from '../../components/VacancyCard/DummyVacancyData';
+import { VacancyCard } from '../../components/VacancyCard/VacancyCard';
 import './JobVacancies.css';
 import '../../components/VacancyCard/VacancyCard.css';
 
-function JobVacancies() {
+export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
     return (
         <div className='content-container'>
             <h1>Job Vacancies</h1>
@@ -44,5 +43,3 @@ function JobVacancies() {
         </div>
     )
 }
-
-export default JobVacancies

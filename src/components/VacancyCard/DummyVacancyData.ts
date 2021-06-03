@@ -1,4 +1,14 @@
-const jobData = [{
+interface IJobData {
+    id: number, 
+    title: string, 
+    company: string, 
+    location: string, 
+    salary: number, 
+    applicants: number, 
+    endDate: string,
+}
+
+export const jobData: IJobData[] = [{
     id: 1,
     title:'Software Developer',
     company: 'Green',
@@ -54,5 +64,3 @@ const jobData = [{
 
 },
 ]
-
-export default jobData;

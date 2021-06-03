@@ -1,8 +1,17 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 import './VacancyCard.css'
 
-function VacancyCard({ id, title, company, location, salary, applicants, endDate }) {
+interface IVacancyCard {
+    id: number, 
+    title: string, 
+    company: string, 
+    location: string, 
+    salary: number, 
+    applicants: number, 
+    endDate: string,
+}
+
+export const VacancyCard: React.FC<IVacancyCard> = ({ id, title, company, location, salary, applicants, endDate }): React.ReactElement => {
     return (
         <article key={id} >
             <Link to={`/interview/jobs/${id}`} className='vacancy-card-container'>
@@ -21,5 +30,3 @@ function VacancyCard({ id, title, company, location, salary, applicants, endDate
         </article>
     )
 }
-
-export default VacancyCard
