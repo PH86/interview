@@ -1,4 +1,21 @@
-const jobDataFull = [{
+interface IJobData {
+    id: number,
+    title: string,
+    company: string,
+    location: string,
+    salary: number,
+    applicants: number,
+    endDate: string,
+    jobDescription: string,
+    companyDescription: string,
+    salaryMin: number,
+    salaryMax: number,
+    requirementsEssential: Array<string>,
+    requirementsDesirable: Array<string>,
+    responsibilities: Array<string>,
+}
+
+export const jobDataFull: IJobData[] = [{
     id: 1,
     title: 'Software Developer',
     company: 'Green',
@@ -90,5 +107,3 @@ const jobDataFull = [{
     responsibilities: ['Lorem ipsum dolor sit amet', 'consectetur adipiscing elit', 'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', 'Ut enim ad minim veniam'],
 },
 ]
-
-export default jobDataFull;

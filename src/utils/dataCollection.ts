@@ -1,4 +1,9 @@
-const data = [
+interface ApplicantData {
+    name: string,
+    Applicants: number,
+};
+
+export const dummyData: ApplicantData[] = [
     {
       name: 'Day -6',
       Applicants: 40
@@ -24,9 +29,7 @@ const data = [
       Applicants: 40
     },
     {
-      name: 'Day',
+      name: 'Day 0',
       Applicants: 30
     },
-  ];
-
-  export default data;
+];
