@@ -7,8 +7,6 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
     return (
         <div className='content-container'>
             <h1>Job Vacancies</h1>
-            <button className='standard-btn'>Add Vacancy</button>
-            <h2>Add vacancy button will bring up form to add vacancy</h2>
             <h2>We could add some stats in here</h2>
             <h2>We may want search/filtering options for vacancies</h2>
             <div className='vacancy-table-container'>
@@ -40,6 +38,8 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
                     )
                 })}
             </div>
+            <button className='standard-btn'>Add Vacancy</button>
+            <h2>Add vacancy button will bring up form modal to add vacancy</h2>
         </div>
     )
 }
