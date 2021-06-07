@@ -17,24 +17,33 @@ import { IApplicantData } from "../../utils/dataCollection";
 interface ILineGraph {
 	title: string;
 	description: String;
-	data: Array<IApplicantData>;
+	data: Array<IApplicantData | IBarChartAverageSalaryData>;
+	dataKeyXAxis: string;
+	dataKeyArea: string | number;
 }
 
 interface IBarGraph {
 	title: string;
 	description: String;
-	data: Array<IBarChartData>;
+	data: Array<IBarChartApplicantData | IBarChartAverageSalaryData>;
 }
 
-export interface IBarChartData {
+export interface IBarChartApplicantData {
 	location: string;
 	AmountOfApplicants: number;
 }
 
-export const LineGraph: React.FC<ILineGraph> = ({
+export interface IBarChartAverageSalaryData {
+	location: string;
+	AverageSalary: number;
+}
+
+export const DashboardLineGraph: React.FC<ILineGraph> = ({
 	title,
 	description,
 	data,
+	dataKeyXAxis,
+	dataKeyArea,
 }): React.ReactElement => {
 	return (
 		<div className="graph-container">
@@ -53,13 +62,53 @@ export const LineGraph: React.FC<ILineGraph> = ({
 					}}
 				>
 					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="name" />
+					<XAxis dataKey={dataKeyXAxis} />
 					<YAxis />
 					<Tooltip />
 					<Legend />
 					<Area
 						type="monotone"
-						dataKey="Applicants"
+						dataKey={dataKeyArea}
+						stroke="#82ca9d"
+						fill="var(--clr-primary-blue)"
+					/>
+				</AreaChart>
+			</ResponsiveContainer>
+		</div>
+	);
+};
+
+export const ReportingStudioLineGraph: React.FC<ILineGraph> = ({
+	title,
+	description,
+	data,
+	dataKeyXAxis,
+	dataKeyArea,
+}): React.ReactElement => {
+	return (
+		<div className="graph-container">
+			<h2>{title}</h2>
+			<h4 className="graph-description">{description}</h4>
+			<ResponsiveContainer width="100%" aspect={3}>
+				<AreaChart
+					width={500}
+					height={300}
+					data={data}
+					margin={{
+						top: 5,
+						right: 30,
+						left: 20,
+						bottom: 5,
+					}}
+				>
+					<CartesianGrid strokeDasharray="3 3" />
+					<XAxis dataKey={dataKeyXAxis} />
+					<YAxis />
+					<Tooltip />
+					<Legend />
+					<Area
+						type="monotone"
+						dataKey={dataKeyArea}
 						stroke="#82ca9d"
 						fill="var(--clr-primary-blue)"
 					/>

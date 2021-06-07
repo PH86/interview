@@ -1,37 +1,51 @@
 import "./ReportingStudio.css";
 import {
 	BarGraph,
-	IBarChartData,
-	LineGraph,
+	IBarChartApplicantData,
+	IBarChartAverageSalaryData,
+	ReportingStudioLineGraph,
 } from "../../components/Graph/Graph";
 import { dummyData } from "../../utils/dataCollection";
 import { jobData } from "../../utils/DummyVacancyData";
+import React from "react";
 
 export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 	const dummyLocationData = getFormattedJobsPerLocationObjects();
+	const topSevenDummyLocationData =
+		getTopSevenApplicantCountWithLocation(dummyLocationData);
+	const dummySalaryData = getFormattedAverageSalaryPerLocationObjects();
+	const topSevenDummySalaryData =
+		getTopSevenAvarageSalariesWithLocation(dummySalaryData);
+	console.log(topSevenDummySalaryData);
 	return (
 		<div className="content-container">
 			<h1>Reporting Studio</h1>
 			<div className="reporting-container">
-				<LineGraph
+				<ReportingStudioLineGraph
 					title="Total Applicants"
 					description="Total Applicants over the last 7 days"
 					data={dummyData}
+					dataKeyXAxis="name"
+					dataKeyArea="Applicants"
 				/>
 				<BarGraph
-					title="Total Applicants Based on Location"
+					title="Top 7 Locations with highest applicants"
 					description="Applicant locations in the last 7 days"
-					data={dummyLocationData}
+					data={topSevenDummyLocationData}
 				/>
-				<LineGraph
+				<ReportingStudioLineGraph
+					title="Average Salary Per Top 7 Location"
+					description="Calculated Averate of salaries in the top 7 locations over the past week"
+					data={topSevenDummySalaryData}
+					dataKeyXAxis="location"
+					dataKeyArea="AverageSalary"
+				/>
+				<ReportingStudioLineGraph
 					title="Total Applicants"
 					description="Total Applicants over the last 7 days"
 					data={dummyData}
-				/>
-				<LineGraph
-					title="Total Applicants"
-					description="Total Applicants over the last 7 days"
-					data={dummyData}
+					dataKeyXAxis="name"
+					dataKeyArea="Applicants"
 				/>
 			</div>
 		</div>
@@ -48,10 +62,69 @@ const getJobsPerLocationObject = (): Record<string, number> =>
 		return result;
 	}, {} as Record<string, number>);
 
-const getFormattedJobsPerLocationObjects = (): Array<IBarChartData> => {
-	const initialData = getJobsPerLocationObject();
-	return Object.keys(initialData).map((placeOfWork) => ({
-		location: placeOfWork,
-		AmountOfApplicants: initialData[placeOfWork],
-	}));
+const getFormattedJobsPerLocationObjects =
+	(): Array<IBarChartApplicantData> => {
+		const initialData = getJobsPerLocationObject();
+		return Object.keys(initialData).map((placeOfWork) => ({
+			location: placeOfWork,
+			AmountOfApplicants: initialData[placeOfWork],
+		}));
+	};
+
+const getTopSevenApplicantCountWithLocation = (
+	formattedJobDataPerLocation: IBarChartApplicantData[]
+) => {
+	const orderedFormat = formattedJobDataPerLocation.sort((a, b) => {
+		return b.AmountOfApplicants - a.AmountOfApplicants;
+	});
+	const topFilterSize = 7;
+	return orderedFormat.slice(0, topFilterSize);
+};
+
+const getAverageSalaryPerLocation = (): Record<string, number> => {
+	const runningTotals: Record<
+		string,
+		{
+			sumOfSalaries: number;
+			numberOfJobs: number;
+		}
+	> = {};
+
+	jobData.forEach((job) => {
+		const { location } = job;
+		if (!runningTotals[location])
+			runningTotals[location] = {
+				sumOfSalaries: 0,
+				numberOfJobs: 0,
+			};
+
+		runningTotals[location].sumOfSalaries += job.salary;
+		runningTotals[location].numberOfJobs++;
+	});
+
+	return Object.keys(runningTotals).reduce((result, location) => {
+		const { sumOfSalaries, numberOfJobs } = runningTotals[location];
+		result[location] = sumOfSalaries / numberOfJobs;
+
+		return result;
+	}, {} as Record<string, number>);
+};
+
+const getFormattedAverageSalaryPerLocationObjects =
+	(): Array<IBarChartAverageSalaryData> => {
+		const initialData = getAverageSalaryPerLocation();
+		return Object.keys(initialData).map((placeOfWork) => ({
+			location: placeOfWork,
+			AverageSalary: initialData[placeOfWork],
+		}));
+	};
+
+const getTopSevenAvarageSalariesWithLocation = (
+	formattedSalaryDataPerLocation: IBarChartAverageSalaryData[]
+) => {
+	const orderedFormat = formattedSalaryDataPerLocation.sort((a, b) => {
+		return b.AverageSalary - a.AverageSalary;
+	});
+	const topFilterSize = 7;
+	return orderedFormat.slice(0, topFilterSize);
 };
