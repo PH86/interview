@@ -90,7 +90,7 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
     }
 
     return (
-        <form className='form-container' onSubmit={handleSubmit}>
+        <form className='vacancy-container' onSubmit={handleSubmit}>
             <div className='vacancy-form-container'>
                 <h2>Job Vacancy Form</h2>
                 <div className='form-list-container'>
