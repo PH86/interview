@@ -36,6 +36,10 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+input, select, textarea, button{
+  font-family:inherit;
+}
+
 .content-container{
   padding: 0;
   margin: 0 auto;
@@ -54,6 +58,7 @@ body {
   background: var(--clr-primary-blue);
   margin: 5px;
   padding: 15px;
+  min-width: 80px;
   border-radius: 5px;
   display: inline-block;
   border: none;
