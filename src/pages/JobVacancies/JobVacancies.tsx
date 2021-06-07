@@ -1,9 +1,14 @@
+import React from 'react';
+import Modal from 'react-modal';
 import { jobData } from '../../components/VacancyCard/DummyVacancyData';
 import { VacancyCard } from '../../components/VacancyCard/VacancyCard';
 import './JobVacancies.css';
 import '../../components/VacancyCard/VacancyCard.css';
+import { VacancyForm } from '../../components/VacancyForm/VacancyForm';
 
+Modal.setAppElement('#root')
 export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
+    const [openModal, setOpenModal] = React.useState(false);
     return (
         <div className='content-container'>
             <h1>Job Vacancies</h1>
@@ -38,7 +43,21 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
                     )
                 })}
             </div>
-            <button className='standard-btn'>Add Vacancy</button>
+            <button onClick={() => setOpenModal(true)} className='standard-btn'>Add Vacancy</button>
+            <Modal
+                isOpen={openModal}
+                onRequestClose={() => setOpenModal(false)}
+                style={{
+                    content: {
+                        background: 'var(--clr-primary-grey)',
+                    }
+                }}
+            >
+                <div>
+                    <button onClick={() => setOpenModal(false)} className='standard-btn'>Close</button>
+                    <VacancyForm />
+                </div>
+            </Modal>
             <h2>Add vacancy button will bring up form modal to add vacancy</h2>
         </div>
     )

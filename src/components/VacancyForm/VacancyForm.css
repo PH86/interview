@@ -1,0 +1,95 @@
+.form-container{
+    background-color: var(--clr-primary-grey);
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.8rem;
+    color: var(--clr-text-secondary);
+}
+
+.form-container input {
+    height: 2rem;
+    padding: 0.2rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--clr-secondary-grey);
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--dark-shadow);
+    border-color: transparent;
+}
+
+.vacancy-form-container{
+    width: 80%;
+    max-width: 1000px;
+    min-width: 500px;
+    padding: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.vacancy-form-container h2{
+    text-align: center;
+}
+
+.vacancy-form-3{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.vacancy-form-container input{
+    width: 30%;
+    margin: 0.4rem;
+}
+
+.vacancy-form-container textarea{
+    height: 4rem;
+    width: 90%;
+    margin: 0.4rem;
+}
+
+.form-list-container{
+    padding-bottom: 0.5rem;
+    padding-left: 0.3rem;  
+    color: var(--clr-text-secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--dark-shadow-inverse);
+}
+
+.form-list-container h2{
+    text-align: left;
+    margin-left: 0.4rem;
+    padding-top: 0.5rem;
+}
+
+.form-list-item-container{
+    margin: 0.4rem;
+    display: grid;
+    grid-template-columns: 600px 80px;
+}
+
+.remove-btn{
+    color: var(--clr-secondary-grey);
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--clr-primary-blue);
+  min-width: 100px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease 0s;
+}
+
+.remove-btn:hover {
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+  }
+
+.form-list li{
+    list-style: none;
+}
