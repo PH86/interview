@@ -193,17 +193,21 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-btn' type="button" onClick={() => removeEssentialRequirment(requirment)}>Remove</button></div>
                         })}
                     </ul>
-                    <input
-                        className='form-input'
-                        type='text'
-                        id='essentialRequirmentInput'
-                        name='essentialRequirmentInput'
-                        placeholder='Essntial Requirment'
-                        value={essentialRequirmentInput}
-                        onChange={(e) => setEssentialRequirmentInput(e.target.value)}
-                    />
-                    <button type="button" className='standard-btn' onClick={() => addEssentialRequirment()}>add</button>
-                    <button type="button" className='standard-btn' onClick={() => setEssentialRequirments([])}>clear</button>
+                    <div className='form-list-subcontainer'>
+                        <input
+                            className='form-input'
+                            type='text'
+                            id='essentialRequirmentInput'
+                            name='essentialRequirmentInput'
+                            placeholder='Essntial Requirment'
+                            value={essentialRequirmentInput}
+                            onChange={(e) => setEssentialRequirmentInput(e.target.value)}
+                        />
+                        <div className='req-button-container'>
+                            <button type="button" className='standard-btn' onClick={() => addEssentialRequirment()}>add</button>
+                            <button type="button" className='standard-btn' onClick={() => setEssentialRequirments([])}>clear</button>
+                        </div>
+                    </div>
                 </div>
                 <div className='form-list-container'>
                     <h2>Desired Requirments</h2>
@@ -212,17 +216,21 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-btn' type="button" onClick={() => removeDesiredRequirment(requirment)}>Remove</button></div>
                         })}
                     </ul>
-                    <input
-                        className='form-input'
-                        type='text'
-                        id='desiredlRequirmentInput'
-                        name='desiredRequirmentInput'
-                        placeholder='Desired Requirment'
-                        value={desiredRequirmentInput}
-                        onChange={(e) => setDesiredRequirmentInput(e.target.value)}
-                    />
-                    <button type="button" className='standard-btn' onClick={() => addDesiredRequirment()}>add</button>
-                    <button type="button" className='standard-btn' onClick={() => setDesiredRequirments([])}>clear</button>
+                    <div className='form-list-subcontainer'>
+                        <input
+                            className='form-input'
+                            type='text'
+                            id='desiredlRequirmentInput'
+                            name='desiredRequirmentInput'
+                            placeholder='Desired Requirment'
+                            value={desiredRequirmentInput}
+                            onChange={(e) => setDesiredRequirmentInput(e.target.value)}
+                        />
+                        <div className='req-button-container'>
+                            <button type="button" className='standard-btn' onClick={() => addDesiredRequirment()}>add</button>
+                            <button type="button" className='standard-btn' onClick={() => setDesiredRequirments([])}>clear</button>
+                        </div>
+                    </div>
                 </div>
                 <div className='form-list-container'>
                     <h2>Responsibilities</h2>
@@ -231,17 +239,21 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-btn' type="button" onClick={() => removeResponsibility(requirment)}>Remove</button></div>
                         })}
                     </ul>
-                    <input
-                        className='form-input'
-                        type='text'
-                        id='responsibilityInput'
-                        name='responsibilityInput'
-                        placeholder='Responsibility'
-                        value={responsibilitiesInput}
-                        onChange={(e) => setResponsibilitiesInput(e.target.value)}
-                    />
-                    <button type="button" className='standard-btn' onClick={() => addResponsibility()}>add</button>
-                    <button type="button" className='standard-btn' onClick={() => setResponsibilities([])}>clear</button>
+                    <div className='form-list-subcontainer'>
+                        <input
+                            className='form-input'
+                            type='text'
+                            id='responsibilityInput'
+                            name='responsibilityInput'
+                            placeholder='Responsibility'
+                            value={responsibilitiesInput}
+                            onChange={(e) => setResponsibilitiesInput(e.target.value)}
+                        />
+                        <div className='req-button-container'>
+                            <button type="button" className='standard-btn' onClick={() => addResponsibility()}>add</button>
+                            <button type="button" className='standard-btn' onClick={() => setResponsibilities([])}>clear</button>
+                        </div>
+                    </div>
                 </div>
                 <button type="submit" className='standard-btn'>Create Job</button>
             </div>
