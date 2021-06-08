@@ -10,10 +10,28 @@ import { VscAccount } from 'react-icons/vsc';
 import { GrNotes } from 'react-icons/gr';
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
+
+  React.useEffect(() => {
+    const toggleButton = document.getElementsByClassName('toggle-button')[0];
+    const sidebarLinks = document.getElementsByClassName('sidebar-links')[0];
+
+    toggleButton.addEventListener('click', () => {
+      sidebarLinks.classList.toggle('active');
+    });
+    sidebarLinks.addEventListener('click', () => {
+      sidebarLinks.classList.toggle('active');
+    });
+  }, []);
+
   return (
     <nav className="sidebar">
       <div className="sidebar-container">
-        <img className="form-logo" src={logo} alt="Interview Logo" />
+        <a href="#" className="toggle-button">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </a>
+        <img className="sidebar-logo" src={logo} alt="Interview Logo" />
         <ul className="sidebar-links">
           <li>
             <Link to="/interview/dashboard" className="sidebar-link">
