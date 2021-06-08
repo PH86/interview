@@ -1,5 +1,6 @@
 import DashCard from "../../components/DashCard/DashCard";
-import Graph from "../../components/Graph/Graph";
+import { DashboardLineGraph } from "../../components/Graph/Graph";
+import { dummyData } from "../../utils/dataCollection";
 import "./Dashboard.css";
 
 export const Dashboard: React.FC<{}> = (): React.ReactElement => {
@@ -7,9 +8,12 @@ export const Dashboard: React.FC<{}> = (): React.ReactElement => {
 		<div className="content-container">
 			<h1>Dashboard</h1>
 			<div className="dashboard-container">
-				<Graph
+				<DashboardLineGraph
 					title="Applicants"
 					description="Applicants over the last 7 days"
+					data={dummyData}
+					dataKeyXAxis="name"
+					dataKeyArea="Applicants"
 				/>
 				<div className="dashcards-container">
 					<DashCard title="Current Vacancies" content="9" />
@@ -21,4 +25,4 @@ export const Dashboard: React.FC<{}> = (): React.ReactElement => {
 			<h1>to do list or calendar could go here?</h1>
 		</div>
 	);
-}
+};

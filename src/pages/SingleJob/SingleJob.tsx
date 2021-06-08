@@ -1,8 +1,8 @@
 import React from "react";
 import "./SingleJob.css";
 import { useParams } from "react-router-dom";
-import { applicants } from "../../components/Applicant/Applicants";
-import { jobDataFull } from "../JobVacancies/JobVacancyFull";
+import { applicants } from "../../utils/Applicants";
+import { jobDataFull } from "../../utils/JobVacancyFull";
 import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
 
 

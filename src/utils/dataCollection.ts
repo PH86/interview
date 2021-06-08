@@ -1,9 +1,9 @@
-interface ApplicantData {
+export interface IApplicantData {
     name: string,
     Applicants: number,
 };
 
-export const dummyData: ApplicantData[] = [
+export const dummyData: IApplicantData[] = [
     {
       name: 'Day -6',
       Applicants: 40
