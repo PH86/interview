@@ -1,3 +1,4 @@
+import React from "react";
 import "./ReportingStudio.css";
 import {
 	BarGraph,
@@ -7,7 +8,6 @@ import {
 } from "../../components/Graph/Graph";
 import { dummyData } from "../../utils/dataCollection";
 import { jobData } from "../../utils/DummyVacancyData";
-import React from "react";
 
 export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 	const dummyLocationData = getFormattedJobsPerLocationObjects();
@@ -34,8 +34,8 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 					data={topSevenDummyLocationData}
 				/>
 				<ReportingStudioLineGraph
-					title="Average Salary Per Top 7 Location"
-					description="Calculated Averate of salaries in the top 7 locations over the past week"
+					title="Top 7 Highest salary locations"
+					description="Calculated top 7 average salaries and their locations over the past week"
 					data={topSevenDummySalaryData}
 					dataKeyXAxis="location"
 					dataKeyArea="AverageSalary"
