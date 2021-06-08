@@ -44,7 +44,7 @@ input, select, textarea, button{
   padding: 0;
   margin: 0 auto;
   overflow: hidden;
-  margin-left: 15vw;
+  margin-left: 240px;
   height: 100%;
   font-family: "Open Sans", sans-serif;
   color: var(--clr-text-secondary);
@@ -74,3 +74,13 @@ input, select, textarea, button{
   transition: all 0.4s ease 0s;
 }
 
+@media (max-width: 900px) {
+  .content-container{
+    padding: 0;
+    margin: 0 auto;
+    padding-top: 4rem;
+    font-family: "Open Sans", sans-serif;
+    color: var(--clr-text-secondary);
+    text-align: center;
+  }
+}
