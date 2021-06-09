@@ -39,6 +39,7 @@
   height: 2rem;
   background-color: var(--clr-secondary-grey);
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  font-size: 16px;
 }
 
 .btn {

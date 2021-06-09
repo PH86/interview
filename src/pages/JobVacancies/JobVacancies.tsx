@@ -12,8 +12,6 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 	return (
 		<div className="content-container">
 			<h1>Job Vacancies</h1>
-			<h2>We could add some stats in here</h2>
-			<h2>We may want search/filtering options for vacancies</h2>
 			<div className="vacancy-table-container">
 				<article>
 					<div className="vacancy-table-header">
@@ -25,9 +23,9 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 						<div className="vertical"></div>
 						<h3>Salary</h3>
 						<div className="vertical"></div>
-						<h3>Number of Applicants</h3>
+						<h3 className='vacancy-card-media-remove'>Number of Applicants</h3>
 						<div className="vertical"></div>
-						<h3>End Date</h3>
+						<h3 className='vacancy-card-media-remove'>End Date</h3>
 					</div>
 				</article>
 				{jobData.map((job) => {
@@ -53,6 +51,9 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 				isOpen={openModal}
 				onRequestClose={() => setOpenModal(false)}
 				style={{
+					overlay: {
+						zIndex: 100,
+					},
 					content: {
 						background: "var(--clr-primary-grey)",
 					},
@@ -65,7 +66,6 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					<VacancyForm />
 				</div>
 			</Modal>
-			<h2>Add vacancy button will bring up form modal to add vacancy</h2>
 		</div>
 	);
 };

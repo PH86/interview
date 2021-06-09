@@ -18,3 +18,13 @@
 .vertical {
   border: 1px groove var(--clr-secondary-grey);
 }
+
+@media (max-width: 720px){
+  .vacancy-table-header{
+    grid-template-columns: 25% 0.1% 25% 0.1% 25% 0.1% 25%;
+  }
+
+  .vacancy-table-header h3{
+    font-size: 1rem;
+  }
+}

@@ -12,6 +12,7 @@
   background-color: var(--clr-text-secondary);
   font-family: "Open Sans", sans-serif;
   color: var(--clr-primary-grey);
+  z-index: 1;
 }
 
 .sidebar-container img {

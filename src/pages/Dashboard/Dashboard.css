@@ -1,10 +1,29 @@
 .dashboard-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-items: center;
+}
+/*
+.dashboard-container {
 	display: grid;
 	grid-template-columns: repeat(2, 50%);
 }
-
 .dashcards-container {
 	display: grid;
 	grid-template-columns: repeat(2, 50%);
 	grid-template-rows: repeat(2, 50%);
+}
+
+*/
+.dashcards-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+@media (max-width: 500px){
+	.dashboard-container {
+		flex-direction: column;
+	}
 }
