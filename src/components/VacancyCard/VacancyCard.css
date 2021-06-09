@@ -21,3 +21,16 @@
 .vertical {
   border: 1px groove var(--clr-secondary-grey);
 }
+
+@media (max-width: 720px){
+  .vacancy-card-container{
+    grid-template-columns: 25% 0.1% 25% 0.1% 25% 0.1% 25%;
+  }
+
+  .vacancy-card-container h4{
+    font-size: 0.8rem;
+  }
+  .vacancy-card-media-remove{
+    display: none;
+  }
+}
