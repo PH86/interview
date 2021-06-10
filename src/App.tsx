@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { AppContext } from "./context";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
@@ -14,15 +14,17 @@ import { SingleJob } from "./pages/SingleJob/SingleJob";
 
 const App: React.FC<{}> = (): React.ReactElement => {
 	const [loggedIn, setLoggedIn] = React.useState(false);
+	const [openModal, setOpenModal] = React.useState(false);
 
 	return (
-		<AppContext.Provider value={{ loggedIn, setLoggedIn }}>
+		<AppContext.Provider value={{ loggedIn, setLoggedIn, openModal, setOpenModal }}>
 			{!loggedIn ? (
 				<SignIn />
 			) : (
 				<Router>
 					<Sidebar />
 					<Switch>
+						<Redirect exact from="/interview" to="/interview/dashboard" />
 						<Route path="/interview/dashboard" exact component={Dashboard} />
 						<Route path="/interview/jobs" exact component={JobVacancies} />
 						<Route

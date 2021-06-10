@@ -1,5 +1,6 @@
 import React from 'react';
 import './VacancyForm.css';
+import { AppContext } from '../../context';
 
 export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
     interface IJobForm {
@@ -16,6 +17,7 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
         responsibilities: string[];
     }
 
+    const { setOpenModal } = React.useContext(AppContext);
     const [jobTitle, setJobTitle] = React.useState('');
     const [companyName, setCompanyName] = React.useState('');
     const [location, setLocation] = React.useState('');
@@ -47,6 +49,7 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
             desiredRequirments: desiredRequirments,
             responsibilities: responsibilities
         })
+        setOpenModal(false);
     }
 
     React.useEffect(() => {
