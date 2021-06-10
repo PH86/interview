@@ -1,6 +1,8 @@
 .applicant-card-container{
+    min-width: 250px;
+    width: min-content;
     padding-left: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     color: var(--clr-text-secondary);
     border-radius: var(--radius);
     box-shadow: var(--dark-shadow-inverse);
