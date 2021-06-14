@@ -1,11 +1,11 @@
-.vacancy-table-container{
+.vacancy-table-container {
   margin: 1rem;
   color: var(--clr-text-secondary);
   border-radius: var(--radius);
   box-shadow: var(--dark-shadow-inverse);
 }
 
-.vacancy-table-header{
+.vacancy-table-header {
   margin: 0rem 0rem;
   display: grid;
   grid-template-columns: 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6%;
@@ -19,12 +19,12 @@
   border: 1px groove var(--clr-secondary-grey);
 }
 
-@media (max-width: 720px){
-  .vacancy-table-header{
+@media (max-width: 720px) {
+  .vacancy-table-header {
     grid-template-columns: 25% 0.1% 25% 0.1% 25% 0.1% 25%;
   }
 
-  .vacancy-table-header h3{
+  .vacancy-table-header h3 {
     font-size: 1rem;
   }
 }

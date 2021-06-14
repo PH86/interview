@@ -34,7 +34,7 @@ export const SignInForm: React.FC<{}> = (): React.ReactElement => {
 							</h3>
 						</div>
 					</form>
-					<button className="btn" type="submit" form="recoverForm">
+					<button className="button" type="submit" form="recoverForm">
 						Recover
 					</button>
 				</>
@@ -51,11 +51,11 @@ export const SignInForm: React.FC<{}> = (): React.ReactElement => {
 						</div>
 					</form>
 					<div>
-						<button className="btn" type="submit" form="loginForm">
+						<button className="button" type="submit" form="loginForm">
 							LOG IN
 						</button>
 						<button
-							className="text-btn"
+							className="text-button"
 							onClick={(e) => setPasswordRecover(true)}
 						>
 							Forgot your password?
@@ -66,5 +66,3 @@ export const SignInForm: React.FC<{}> = (): React.ReactElement => {
 		</article>
 	);
 }
-
-export default SignInForm;

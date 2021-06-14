@@ -42,7 +42,7 @@
   font-size: 16px;
 }
 
-.btn {
+.button {
   display: block;
   margin: 0 auto;
   background-color: var(--clr-button-primary);
@@ -53,7 +53,7 @@
   cursor: pointer;
 }
 
-.text-btn {
+.text-button {
   background: none;
   color: var(--clr-primary-blue);
   border: none;
