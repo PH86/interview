@@ -1,4 +1,4 @@
-.vacancy-container{
+.vacancy-container {
     background-color: var(--clr-primary-grey);
     font-size: 16px;
     display: flex;
@@ -9,7 +9,7 @@
     color: var(--clr-text-secondary);
 }
 
-.vacancy-container input{
+.vacancy-container input {
     height: 2rem;
     padding: 0.2rem;
     margin-bottom: 0.5rem;
@@ -19,36 +19,36 @@
     border-color: transparent;
 }
 
-.vacancy-form-container{
+.vacancy-form-container {
     width: 80%;
     max-width: 1000px;    
     padding: 0.2rem;
     margin-bottom: 0.5rem;
 }
 
-.vacancy-form-container h2{
+.vacancy-form-container h2 {
     text-align: center;
 }
 
-.vacancy-form-3{
+.vacancy-form-3 {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 
-.vacancy-form-container input{
+.vacancy-form-container input {
     width: 30%;
     margin: 0.4rem;
 }
 
-.vacancy-form-container textarea{
+.vacancy-form-container textarea {
     height: 4rem;
     width: 90%;
     margin: 0.4rem;
 }
 
-.form-list-container{
+.form-list-container {
     padding-bottom: 0.5rem;
     padding-left: 0.3rem;  
     color: var(--clr-text-secondary);
@@ -56,23 +56,23 @@
     box-shadow: var(--dark-shadow-inverse);
 }
 
-.form-list-container h2{
+.form-list-container h2 {
     text-align: left;
     margin-left: 0.4rem;
     padding-top: 0.5rem;
 }
 
-.form-list-subcontainer{
+.form-list-subcontainer {
     display: flex;
 }
 
-.form-list-item-container{
+.form-list-item-container {
     margin: 0.4rem;
     display: grid;
     grid-template-columns: 600px 80px;
 }
 
-.remove-button{
+.remove-button {
     color: var(--clr-secondary-grey);
   text-transform: uppercase;
   text-decoration: none;
@@ -85,7 +85,7 @@
   transition: all 0.4s ease 0s;
 }
 
-.remove-button:hover{
+.remove-button:hover {
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -93,43 +93,43 @@
     transition: all 0.4s ease 0s;
 }
 
-.form-list li{
+.form-list li {
     list-style: none;
 }
 
-@media (max-width: 760px){
-    .vacancy-form-container{
+@media (max-width: 760px) {
+    .vacancy-form-container {
         width: 100%;
     }
 
-    .form-list-container{
+    .form-list-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-bottom: 0.5rem;
     }
 
-    .vacancy-form-3{
+    .vacancy-form-3 {
         flex-direction: column;
         width: 100%;
     }
 
-    .vacancy-form-container input{
+    .vacancy-form-container input {
         width: 90%;
     }
 
-    .form-list{
+    .form-list {
         padding: 0px;
     }
 
-    .form-list-item-container{
+    .form-list-item-container {
         margin: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .form-list-subcontainer{
+    .form-list-subcontainer {
         flex-direction: column;
         align-items: center;
         width: 100%;
