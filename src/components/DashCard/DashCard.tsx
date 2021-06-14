@@ -14,5 +14,3 @@ export const DashCard: React.FC<IDashCard> = ({title, content}): React.ReactElem
         </article>
     )
 }
-
-export default DashCard

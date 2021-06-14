@@ -26,4 +26,3 @@ export const ApplicantCard: React.FC<IApplicantCard> = ({ id, name, currentJob, 
         </article>
     )
 }
-

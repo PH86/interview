@@ -3,7 +3,6 @@ import { AppContext } from "../../context";
 
 export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
     const { setOpenModal, setShowVacancy, jobForm, setJobForm } = React.useContext(AppContext);
-
     const submitForm = () => {
         setJobForm({
             jobTitle: '',
@@ -21,10 +20,10 @@ export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
         setShowVacancy(false);
         setOpenModal(false);
     }
+
     return (
         <div>
-            <h1>Vacancy render test</h1>
-            <article className='single-job-container' >
+            <article className='single-job-container'>
                 <div className='single-job-header'>
                     <div className='single-job-title'>
                         <h1>{jobForm.jobTitle}</h1>
@@ -59,10 +58,9 @@ export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
                         })}
                     </ul>
                 </div>
-                <button onClick={() => submitForm()} className="standard-btn">Submit</button>
-                <button onClick={() => setShowVacancy(false)} className="standard-btn">Edit</button>
+                <button onClick={() => submitForm()} className="standard-button">Submit</button>
+                <button onClick={() => setShowVacancy(false)} className="standard-button">Edit</button>
             </article>
-
         </div>
     )
 }

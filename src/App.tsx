@@ -25,9 +25,9 @@ const App: React.FC<{}> = (): React.ReactElement => {
 		salaryMax: '',
 		endDate: '',
 		jobDescription: '',
-		essentialRequirments: [''],
-		desiredRequirments: [''],
-		responsibilities: ['']
+		essentialRequirments: [] as string[],
+		desiredRequirments: [] as string[],
+		responsibilities: [] as string[]
 	});
 
 	return (

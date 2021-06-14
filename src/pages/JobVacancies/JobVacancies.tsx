@@ -46,7 +46,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					);
 				})}
 			</div>
-			<button onClick={() => setOpenModal(true)} className="standard-btn">
+			<button onClick={() => setOpenModal(true)} className="standard-button">
 				Add Vacancy
 			</button>
 			<Modal
@@ -62,7 +62,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 				}}
 			>
 				<div>
-					<button onClick={() => setOpenModal(false)} className="standard-btn">
+					<button onClick={() => setOpenModal(false)} className="standard-button">
 						Close
 					</button>
 					{showVacancy? <VacancyFull /> : <VacancyForm />}					

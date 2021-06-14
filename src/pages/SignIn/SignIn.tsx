@@ -1,4 +1,4 @@
-import SignInForm from "../../components/SignInForm/SignInForm";
+import { SignInForm } from "../../components/SignInForm/SignInForm";
 import "./SignIn.css";
 import searchIcon from "../../images/searchIcon.png";
 
@@ -9,7 +9,7 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
         <SignInForm />
         <div className="form-container-footer">
           <p>Don’t have an account?</p>
-          <button className="text-btn">Get started for free</button>
+          <button className="text-button">Get started for free</button>
         </div>
       </div>
       <div className="vertical"></div>

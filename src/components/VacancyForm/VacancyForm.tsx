@@ -203,7 +203,7 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                     <h2>Essential Requirments</h2>
                     <ul className='form-list'>
                         {essentialRequirments.map(requirment => {
-                            return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-btn' type="button" onClick={() => removeEssentialRequirment(requirment)}>Remove</button></div>
+                            return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-button' type="button" onClick={() => removeEssentialRequirment(requirment)}>Remove</button></div>
                         })}
                     </ul>
                     <div className='form-list-subcontainer'>
@@ -216,9 +216,9 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             value={essentialRequirmentInput}
                             onChange={(e) => setEssentialRequirmentInput(e.target.value)}
                         />
-                        <div className='req-button-container'>
-                            <button type="button" className='standard-btn' onClick={() => addEssentialRequirment()}>add</button>
-                            <button type="button" className='standard-btn' onClick={() => setEssentialRequirments([])}>clear</button>
+                        <div className='requirment-button-container'>
+                            <button type="button" className='standard-button' onClick={() => addEssentialRequirment()}>add</button>
+                            <button type="button" className='standard-button' onClick={() => setEssentialRequirments([])}>clear</button>
                         </div>
                     </div>
                 </div>
@@ -226,7 +226,7 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                     <h2>Desired Requirments</h2>
                     <ul className='form-list'>
                         {desiredRequirments.map(requirment => {
-                            return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-btn' type="button" onClick={() => removeDesiredRequirment(requirment)}>Remove</button></div>
+                            return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-button' type="button" onClick={() => removeDesiredRequirment(requirment)}>Remove</button></div>
                         })}
                     </ul>
                     <div className='form-list-subcontainer'>
@@ -239,9 +239,9 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             value={desiredRequirmentInput}
                             onChange={(e) => setDesiredRequirmentInput(e.target.value)}
                         />
-                        <div className='req-button-container'>
-                            <button type="button" className='standard-btn' onClick={() => addDesiredRequirment()}>add</button>
-                            <button type="button" className='standard-btn' onClick={() => setDesiredRequirments([])}>clear</button>
+                        <div className='requirment-button-container'>
+                            <button type="button" className='standard-button' onClick={() => addDesiredRequirment()}>add</button>
+                            <button type="button" className='standard-button' onClick={() => setDesiredRequirments([])}>clear</button>
                         </div>
                     </div>
                 </div>
@@ -249,7 +249,7 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                     <h2>Responsibilities</h2>
                     <ul className='form-list'>
                         {responsibilities.map(requirment => {
-                            return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-btn' type="button" onClick={() => removeResponsibility(requirment)}>Remove</button></div>
+                            return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-button' type="button" onClick={() => removeResponsibility(requirment)}>Remove</button></div>
                         })}
                     </ul>
                     <div className='form-list-subcontainer'>
@@ -262,14 +262,14 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             value={responsibilitiesInput}
                             onChange={(e) => setResponsibilitiesInput(e.target.value)}
                         />
-                        <div className='req-button-container'>
-                            <button type="button" className='standard-btn' onClick={() => addResponsibility()}>add</button>
-                            <button type="button" className='standard-btn' onClick={() => setResponsibilities([])}>clear</button>
+                        <div className='requirment-button-container'>
+                            <button type="button" className='standard-button' onClick={() => addResponsibility()}>add</button>
+                            <button type="button" className='standard-button' onClick={() => setResponsibilities([])}>clear</button>
                         </div>
                     </div>
                 </div>
-                <button type="submit" className='standard-btn'>Review Job</button>
-                <button type="button" onClick={() => clearForm()} className='standard-btn'>Clear Form</button>
+                <button type="submit" className='standard-button'>Review Job</button>
+                <button type="button" onClick={() => clearForm()} className='standard-button'>Clear Form</button>
             </div>
         </form>
     )

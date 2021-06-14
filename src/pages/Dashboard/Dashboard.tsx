@@ -1,4 +1,4 @@
-import DashCard from "../../components/DashCard/DashCard";
+import { DashCard } from "../../components/DashCard/DashCard";
 import { DashboardLineGraph } from "../../components/Graph/Graph";
 import { dummyData } from "../../utils/dataCollection";
 import "./Dashboard.css";
