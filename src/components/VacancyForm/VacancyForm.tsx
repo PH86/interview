@@ -3,21 +3,8 @@ import './VacancyForm.css';
 import { AppContext } from '../../context';
 
 export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
-    interface IJobForm {
-        jobTitle: string;
-        companyName: string;
-        location: string;
-        companyDescription: string;
-        salaryMin: string;
-        salaryMax: string;
-        endDate: string;
-        jobDescription: string;
-        essentialRequirments: string[];
-        desiredRequirments: string[];
-        responsibilities: string[];
-    }
 
-    const { setOpenModal } = React.useContext(AppContext);
+    const { setShowVacancy, jobForm, setJobForm } = React.useContext(AppContext);
     const [jobTitle, setJobTitle] = React.useState('');
     const [companyName, setCompanyName] = React.useState('');
     const [location, setLocation] = React.useState('');
@@ -32,7 +19,6 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
     const [desiredRequirmentInput, setDesiredRequirmentInput] = React.useState('');
     const [responsibilities, setResponsibilities] = React.useState<string[]>([]);
     const [responsibilitiesInput, setResponsibilitiesInput] = React.useState('');
-    const [jobForm, setJobForm] = React.useState<IJobForm>();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -49,12 +35,36 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
             desiredRequirments: desiredRequirments,
             responsibilities: responsibilities
         })
-        setOpenModal(false);
+        setShowVacancy(true);
+    }
+
+    const clearForm = () => {
+        setJobTitle('');
+        setCompanyName('');
+        setLocation('');
+        setCompanyDescription('');
+        setSalaryMin('');
+        setSalaryMax('');
+        setEndDate('');
+        setJobDescription('');
+        setEssentialRequirments([]);
+        setDesiredRequirments([]);
+        setResponsibilities([]);
     }
 
     React.useEffect(() => {
-        console.log(jobForm);
-    }, [jobForm]);
+        setJobTitle(jobForm.jobTitle);
+        setCompanyName(jobForm.companyName);
+        setLocation(jobForm.location);
+        setCompanyDescription(jobForm.companyDescription);
+        setSalaryMin(jobForm.salaryMin);
+        setSalaryMax(jobForm.salaryMax);
+        setEndDate(jobForm.endDate);
+        setJobDescription(jobForm.jobDescription);
+        setEssentialRequirments(jobForm.essentialRequirments);
+        setDesiredRequirments(jobForm.desiredRequirments);
+        setResponsibilities(jobForm.responsibilities);
+    }, []);
 
     const addEssentialRequirment = () => {
         let arr: string[] = essentialRequirments;
@@ -258,7 +268,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                         </div>
                     </div>
                 </div>
-                <button type="submit" className='standard-btn'>Create Job</button>
+                <button type="submit" className='standard-btn'>Review Job</button>
+                <button type="button" onClick={() => clearForm()} className='standard-btn'>Clear Form</button>
             </div>
         </form>
     )

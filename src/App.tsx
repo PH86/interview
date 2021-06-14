@@ -15,9 +15,23 @@ import { SingleJob } from "./pages/SingleJob/SingleJob";
 const App: React.FC<{}> = (): React.ReactElement => {
 	const [loggedIn, setLoggedIn] = React.useState(false);
 	const [openModal, setOpenModal] = React.useState(false);
+	const [showVacancy, setShowVacancy] = React.useState(false);
+	const [jobForm, setJobForm] = React.useState({
+		jobTitle: '',
+		companyName: '',
+		location: '',
+		companyDescription: '',
+		salaryMin: '',
+		salaryMax: '',
+		endDate: '',
+		jobDescription: '',
+		essentialRequirments: [''],
+		desiredRequirments: [''],
+		responsibilities: ['']
+	});
 
 	return (
-		<AppContext.Provider value={{ loggedIn, setLoggedIn, openModal, setOpenModal }}>
+		<AppContext.Provider value={{ loggedIn, setLoggedIn, openModal, setOpenModal, showVacancy, setShowVacancy, jobForm, setJobForm }}>
 			{!loggedIn ? (
 				<SignIn />
 			) : (

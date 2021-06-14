@@ -6,10 +6,11 @@ import "./JobVacancies.css";
 import "../../components/VacancyCard/VacancyCard.css";
 import { VacancyForm } from "../../components/VacancyForm/VacancyForm";
 import { AppContext } from "../../context";
+import { VacancyFull } from "../../components/VacancyFull/VacancyFull";
 
 Modal.setAppElement("#root");
 export const JobVacancies: React.FC<{}> = (): React.ReactElement => {	
-	const { openModal, setOpenModal } = React.useContext(AppContext);
+	const { openModal, setOpenModal, showVacancy } = React.useContext(AppContext);
 	return (
 		<div className="content-container">
 			<h1>Job Vacancies</h1>
@@ -64,7 +65,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					<button onClick={() => setOpenModal(false)} className="standard-btn">
 						Close
 					</button>
-					<VacancyForm />
+					{showVacancy? <VacancyFull /> : <VacancyForm />}					
 				</div>
 			</Modal>
 		</div>
