@@ -1,22 +1,22 @@
 .vacancy-container {
-    background-color: var(--clr-primary-grey);
     font-size: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     padding: 0.8rem;
-    color: var(--clr-text-secondary);
 }
 
 .vacancy-container input {
     height: 2rem;
     padding: 0.2rem;
     margin-bottom: 0.5rem;
-    background-color: var(--clr-secondary-grey);
-    border: 0.1rem solid rgba(0, 0, 0, 0.1);
-    box-shadow: var(--dark-shadow);
-    border-color: transparent;
+    border-radius: 5px 5px 5px 5px;
+    border-top: 0.15rem solid rgba(0, 0, 0, 0.2);
+    border-right: 0.05rem solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0.05rem solid rgba(0, 0, 0, 0.1);
+    border-left: 0.15rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .vacancy-form-container {
@@ -51,9 +51,7 @@
 .form-list-container {
     padding-bottom: 0.5rem;
     padding-left: 0.3rem;  
-    color: var(--clr-text-secondary);
     border-radius: var(--radius);
-    box-shadow: var(--dark-shadow-inverse);
 }
 
 .form-list-container h2 {
@@ -74,15 +72,15 @@
 
 .remove-button {
     color: var(--clr-secondary-grey);
-  text-transform: uppercase;
-  text-decoration: none;
-  background: var(--clr-primary-blue);
-  min-width: 100px;
-  border-radius: 5px;
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-  transition: all 0.4s ease 0s;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: var(--clr-primary-blue);
+    min-width: 100px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease 0s;
 }
 
 .remove-button:hover {

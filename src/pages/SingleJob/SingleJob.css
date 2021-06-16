@@ -1,9 +1,14 @@
-.job-content-container{
+.job-content-container {
     display: grid;
     grid-template-columns: repeat(2, auto);
 }
 
-.applicant-container{
+.applicant-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
     margin-top: 0.5rem;
     width: 90%;
@@ -11,84 +16,82 @@
     padding-bottom: 1rem;
 }
 
-.job-container{
+.job-container {
     padding-top: 1rem;
     margin: 0.5rem;
 }
 
-.single-job-container{
+.single-job-container {
     padding-bottom: 1rem;
     max-width: 750px;
-    margin-right: auto;
+    margin-right: 3rem;
     margin-left: auto;
-    color: var(--clr-text-secondary);
     text-align: start;
 }
 
-.single-job-header{
+.single-job-header {
     padding-left: 1rem;
     margin-bottom: 1rem;
-    color: var(--clr-text-secondary);
     border-radius: var(--radius);
-    box-shadow: var(--dark-shadow-inverse);
 }
 
-.single-job-title{
+.single-job-title {
     display: flex;
     justify-content: space-between;
     align-items: center;    
 }
 
-.single-job-header h1{
+.single-job-header h1 {
     margin: 0;
     font-size: 2rem;
 }
 
-.single-job-header h2{
+.single-job-header h2 {
     margin: 0;
     font-weight: normal;
 }
 
-.single-job-header h3{
+.single-job-header h3 {
     margin: 0;
     padding-top: 0.8rem;
     padding-bottom: 0.2rem;
     font-weight: normal;
 }
 
-.single-job-header h4{
+.single-job-header h4 {
     margin: 0;
     padding-bottom: 0.5rem;
     margin-right: 1rem;
-    color: var(--clr-text-tertiary);
     font-size: 1rem;
 }
 
-.single-job-header h5{
+.single-job-header h5 {
     margin: 0;
     padding-bottom: 1rem;
-    color: var(--clr-text-tertiary);
 }
 
-.single-job-header ul{
+.single-job-header ul {
     padding-left: 1rem;
     padding-bottom: 1rem;
     font-size: 0.9rem;
     font-weight: bold;
-    color: var(--clr-text-tertiary);
 }
 
 @media (max-width: 1100px) {
-    .job-content-container{
+    .job-content-container {
         display: flex;
         flex-direction: column-reverse;
     }
 
-    .applicant-container{
+    .single-job-container {
+        margin-right: auto;
+    }
+
+    .applicant-container {
         width: 98%;
     }
 
-    .single-job-title h1{
+    .single-job-title h1 {
         font-size: 1.5rem;
     }
 }

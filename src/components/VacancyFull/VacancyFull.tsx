@@ -1,5 +1,7 @@
 import React from 'react'
 import { AppContext } from "../../context";
+import styled from "styled-components";
+import { backgroundColor, shadow, textColor } from '../../themes/theme'
 
 export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
     const { setOpenModal, setShowVacancy, jobForm, setJobForm } = React.useContext(AppContext);
@@ -21,9 +23,15 @@ export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
         setOpenModal(false);
     }
 
+    const Article = styled.article`
+    background-color: ${backgroundColor};
+    color: ${textColor};
+    box-shadow: ${shadow};
+    `;
+
     return (
         <div>
-            <article className='single-job-container'>
+            <Article className='single-job-container'>
                 <div className='single-job-header'>
                     <div className='single-job-title'>
                         <h1>{jobForm.jobTitle}</h1>
@@ -60,7 +68,7 @@ export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
                 </div>
                 <button onClick={() => submitForm()} className="standard-button">Submit</button>
                 <button onClick={() => setShowVacancy(false)} className="standard-button">Edit</button>
-            </article>
+            </Article>
         </div>
     )
 }

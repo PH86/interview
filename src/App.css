@@ -27,8 +27,7 @@
 html,
 body {
   margin: 0;
-  padding: 0;
-  background-color: var(--clr-primary-grey);
+  padding: 0;  
   max-height: 100vh;
   font-family: "Open Sans", sans-serif;
 }
@@ -42,9 +41,9 @@ input, select, textarea, button{
   margin: 0 auto;
   overflow: hidden;
   margin-left: 240px;
+  min-height: 100vh;
   height: 100%;
   font-family: "Open Sans", sans-serif;
-  color: var(--clr-text-secondary);
   text-align: center;
 }
 
@@ -77,7 +76,6 @@ input, select, textarea, button{
     margin: 0 auto;
     padding-top: 4rem;
     font-family: "Open Sans", sans-serif;
-    color: var(--clr-text-secondary);
     text-align: center;
   }
 }

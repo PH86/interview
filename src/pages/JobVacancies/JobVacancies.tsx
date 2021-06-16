@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "react-modal";
+import Modal from "styled-react-modal";
 import { jobData } from "../../utils/DummyVacancyData";
 import { VacancyCard } from "../../components/VacancyCard/VacancyCard";
 import "./JobVacancies.css";
@@ -7,10 +7,30 @@ import "../../components/VacancyCard/VacancyCard.css";
 import { VacancyForm } from "../../components/VacancyForm/VacancyForm";
 import { AppContext } from "../../context";
 import { VacancyFull } from "../../components/VacancyFull/VacancyFull";
+import { backgroundColor } from "../../themes/theme";
 
-Modal.setAppElement("#root");
-export const JobVacancies: React.FC<{}> = (): React.ReactElement => {	
+const StyledModal = Modal.styled`
+width: 90vw;
+height: 90vh;
+top: '50%',
+left: '50%',
+right: 'auto',
+bottom: 'auto',
+marginRight: '-50%',
+transform: 'translate(-50%, -50%)',
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: ${backgroundColor};
+overflow-y: scroll;`
+
+export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 	const { openModal, setOpenModal, showVacancy } = React.useContext(AppContext);
+
+	const toggleModal = () => {
+		setOpenModal(!openModal)
+	}
+
 	return (
 		<div className="content-container">
 			<h1>Job Vacancies</h1>
@@ -49,25 +69,18 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 			<button onClick={() => setOpenModal(true)} className="standard-button">
 				Add Vacancy
 			</button>
-			<Modal
+			<StyledModal
 				isOpen={openModal}
-				onRequestClose={() => setOpenModal(false)}
-				style={{
-					overlay: {
-						zIndex: 100,
-					},
-					content: {
-						background: "var(--clr-primary-grey)",
-					},
-				}}
+				onBackgroundClick={toggleModal}
+				onEscapeKeydown={toggleModal}
 			>
 				<div>
 					<button onClick={() => setOpenModal(false)} className="standard-button">
 						Close
 					</button>
-					{showVacancy? <VacancyFull /> : <VacancyForm />}					
+					{showVacancy ? <VacancyFull /> : <VacancyForm />}
 				</div>
-			</Modal>
+			</StyledModal>
 		</div>
 	);
 };

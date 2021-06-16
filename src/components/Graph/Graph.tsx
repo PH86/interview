@@ -1,5 +1,7 @@
 import React from "react";
 import "./Graph.css";
+import styled from "styled-components";
+import { shadow } from '../../themes/theme'
 import {
 	AreaChart,
 	BarChart,
@@ -28,6 +30,10 @@ interface IBarGraph {
 	data: Array<IBarChartApplicantData | IBarChartAverageSalaryData>;
 }
 
+const Wrapper = styled.div`
+box-shadow: ${shadow};
+`;
+
 export interface IBarChartApplicantData {
 	location: string;
 	AmountOfApplicants: number;
@@ -46,7 +52,7 @@ export const DashboardLineGraph: React.FC<ILineGraph> = ({
 	dataKeyArea,
 }): React.ReactElement => {
 	return (
-		<div className="graph-container">
+		<Wrapper className="graph-container">
 			<h2>{title}</h2>
 			<h4 className="graph-description">{description}</h4>
 			<ResponsiveContainer width="100%" aspect={3}>
@@ -74,7 +80,7 @@ export const DashboardLineGraph: React.FC<ILineGraph> = ({
 					/>
 				</AreaChart>
 			</ResponsiveContainer>
-		</div>
+		</Wrapper>
 	);
 };
 
