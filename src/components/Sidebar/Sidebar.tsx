@@ -36,7 +36,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
     color: ${sidebarTextColor};
   `;
 
-  const Ul = styled.ul`
+  const LinkContainer = styled.ul`
   background-color: ${sidebarBackgroundColor};
   color: ${sidebarTextColor};
   `;
@@ -48,7 +48,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
           <GiHamburgerMenu className='sidebar-icon' />
         </a>
         {theme.mode === 'dark' ? <img className="sidebar-logo" src={logoLight} alt="Interview Logo" /> : <img className="sidebar-logo" src={logoDark} alt="Interview Logo" />}
-        <Ul className="sidebar-links">
+        <LinkContainer className="sidebar-links">
           <li>
             <Link to="/interview/dashboard" className="sidebar-link">
               <GoDashboard className='sidebar-icon' />
@@ -89,7 +89,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
               {theme.mode === 'dark' ? <a className="sidebar-link"><CgSun className='sidebar-icon' />LIGHT MODE</a> : <a className="sidebar-link"><RiMoonClearLine className='sidebar-icon' />DARK MODE</a>}
             </a>
           </li>
-        </Ul>
+        </LinkContainer>
       </Sidebar>
     </nav>
   );
