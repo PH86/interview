@@ -1,8 +1,6 @@
 .graph-container{
     margin: 0.5rem;
-    color: var(--clr-text-secondary);
     border-radius: var(--radius);
-    box-shadow: var(--dark-shadow-inverse);
     height: fit-content;
     width: 95%;
     max-width: 800px;

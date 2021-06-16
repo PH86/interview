@@ -1,5 +1,7 @@
 import React from "react";
 import "./SingleJob.css";
+import styled from "styled-components";
+import { shadow } from '../../themes/theme'
 import { useParams } from "react-router-dom";
 import { applicants } from "../../utils/Applicants";
 import { jobDataFull } from "../../utils/JobVacancyFull";
@@ -7,25 +9,31 @@ import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
 
 
 export const SingleJob: React.FC<{}> = (): React.ReactElement => {
-	const { id } = useParams<{id: string}>();
-	const job = jobDataFull.filter((job) => job.id.toString() === id);
+    const { id } = useParams<{ id: string }>();
+    const job = jobDataFull.filter((job) => job.id.toString() === id);
 
-	return (
-		<div className='content-container'>
+    const Wrapper = styled.div`
+    box-shadow: ${shadow};
+    `;
+
+    return (
+        <div className='content-container'>
             <div className='job-content-container'>
-                <div className='applicant-container'>
+                <div>
                     <h2 className='main-title'>Applicants</h2>
-                    {applicants.map((applicant) => {
-                        const { id, name, currentJob, location, email, phoneNumber, cvLink } = applicant;
-                        return (
-                            <ApplicantCard id={id} name={name} currentJob={currentJob} location={location} email={email} phoneNumber={phoneNumber} cvLink={cvLink} />
-                        )
-                    })}
+                    <div className='applicant-container'>
+                        {applicants.map((applicant) => {
+                            const { id, name, currentJob, location, email, phoneNumber, cvLink } = applicant;
+                            return (
+                                <ApplicantCard id={id} name={name} currentJob={currentJob} location={location} email={email} phoneNumber={phoneNumber} cvLink={cvLink} />
+                            )
+                        })}
+                    </div>
                 </div>
                 <div className='job-container'><h2>Job Description</h2>
                     {job.map(item =>
                         <article key={item.id} className='single-job-container' >
-                            <div className='single-job-header'>
+                            <Wrapper className='single-job-header'>
                                 <div className='single-job-title'>
                                     <h1>{item.title}</h1>
                                     <h4>End Date: {item.endDate}</h4>
@@ -35,12 +43,12 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
                                 <h5>{item.companyDescription}</h5>
                                 <h4>Salary: £{item.salaryMin}-£{item.salaryMax} per annum</h4>
                                 <h4>{item.applicants} applicants</h4>
-                            </div>
-                            <div className='single-job-header'>
+                            </Wrapper>
+                            <Wrapper className='single-job-header'>
                                 <h2>Description</h2>
                                 <h5>{item.jobDescription}</h5>
-                            </div>
-                            <div className='single-job-header'>
+                            </Wrapper>
+                            <Wrapper className='single-job-header'>
                                 <h3>Essential Requirements</h3>
                                 <ul>
                                     {item.requirementsEssential.map(essential => {
@@ -59,11 +67,11 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
                                         return <li>{responsibility}</li>
                                     })}
                                 </ul>
-                            </div>
+                            </Wrapper>
                         </article>
                     )}
                 </div>
             </div>
         </div>
-	);
+    );
 }

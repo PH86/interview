@@ -15,11 +15,10 @@ export const Dashboard: React.FC<{}> = (): React.ReactElement => {
 					dataKeyXAxis="name"
 					dataKeyArea="Applicants"
 				/>
-
-					<DashCard title="Current Vacancies" content="9" />
-					<DashCard title="Current Applicants" content="40" />
-					<DashCard title="Interviews Today" content="4" />
-					<DashCard title="Callbacks Required" content="10" />
+				<DashCard title="Current Vacancies" content="9" />
+				<DashCard title="Current Applicants" content="40" />
+				<DashCard title="Interviews Today" content="4" />
+				<DashCard title="Callbacks Required" content="10" />
 
 			</div>
 			<h1>to do list or calendar could go here?</h1>

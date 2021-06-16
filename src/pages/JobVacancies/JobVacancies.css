@@ -1,6 +1,5 @@
 .vacancy-table-container {
   margin: 1rem;
-  color: var(--clr-text-secondary);
   border-radius: var(--radius);
   box-shadow: var(--dark-shadow-inverse);
 }
@@ -10,9 +9,8 @@
   display: grid;
   grid-template-columns: 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6%;
   text-decoration: none;
-  color: var(--clr-text-secondary);
   border: 1px groove var(--clr-secondary-grey); 
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: 	rgb(152,152,152, 0.5);
 }
 
 .vertical {

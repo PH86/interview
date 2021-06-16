@@ -1,24 +1,19 @@
-
 .dashcard-container{
     margin: 0 auto;
     padding: 0.5rem;
     margin: 0.5rem;
     height: fit-content;
-    color: var(--clr-text-secondary);
     border-radius: var(--radius);
-    box-shadow: var(--dark-shadow-inverse);
 }
 
 .dashcard-content{
     margin: 1rem;
-    font-size: 5rem;
-    
+    font-size: 5rem;    
 }
 
 @media (max-width: 500px){
     .dashcard-content{
         margin: 0.1rem;
-        font-size: 2rem;
-        
+        font-size: 2rem;        
     }
 }

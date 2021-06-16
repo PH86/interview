@@ -1,5 +1,7 @@
 import React from "react";
 import "./ReportingStudio.css";
+import styled from "styled-components";
+import { shadow } from '../../themes/theme';
 import {
 	BarGraph,
 	IBarChartApplicantData,
@@ -8,6 +10,10 @@ import {
 } from "../../components/Graph/Graph";
 import { dummyData } from "../../utils/dataCollection";
 import { jobData } from "../../utils/DummyVacancyData";
+
+const Wrapper = styled.div`
+box-shadow: ${shadow};
+`;
 
 export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 	const dummyLocationData = getFormattedJobsPerLocationObjects();
@@ -21,32 +27,40 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 		<div className="content-container">
 			<h1>Reporting Studio</h1>
 			<div className="reporting-container">
-				<ReportingStudioLineGraph
-					title="Total Applicants"
-					description="Total Applicants over the last 7 days"
-					data={dummyData}
-					dataKeyXAxis="name"
-					dataKeyArea="Applicants"
-				/>
-				<BarGraph
-					title="Top 7 Locations with highest applicants"
-					description="Applicant locations in the last 7 days"
-					data={topSevenDummyLocationData}
-				/>
-				<ReportingStudioLineGraph
-					title="Top 7 Highest salary locations"
-					description="Calculated top 7 average salaries and their locations over the past week"
-					data={topSevenDummySalaryData}
-					dataKeyXAxis="location"
-					dataKeyArea="AverageSalary"
-				/>
-				<ReportingStudioLineGraph
-					title="Total Applicants"
-					description="Total Applicants over the last 7 days"
-					data={dummyData}
-					dataKeyXAxis="name"
-					dataKeyArea="Applicants"
-				/>
+				<Wrapper className="graph-container">
+					<ReportingStudioLineGraph
+						title="Total Applicants"
+						description="Total Applicants over the last 7 days"
+						data={dummyData}
+						dataKeyXAxis="name"
+						dataKeyArea="Applicants"
+					/>
+				</Wrapper>
+				<Wrapper className="graph-container">
+					<BarGraph
+						title="Top 7 Locations with highest applicants"
+						description="Applicant locations in the last 7 days"
+						data={topSevenDummyLocationData}
+					/>
+				</Wrapper>
+				<Wrapper className="graph-container">
+					<ReportingStudioLineGraph
+						title="Top 7 Highest salary locations"
+						description="Calculated top 7 average salaries and their locations over the past week"
+						data={topSevenDummySalaryData}
+						dataKeyXAxis="location"
+						dataKeyArea="AverageSalary"
+					/>
+				</Wrapper>
+				<Wrapper className="graph-container">
+					<ReportingStudioLineGraph
+						title="Total Applicants"
+						description="Total Applicants over the last 7 days"
+						data={dummyData}
+						dataKeyXAxis="name"
+						dataKeyArea="Applicants"
+					/>
+				</Wrapper>
 			</div>
 		</div>
 	);

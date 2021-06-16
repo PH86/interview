@@ -9,9 +9,7 @@
   width: 240px;
   min-width: 240px;
   float: left;
-  background-color: var(--clr-text-secondary);
-  font-family: "Open Sans", sans-serif;
-  color: var(--clr-primary-grey);
+  font-family: "Open Sans", sans-serif; 
   z-index: 1;
 }
 
@@ -29,24 +27,18 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-}
+ }
 
 .sidebar-links li {
   height: 5vh;
   list-style-type: none;
   width: 100%;
-  background-color: var(--clr-text-secondary);
 }
 
 .sidebar-links li:hover {
   cursor: pointer;
   background-color: var(--clr-primary-blue);
-  color: var(--clr-text-secondary);
-}
-/* Need to add some javascript to changout current classname*/
-.current-sidebar-links li{
-  background-color: var(--clr-primary-blue);
-  color: var(--clr-text-secondary);
+  color: var(--clr-text-secondary)
 }
 
 .sidebar-link {
@@ -55,7 +47,6 @@
   align-items: center;
   text-decoration: none;
   height: 100%;
-  color: var(--clr-primary-grey);
   font-size: 0.8rem;
   font-weight: bold;
 }
@@ -66,10 +57,6 @@
 }
 
 .sidebar-link:hover {
-  color: var(--clr-text-secondary);
-}
-
-.sidebar-link::after {
   color: var(--clr-text-secondary);
 }
 
@@ -87,7 +74,6 @@
 .toggle-button .bar {
   height: 3px;
   width: 100%;
-  background-color: black;
   border-radius: 10px;
 }
 
@@ -102,7 +88,6 @@
     align-items: flex-start;
     padding-top: 1rem;
     padding-bottom: 1rem;
-
   }
   
   .sidebar-container img{
@@ -118,6 +103,7 @@
 
   .toggle-button {
     display: flex;
+    color: black;
   }
 
   .sidebar-links {

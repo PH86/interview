@@ -1,6 +1,17 @@
 import React from 'react';
 import './VacancyForm.css';
 import { AppContext } from '../../context';
+import styled from "styled-components";
+import { backgroundColor, textColor, shadow } from '../../themes/theme'
+
+const Wrapper = styled.div`
+background-color: ${backgroundColor};
+color: ${textColor};
+`;
+
+const Shadow = styled.div`
+box-shadow: ${shadow};
+`;
 
 export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
 
@@ -104,9 +115,9 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
 
     return (
         <form className='vacancy-container' onSubmit={handleSubmit}>
-            <div className='vacancy-form-container'>
+            <Wrapper className='vacancy-form-container'>
                 <h2>Job Vacancy Form</h2>
-                <div className='form-list-container'>
+                <Shadow className='form-list-container'>
                     <h2>Job Information</h2>
                     <div className='vacancy-form-3'>
                         <input
@@ -149,8 +160,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                         onChange={(e) => setJobDescription(e.target.value)}
                         required
                     />
-                </div>
-                <div className='form-list-container'>
+                </Shadow>
+                <Shadow className='form-list-container'>
                     <h2>Company Information</h2>
                     <div className='vacancy-form-3'>
                         <input
@@ -198,8 +209,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             />
                         </label>
                     </div>
-                </div>
-                <div className='form-list-container'>
+                </Shadow>
+                <Shadow className='form-list-container'>
                     <h2>Essential Requirments</h2>
                     <ul className='form-list'>
                         {essentialRequirments.map(requirment => {
@@ -221,8 +232,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             <button type="button" className='standard-button' onClick={() => setEssentialRequirments([])}>clear</button>
                         </div>
                     </div>
-                </div>
-                <div className='form-list-container'>
+                </Shadow>
+                <Shadow className='form-list-container'>
                     <h2>Desired Requirments</h2>
                     <ul className='form-list'>
                         {desiredRequirments.map(requirment => {
@@ -244,8 +255,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             <button type="button" className='standard-button' onClick={() => setDesiredRequirments([])}>clear</button>
                         </div>
                     </div>
-                </div>
-                <div className='form-list-container'>
+                </Shadow>
+                <Shadow className='form-list-container'>
                     <h2>Responsibilities</h2>
                     <ul className='form-list'>
                         {responsibilities.map(requirment => {
@@ -267,10 +278,10 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             <button type="button" className='standard-button' onClick={() => setResponsibilities([])}>clear</button>
                         </div>
                     </div>
-                </div>
+                </Shadow>
                 <button type="submit" className='standard-button'>Review Job</button>
                 <button type="button" onClick={() => clearForm()} className='standard-button'>Clear Form</button>
-            </div>
+            </Wrapper>
         </form>
     )
 }
