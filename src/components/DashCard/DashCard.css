@@ -4,19 +4,16 @@
     margin: 0.5rem;
     height: fit-content;
     border-radius: var(--radius);
-
 }
 
 .dashcard-content{
     margin: 1rem;
-    font-size: 5rem;
-    
+    font-size: 5rem;    
 }
 
 @media (max-width: 500px){
     .dashcard-content{
         margin: 0.1rem;
-        font-size: 2rem;
-        
+        font-size: 2rem;        
     }
 }

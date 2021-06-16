@@ -30,7 +30,7 @@ interface IBarGraph {
 	data: Array<IBarChartApplicantData | IBarChartAverageSalaryData>;
 }
 
-const Wrapper = styled.div`
+const GraphContainer = styled.div`
 box-shadow: ${shadow};
 `;
 
@@ -52,7 +52,7 @@ export const DashboardLineGraph: React.FC<ILineGraph> = ({
 	dataKeyArea,
 }): React.ReactElement => {
 	return (
-		<Wrapper className="graph-container">
+		<GraphContainer className="graph-container">
 			<h2>{title}</h2>
 			<h4 className="graph-description">{description}</h4>
 			<ResponsiveContainer width="100%" aspect={3}>
@@ -80,7 +80,7 @@ export const DashboardLineGraph: React.FC<ILineGraph> = ({
 					/>
 				</AreaChart>
 			</ResponsiveContainer>
-		</Wrapper>
+		</GraphContainer>
 	);
 };
 
