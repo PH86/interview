@@ -20,8 +20,8 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
         <div className='content-container'>
             <div className='job-content-container'>
                 <div>
-                    <h2 className='main-title'>Applicants</h2>
                     <div className='applicant-container'>
+                        <h2 className='main-title'>Applicants</h2>
                         {applicants.map((applicant) => {
                             const { id, name, currentJob, location, email, phoneNumber, cvLink } = applicant;
                             return (

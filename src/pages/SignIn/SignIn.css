@@ -4,6 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50vw;
+  min-height: 470px;
   height: 60vh;
   background-color: var(--clr-text-secondary);
   display: grid;

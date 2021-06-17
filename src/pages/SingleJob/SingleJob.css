@@ -16,6 +16,10 @@
     padding-bottom: 1rem;
 }
 
+.main-title {
+    width: 100%;
+}
+
 .job-container {
     padding-top: 1rem;
     margin: 0.5rem;
