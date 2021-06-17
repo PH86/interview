@@ -4,6 +4,7 @@ import "./Sidebar.css";
 import styled from "styled-components";
 import logoLight from "../../images/InterviewLogo.png";
 import logoDark from '../../images/Logo2.png';
+import { AppContext } from "../../context";
 import { GoDashboard } from 'react-icons/go';
 import { BiSearchAlt } from 'react-icons/bi';
 import { ImStatsDots } from 'react-icons/im';
@@ -13,11 +14,12 @@ import { IoNewspaperOutline } from 'react-icons/io5';
 import { CgSun } from 'react-icons/cg';
 import { RiMoonClearLine } from 'react-icons/ri';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { GoSignOut } from 'react-icons/go';
 import { useTheme } from '../../themes/themeManager';
-import { sidebarBackgroundColor, sidebarTextColor } from "../../themes/theme";
+import { secondaryGrey, sidebarBackgroundColor, sidebarTextColor } from "../../themes/theme";
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
-
+  const { setLoggedIn } = React.useContext(AppContext);
   const theme = useTheme();
   React.useEffect(() => {
     const toggleButton = document.getElementsByClassName('toggle-button')[0];
@@ -39,6 +41,10 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
   const LinkContainer = styled.ul`
   background-color: ${sidebarBackgroundColor};
   color: ${sidebarTextColor};
+  `;
+
+  const SignoutContainer = styled.div`
+  background-color: ${secondaryGrey};
   `;
 
   return (
@@ -89,7 +95,12 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
               {theme.mode === 'dark' ? <a className="sidebar-link"><CgSun className='sidebar-icon' />LIGHT MODE</a> : <a className="sidebar-link"><RiMoonClearLine className='sidebar-icon' />DARK MODE</a>}
             </a>
           </li>
+          <SignoutContainer onClick={() => setLoggedIn(false)} className='sidebar-signout'>
+            <p>User Name</p>
+            <GoSignOut className='sidebar-icon' />
+          </SignoutContainer>
         </LinkContainer>
+
       </Sidebar>
     </nav>
   );

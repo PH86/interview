@@ -3,6 +3,7 @@
     width: min-content;
     padding-left: 1rem;
     margin: 1rem;
+    margin-top: 0;
     border-radius: var(--radius);
     box-shadow: var(--dark-shadow-inverse);
     text-align: left;

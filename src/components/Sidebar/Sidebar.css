@@ -77,6 +77,28 @@
   border-radius: 10px;
 }
 
+.sidebar-signout {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar-signout:hover {
+  cursor: pointer;
+  background-color: var(--clr-primary-blue);
+  color: var(--clr-text-secondary)  
+}
+
+.sidebar-signout p {
+  padding-left: 2rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
 @media (max-width: 900px) {
   .sidebar-container{
     float: none;
@@ -109,6 +131,10 @@
   .sidebar-links {
     display: none;
     width: 100%;
+  }
+
+  .sidebar-signout {
+    position: relative;
   }
 
   .sidebar-links ul {
