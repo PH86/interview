@@ -2,7 +2,8 @@ import React from 'react';
 import './CandidateSearch.css';
 import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
 import { applicants } from '../../utils/Applicants';
-import { BiSearchAlt } from 'react-icons/bi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
 
 export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
     const [search, setSearch] = React.useState('');
@@ -17,11 +18,11 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                         type='text'
                         id='candidateSearch'
                         name='candidateSearch'
-                        placeholder='enter your search'
+                        placeholder='Enter your search'
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <BiSearchAlt className='search-icon' />
+                    <FontAwesomeIcon className='search-icon' icon={faSearch} />
                 </div>
                 <h3 className='radio-container-title'>Search by:</h3>
                 <div className='radio-container-multiple'>

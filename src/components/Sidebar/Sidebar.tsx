@@ -2,19 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import styled from "styled-components";
-import logoLight from "../../images/InterviewLogo.png";
-import logoDark from '../../images/Logo2.png';
+import logoLight from "../../images/interview-light.svg";
+import logoDark from '../../images/interview-dark.svg';
 import { AppContext } from "../../context";
-import { GoDashboard } from 'react-icons/go';
-import { BiSearchAlt } from 'react-icons/bi';
-import { ImStatsDots } from 'react-icons/im';
-import { IoSettingsOutline } from 'react-icons/io5';
-import { VscAccount } from 'react-icons/vsc';
-import { IoNewspaperOutline } from 'react-icons/io5';
-import { CgSun } from 'react-icons/cg';
-import { RiMoonClearLine } from 'react-icons/ri';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTachometerAltFast, faNewspaper, faSearch, faChartNetwork, faUserCog, faUserChart, faSun, faSpaceStationMoonAlt, faPortalEnter } from '@fortawesome/pro-duotone-svg-icons';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { GoSignOut } from 'react-icons/go';
 import { useTheme } from '../../themes/themeManager';
 import { secondaryGrey, sidebarBackgroundColor, sidebarTextColor } from "../../themes/theme";
 
@@ -53,54 +46,54 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
         <a href="#" className="toggle-button">
           <GiHamburgerMenu className='sidebar-icon' />
         </a>
-        {theme.mode === 'dark' ? <img className="sidebar-logo" src={logoLight} alt="Interview Logo" /> : <img className="sidebar-logo" src={logoDark} alt="Interview Logo" />}
+        {theme.mode === 'dark' ? <img className="sidebar-logo" src={logoDark} alt="Interview Logo" /> : <img className="sidebar-logo" src={logoLight} alt="Interview Logo" />}
         <LinkContainer className="sidebar-links">
           <li>
             <Link to="/interview/dashboard" className="sidebar-link">
-              <GoDashboard className='sidebar-icon' />
+              {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} /> : <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} swapOpacity />}
             DASHBOARD
             </Link>
           </li>
           <li>
             <Link to="/interview/jobs" className="sidebar-link">
-              <IoNewspaperOutline className='sidebar-icon' />
+              {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} /> : <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} swapOpacity />}
               JOB VACANCIES
             </Link>
           </li>
           <li>
             <Link to="/interview/candidates" className="sidebar-link">
-              <BiSearchAlt className='sidebar-icon' />
+              {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faSearch} /> : <FontAwesomeIcon className='sidebar-icon' icon={faSearch} swapOpacity />}
               CANDIDATE SEARCH
             </Link>
           </li>
           <li>
             <Link to="/interview/studio" className="sidebar-link">
-              <ImStatsDots className='sidebar-icon' /> REPORTING STUDIO
+              <FontAwesomeIcon className='sidebar-icon' icon={faChartNetwork} />
+              REPORTING STUDIO
             </Link>
           </li>
           <li>
             <Link to="/interview/settings" className="sidebar-link">
-              <IoSettingsOutline className='sidebar-icon' />
+              <FontAwesomeIcon className='sidebar-icon' icon={faUserCog} swapOpacity />
               USER SETTINGS
             </Link>
           </li>
           <li>
             <Link to="/interview/account" className="sidebar-link">
-              <VscAccount className='sidebar-icon' />
+              <FontAwesomeIcon className='sidebar-icon' icon={faUserChart} swapOpacity />
               ACCOUNT & BILLING
             </Link>
           </li>
           <li>
             <a onClick={() => theme.toggle()}>
-              {theme.mode === 'dark' ? <a className="sidebar-link"><CgSun className='sidebar-icon' />LIGHT MODE</a> : <a className="sidebar-link"><RiMoonClearLine className='sidebar-icon' />DARK MODE</a>}
+              {theme.mode === 'dark' ? <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSun} />LIGHT MODE</a> : <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSpaceStationMoonAlt} swapOpacity />DARK MODE</a>}
             </a>
           </li>
           <SignoutContainer onClick={() => setLoggedIn(false)} className='sidebar-signout'>
             <p>User Name</p>
-            <GoSignOut className='sidebar-icon' />
+            <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
           </SignoutContainer>
         </LinkContainer>
-
       </Sidebar>
     </nav>
   );

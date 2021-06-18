@@ -4,6 +4,8 @@
     height: fit-content;
     width: 95%;
     max-width: 800px;
+    background-color: var(--clr-text-secondary);
+    color: var(--clr-text-primary);
 }
 
 .graph-description{

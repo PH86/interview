@@ -7,6 +7,8 @@
     border-radius: var(--radius);
     box-shadow: var(--dark-shadow-inverse);
     text-align: left;
+    background-color: var(--clr-text-secondary);
+    color: var(--clr-text-primary);
 }
 
 .applicant-name{
