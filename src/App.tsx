@@ -17,9 +17,9 @@ import { useTheme } from './themes/themeManager';
 import { ModalProvider } from "styled-react-modal";
 
 const MainContentContainer = styled.div`
-background-color: ${themeConf.backgroundColor};
-color: ${themeConf.textColor};
-transition: var(--transition);
+	background-color: ${themeConf.backgroundColor};
+	color: ${themeConf.textColor};
+	transition: var(--transition);
 `;
 
 const App: React.FC<{}> = (): React.ReactElement => {
