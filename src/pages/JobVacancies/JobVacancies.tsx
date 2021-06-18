@@ -55,7 +55,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					<div className='radio-container-div'>
 						<label className='radio-container'>
 							Job Title
-                        <input
+							<input
 								type='radio'
 								checked={searchFilter === 'title'}
 								value='title'
@@ -67,7 +67,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					<div className='radio-container-div'>
 						<label className='radio-container'>
 							Company
-                        <input
+                        	<input
 								type='radio'
 								checked={searchFilter === 'company'}
 								value='company'
@@ -79,7 +79,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					<div className='radio-container-div'>
 						<label className='radio-container'>
 							Location
-                        <input
+                        	<input
 								type='radio'
 								checked={searchFilter === 'location'}
 								value='location'
@@ -108,16 +108,38 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 				</article>
 				<div>
 					{searchFilter === 'title' && jobData.filter(vacancy => vacancy.title.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredVacancy => (
-						<VacancyCard id={filteredVacancy.id} title={filteredVacancy.title} company={filteredVacancy.company} salary={filteredVacancy.salary} location={filteredVacancy.location} applicants={filteredVacancy.applicants} endDate={filteredVacancy.endDate} />
+						<VacancyCard
+							id={filteredVacancy.id}
+							title={filteredVacancy.title}
+							company={filteredVacancy.company}
+							salary={filteredVacancy.salary}
+							location={filteredVacancy.location}
+							applicants={filteredVacancy.applicants}
+							endDate={filteredVacancy.endDate}
+						/>
 					))}
 					{searchFilter === 'company' && jobData.filter(vacancy => vacancy.company.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredVacancy => (
-						<VacancyCard id={filteredVacancy.id} title={filteredVacancy.title} company={filteredVacancy.company} salary={filteredVacancy.salary} location={filteredVacancy.location} applicants={filteredVacancy.applicants} endDate={filteredVacancy.endDate} />
+						<VacancyCard
+							id={filteredVacancy.id}
+							title={filteredVacancy.title}
+							company={filteredVacancy.company}
+							salary={filteredVacancy.salary}
+							location={filteredVacancy.location}
+							applicants={filteredVacancy.applicants} endDate={filteredVacancy.endDate}
+						/>
 					))}
 					{searchFilter === 'location' && jobData.filter(vacancy => vacancy.location.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredVacancy => (
-						<VacancyCard id={filteredVacancy.id} title={filteredVacancy.title} company={filteredVacancy.company} salary={filteredVacancy.salary} location={filteredVacancy.location} applicants={filteredVacancy.applicants} endDate={filteredVacancy.endDate} />
+						<VacancyCard
+							id={filteredVacancy.id}
+							title={filteredVacancy.title}
+							company={filteredVacancy.company}
+							salary={filteredVacancy.salary}
+							location={filteredVacancy.location}
+							applicants={filteredVacancy.applicants}
+							endDate={filteredVacancy.endDate}
+						/>
 					))}
 				</div>
-
 			</div>
 			<button onClick={() => setOpenModal(true)} className="standard-button">
 				Add Vacancy
