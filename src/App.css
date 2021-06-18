@@ -13,7 +13,7 @@
   --clr-text-secondary: #fff;
   /* tertiary text coloyr will be #cccccc*/
   --clr-text-tertiary: #838282;
-  --transition: all 0.1s linear;
+  --transition: all 0.3s ease-in;
   --spacing: 0.1rem;
   --radius: 0.5rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);

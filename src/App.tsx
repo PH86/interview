@@ -16,6 +16,12 @@ import styled, { ThemeProvider } from "styled-components";
 import { useTheme } from './themes/themeManager';
 import { ModalProvider } from "styled-react-modal";
 
+const MainContentContainer = styled.div`
+	background-color: ${themeConf.backgroundColor};
+	color: ${themeConf.textColor};
+	transition: var(--transition);
+`;
+
 const App: React.FC<{}> = (): React.ReactElement => {
 	const theme = useTheme();
 	const [loggedIn, setLoggedIn] = React.useState(false);
@@ -35,11 +41,6 @@ const App: React.FC<{}> = (): React.ReactElement => {
 		responsibilities: [] as string[]
 	});
 
-	const Wrapper = styled.div`
-    background-color: ${themeConf.backgroundColor};
-    color: ${themeConf.textColor};
-  `;
-
 	return (
 		<ThemeProvider theme={{ mode: theme.mode }}>
 			<AppContext.Provider value={{ loggedIn, setLoggedIn, openModal, setOpenModal, showVacancy, setShowVacancy, jobForm, setJobForm }}>
@@ -49,7 +50,7 @@ const App: React.FC<{}> = (): React.ReactElement => {
 					) : (
 						<Router>
 							<Sidebar />
-							<Wrapper>
+							<MainContentContainer>
 								<Switch>
 									<Redirect exact from="/interview" to="/interview/dashboard" />
 									<Route path="/interview/dashboard" exact component={Dashboard} />
@@ -74,7 +75,7 @@ const App: React.FC<{}> = (): React.ReactElement => {
 										<SingleJob />
 									</Route>
 								</Switch>
-							</Wrapper>
+							</MainContentContainer>
 						</Router>
 					)}
 				</ModalProvider>

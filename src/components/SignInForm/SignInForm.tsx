@@ -1,6 +1,6 @@
 import React from "react";
 import "./SignInForm.css";
-import logo from "../../images/InterviewLogo.png";
+import logo from "../../images/interview-dark.svg";
 import { AppContext } from "../../context";
 
 export const SignInForm: React.FC<{}> = (): React.ReactElement => {

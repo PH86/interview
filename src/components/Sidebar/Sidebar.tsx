@@ -11,6 +11,23 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { useTheme } from '../../themes/themeManager';
 import { secondaryGrey, sidebarBackgroundColor, sidebarTextColor } from "../../themes/theme";
 
+const SidebarContainer = styled.div`
+  background-color: ${sidebarBackgroundColor};
+  color: ${sidebarTextColor};
+  transition: var(--transition);
+`;
+
+const LinkContainer = styled.ul`
+  background-color: ${sidebarBackgroundColor};
+  color: ${sidebarTextColor};
+  transition: var(--transition);
+`;
+
+const SignoutContainer = styled.div`
+  background-color: ${secondaryGrey};
+  transition: var(--transition);
+`;
+
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
   const { setLoggedIn } = React.useContext(AppContext);
   const theme = useTheme();
@@ -26,23 +43,9 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
     });
   }, [theme]);
 
-  const Sidebar = styled.div`
-    background-color: ${sidebarBackgroundColor};
-    color: ${sidebarTextColor};
-  `;
-
-  const LinkContainer = styled.ul`
-  background-color: ${sidebarBackgroundColor};
-  color: ${sidebarTextColor};
-  `;
-
-  const SignoutContainer = styled.div`
-  background-color: ${secondaryGrey};
-  `;
-
   return (
     <nav className="sidebar">
-      <Sidebar className="sidebar-container">
+      <SidebarContainer className="sidebar-container">
         <a href="#" className="toggle-button">
           <GiHamburgerMenu className='sidebar-icon' />
         </a>
@@ -94,7 +97,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
             <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
           </SignoutContainer>
         </LinkContainer>
-      </Sidebar>
+      </SidebarContainer>
     </nav>
   );
 }
