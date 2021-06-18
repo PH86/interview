@@ -12,20 +12,20 @@ import { useTheme } from '../../themes/themeManager';
 import { secondaryGrey, sidebarBackgroundColor, sidebarTextColor } from "../../themes/theme";
 
 const SidebarContainer = styled.div`
-background-color: ${sidebarBackgroundColor};
-color: ${sidebarTextColor};
-transition: var(--transition);
+  background-color: ${sidebarBackgroundColor};
+  color: ${sidebarTextColor};
+  transition: var(--transition);
 `;
 
 const LinkContainer = styled.ul`
-background-color: ${sidebarBackgroundColor};
-color: ${sidebarTextColor};
-transition: var(--transition);
+  background-color: ${sidebarBackgroundColor};
+  color: ${sidebarTextColor};
+  transition: var(--transition);
 `;
 
 const SignoutContainer = styled.div`
-background-color: ${secondaryGrey};
-transition: var(--transition);
+  background-color: ${secondaryGrey};
+  transition: var(--transition);
 `;
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
