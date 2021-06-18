@@ -16,7 +16,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { useTheme } from './themes/themeManager';
 import { ModalProvider } from "styled-react-modal";
 
-const Wrapper = styled.div`
+const MainContentContainer = styled.div`
 background-color: ${themeConf.backgroundColor};
 color: ${themeConf.textColor};
 transition: var(--transition);
@@ -50,7 +50,7 @@ const App: React.FC<{}> = (): React.ReactElement => {
 					) : (
 						<Router>
 							<Sidebar />
-							<Wrapper>
+							<MainContentContainer>
 								<Switch>
 									<Redirect exact from="/interview" to="/interview/dashboard" />
 									<Route path="/interview/dashboard" exact component={Dashboard} />
@@ -75,7 +75,7 @@ const App: React.FC<{}> = (): React.ReactElement => {
 										<SingleJob />
 									</Route>
 								</Switch>
-							</Wrapper>
+							</MainContentContainer>
 						</Router>
 					)}
 				</ModalProvider>
