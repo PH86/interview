@@ -1,12 +1,11 @@
 import React from "react";
 import "./SingleJob.css";
 import styled from "styled-components";
-import { shadow } from '../../themes/theme'
+import { shadow } from '../../themes/theme';
 import { useParams } from "react-router-dom";
 import { applicants } from "../../utils/Applicants";
 import { jobDataFull } from "../../utils/JobVacancyFull";
 import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
-
 
 export const SingleJob: React.FC<{}> = (): React.ReactElement => {
     const { id } = useParams<{ id: string }>();
@@ -28,6 +27,7 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
                                 <ApplicantCard id={id} name={name} currentJob={currentJob} location={location} email={email} phoneNumber={phoneNumber} cvLink={cvLink} />
                             )
                         })}
+
                     </div>
                 </div>
                 <div className='job-container'><h2>Job Description</h2>

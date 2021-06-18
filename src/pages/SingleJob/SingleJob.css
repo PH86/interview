@@ -28,7 +28,7 @@
 .single-job-container {
     padding-bottom: 1rem;
     max-width: 750px;
-    margin-right: 3rem;
+    margin-right: auto;
     margin-left: auto;
     text-align: start;
 }
@@ -37,6 +37,8 @@
     padding-left: 1rem;
     margin-bottom: 1rem;
     border-radius: var(--radius);
+    background-color: var(--clr-text-secondary);
+    color: var(--clr-text-primary);
 }
 
 .single-job-title {

@@ -10,6 +10,7 @@
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     box-shadow: var(--dark-shadow);
     border-color: transparent;
+    border-radius: var(--radius);
 }
 
 .search-container input{
@@ -24,6 +25,7 @@
 .search-icon{
     color: var(--clr-text-primary);
     font-size: 1.5rem;
+    margin-right: 0.8rem;
 }
 
 .radio-container-title{

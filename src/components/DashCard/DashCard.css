@@ -4,6 +4,8 @@
     margin: 0.5rem;
     height: fit-content;
     border-radius: var(--radius);
+    background-color: var(--clr-text-secondary);
+    color: var(--clr-text-primary);
 }
 
 .dashcard-content{

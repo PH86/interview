@@ -11,10 +11,12 @@ a, a:hover, a:visited, a:active {
   border: 1px groove var(--clr-secondary-grey);
   box-shadow: var(--light-shadow-inverse);
   transition: all 0.1s ease 0s;
+  background-color: var(--clr-text-secondary);
 }
 
 .vacancy-card-container h4{
   margin: 0.8rem;
+  color: var(--clr-text-primary);
 }
 
 .vacancy-card-container:hover {

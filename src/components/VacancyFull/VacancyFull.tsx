@@ -26,7 +26,6 @@ export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
     const Article = styled.article`
     background-color: ${backgroundColor};
     color: ${textColor};
-    box-shadow: ${shadow};
     `;
 
     return (
