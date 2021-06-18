@@ -16,6 +16,12 @@ import styled, { ThemeProvider } from "styled-components";
 import { useTheme } from './themes/themeManager';
 import { ModalProvider } from "styled-react-modal";
 
+const Wrapper = styled.div`
+background-color: ${themeConf.backgroundColor};
+color: ${themeConf.textColor};
+transition: var(--transition);
+`;
+
 const App: React.FC<{}> = (): React.ReactElement => {
 	const theme = useTheme();
 	const [loggedIn, setLoggedIn] = React.useState(false);
@@ -34,11 +40,6 @@ const App: React.FC<{}> = (): React.ReactElement => {
 		desiredRequirments: [] as string[],
 		responsibilities: [] as string[]
 	});
-
-	const Wrapper = styled.div`
-    background-color: ${themeConf.backgroundColor};
-    color: ${themeConf.textColor};
-  `;
 
 	return (
 		<ThemeProvider theme={{ mode: theme.mode }}>
