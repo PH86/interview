@@ -11,8 +11,8 @@ import {
 import { dummyData } from "../../utils/dataCollection";
 import { jobData } from "../../utils/DummyVacancyData";
 
-const Wrapper = styled.div`
-box-shadow: ${shadow};
+const GraphContainer = styled.div`
+	box-shadow: ${shadow};
 `;
 
 export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
@@ -27,7 +27,7 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 		<div className="content-container">
 			<h1>Reporting Studio</h1>
 			<div className="reporting-container">
-				<Wrapper className="graph-container">
+				<GraphContainer className="graph-container">
 					<ReportingStudioLineGraph
 						title="Total Applicants"
 						description="Total Applicants over the last 7 days"
@@ -35,15 +35,15 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 						dataKeyXAxis="name"
 						dataKeyArea="Applicants"
 					/>
-				</Wrapper>
-				<Wrapper className="graph-container">
+				</GraphContainer>
+				<GraphContainer className="graph-container">
 					<BarGraph
 						title="Top 7 Locations with highest applicants"
 						description="Applicant locations in the last 7 days"
 						data={topSevenDummyLocationData}
 					/>
-				</Wrapper>
-				<Wrapper className="graph-container">
+				</GraphContainer>
+				<GraphContainer className="graph-container">
 					<ReportingStudioLineGraph
 						title="Top 7 Highest salary locations"
 						description="Calculated top 7 average salaries and their locations over the past week"
@@ -51,8 +51,8 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 						dataKeyXAxis="location"
 						dataKeyArea="AverageSalary"
 					/>
-				</Wrapper>
-				<Wrapper className="graph-container">
+				</GraphContainer>
+				<GraphContainer className="graph-container">
 					<ReportingStudioLineGraph
 						title="Total Applicants"
 						description="Total Applicants over the last 7 days"
@@ -60,7 +60,7 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 						dataKeyXAxis="name"
 						dataKeyArea="Applicants"
 					/>
-				</Wrapper>
+				</GraphContainer>
 			</div>
 		</div>
 	);

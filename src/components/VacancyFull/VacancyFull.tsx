@@ -3,6 +3,11 @@ import { AppContext } from "../../context";
 import styled from "styled-components";
 import { backgroundColor, shadow, textColor } from '../../themes/theme'
 
+const Article = styled.article`
+    background-color: ${backgroundColor};
+    color: ${textColor};
+`;
+
 export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
     const { setOpenModal, setShowVacancy, jobForm, setJobForm } = React.useContext(AppContext);
     const submitForm = () => {
@@ -22,11 +27,6 @@ export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
         setShowVacancy(false);
         setOpenModal(false);
     }
-
-    const Article = styled.article`
-    background-color: ${backgroundColor};
-    color: ${textColor};
-    `;
 
     return (
         <div>

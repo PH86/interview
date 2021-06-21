@@ -2,7 +2,7 @@
     min-width: 250px;
     width: min-content;
     padding-left: 1rem;
-    margin: 1rem;
+    margin: 1rem auto;
     margin-top: 0;
     border-radius: var(--radius);
     box-shadow: var(--dark-shadow-inverse);
