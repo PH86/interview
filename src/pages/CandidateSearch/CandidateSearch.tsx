@@ -1,13 +1,43 @@
 import React from 'react';
 import './CandidateSearch.css';
+import Modal from "styled-react-modal";
 import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
+import { ApplicantTable } from '../../components/Applicant/ApplicantTable';
 import { applicants } from '../../utils/Applicants';
+import { backgroundColor } from "../../themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
+
+const StyledModal = Modal.styled`
+    width: 90vw;
+    height: 90vh;
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${backgroundColor};
+    overflow-y: scroll;
+`;
 
 export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
     const [search, setSearch] = React.useState('');
     const [searchFilter, setSearchFilter] = React.useState<string>('name');
+    const [openModal, setOpenModal] = React.useState<boolean>(false);
+    const [applicantId, setApplicantId] = React.useState<number>();
+
+    const handleClick = (id: number) => {
+        setApplicantId(id)
+        setOpenModal(true);
+    }
+
+    const toggleModal = () => {
+        setOpenModal(!openModal)
+    }
 
     return (
         <div className='content-container'>
@@ -29,7 +59,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                     <div className='radio-container-div'>
                         <label className='radio-container'>
                             Name
-                        <input
+                            <input
                                 type='radio'
                                 checked={searchFilter === 'name'}
                                 value='name'
@@ -41,7 +71,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                     <div className='radio-container-div'>
                         <label className='radio-container'>
                             Job title
-                        <input
+                            <input
                                 type='radio'
                                 checked={searchFilter === 'currentJob'}
                                 value='currentJob'
@@ -53,7 +83,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                     <div className='radio-container-div'>
                         <label className='radio-container'>
                             Location
-                        <input
+                            <input
                                 type='radio'
                                 checked={searchFilter === 'location'}
                                 value='location'
@@ -63,17 +93,69 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                         </label>
                     </div>
                 </div>
-                <div className='search-card-container'>
+                <div className="applicant-table-container">
+                    <article>
+                        <div className="applicant-table-header">
+                            <h3>Name</h3>
+                            <div className="vertical"></div>
+                            <h3>Job Title</h3>
+                            <div className="vertical"></div>
+                            <h3>Location</h3>
+                        </div>
+                    </article>
                     {search && searchFilter === 'name' && applicants.filter(applicant => applicant.name.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
-                        <ApplicantCard id={filteredApplicant.id} name={filteredApplicant.name} currentJob={filteredApplicant.currentJob} location={filteredApplicant.location} email={filteredApplicant.email} phoneNumber={filteredApplicant.phoneNumber} cvLink={filteredApplicant.cvLink} />
+                        <div onClick={() => handleClick(filteredApplicant.id)}>
+                            <ApplicantTable
+                                id={filteredApplicant.id}
+                                name={filteredApplicant.name}
+                                currentJob={filteredApplicant.currentJob}
+                                location={filteredApplicant.location}
+                            />
+                        </div>
                     ))}
                     {search && searchFilter === 'currentJob' && applicants.filter(applicant => applicant.currentJob.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
-                        <ApplicantCard id={filteredApplicant.id} name={filteredApplicant.name} currentJob={filteredApplicant.currentJob} location={filteredApplicant.location} email={filteredApplicant.email} phoneNumber={filteredApplicant.phoneNumber} cvLink={filteredApplicant.cvLink} />
+                        <div onClick={() => handleClick(filteredApplicant.id)}>
+                            <ApplicantTable
+                                id={filteredApplicant.id}
+                                name={filteredApplicant.name}
+                                currentJob={filteredApplicant.currentJob}
+                                location={filteredApplicant.location}
+                            />
+                        </div>
                     ))}
                     {search && searchFilter === 'location' && applicants.filter(applicant => applicant.location.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
-                        <ApplicantCard id={filteredApplicant.id} name={filteredApplicant.name} currentJob={filteredApplicant.currentJob} location={filteredApplicant.location} email={filteredApplicant.email} phoneNumber={filteredApplicant.phoneNumber} cvLink={filteredApplicant.cvLink} />
+                        <div onClick={() => handleClick(filteredApplicant.id)}>
+                            <ApplicantTable
+                                id={filteredApplicant.id}
+                                name={filteredApplicant.name}
+                                currentJob={filteredApplicant.currentJob}
+                                location={filteredApplicant.location}
+                            />
+                        </div>
                     ))}
                 </div>
+                <StyledModal
+                    isOpen={openModal}
+                    onBackgroundClick={toggleModal}
+                    onEscapeKeydown={toggleModal}
+                >
+                    <div>
+                        <button onClick={() => setOpenModal(false)} className="standard-button">
+                            Close
+                        </button>
+                        {applicantId && applicants.filter(applicant => applicant.id.toString().includes(`${applicantId}`)).map(selectedApplicant => (
+                            <ApplicantCard
+                                id={selectedApplicant.id}
+                                name={selectedApplicant.name}
+                                currentJob={selectedApplicant.currentJob}
+                                location={selectedApplicant.location}
+                                email={selectedApplicant.email}
+                                phoneNumber={selectedApplicant.phoneNumber}
+                                cvLink={selectedApplicant.cvLink}
+                            />
+                        ))}
+                    </div>
+                </StyledModal>
             </div>
         </div>
     )

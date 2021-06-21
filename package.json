@@ -15,7 +15,7 @@
     "@types/react": "^17.0.9",
     "@types/react-fontawesome": "^1.6.4",
     "chokidar": "^3.5.1",
-    "gh-pages": "^3.2.0",
+    "gh-pages": "^3.2.2",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

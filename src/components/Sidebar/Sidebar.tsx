@@ -25,7 +25,6 @@ const LinkContainer = styled.ul`
 
 const SignoutContainer = styled.div`
   background-color: ${secondaryGrey};
-  transition: var(--transition);
 `;
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
@@ -41,7 +40,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
     sidebarLinks.addEventListener('click', () => {
       sidebarLinks.classList.toggle('active');
     });
-  }, [theme]);
+  }, []);
 
   return (
     <nav className="sidebar">

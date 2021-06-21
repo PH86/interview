@@ -4,16 +4,40 @@
 }
 
 .applicant-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
-    margin-top: 0.5rem;
-    width: 90%;
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    margin: 0.5rem 1rem;
+    min-width: 600px;
+}
+
+.applicant-table-container { 
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    box-shadow: var(--dark-shadow-inverse);
+}
+
+.applicant-table-header {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 33% 0.1% 33% 0.1% 33%;
+    text-decoration: none;
+    border: 1px groove var(--clr-secondary-grey); 
+    background-color: 	rgb(152,152,152, 0.5);
+}
+
+.vacancy-card-container h4{
+    margin: 0.8rem;
+    color: var(--clr-text-primary);
+}
+
+.vacancy-card-container:hover {
+    color: var(--clr-text-secondary);
+    background-color: var(--clr-primary-blue);
+}
+  
+.vertical {
+    border: 1px groove var(--clr-secondary-grey);
 }
 
 .main-title {
@@ -27,7 +51,7 @@
 
 .single-job-container {
     padding-bottom: 1rem;
-    max-width: 750px;
+    max-width: 900px;
     margin-right: auto;
     margin-left: auto;
     text-align: start;
@@ -83,7 +107,7 @@
     font-weight: bold;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1360px) {
     .job-content-container {
         display: flex;
         flex-direction: column-reverse;
@@ -101,3 +125,10 @@
         font-size: 1.5rem;
     }
 }
+
+@media (max-width: 720px) {
+    .applicant-container {
+        min-width: 300px;
+    }
+}
+
