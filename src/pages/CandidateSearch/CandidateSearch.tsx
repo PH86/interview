@@ -7,6 +7,7 @@ import { applicants } from '../../utils/Applicants';
 import { backgroundColor } from "../../themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
+import { FileWatcherEventKind } from 'typescript';
 
 const StyledModal = Modal.styled`
     width: 90vw;
@@ -94,15 +95,17 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                     </div>
                 </div>
                 <div className="applicant-table-container">
-                    <article>
-                        <div className="applicant-table-header">
-                            <h3>Name</h3>
-                            <div className="vertical"></div>
-                            <h3>Job Title</h3>
-                            <div className="vertical"></div>
-                            <h3>Location</h3>
-                        </div>
-                    </article>
+                    {search &&
+                        <article>
+                            <div className="applicant-table-header">
+                                <h3>Name</h3>
+                                <div className="vertical"></div>
+                                <h3>Job Title</h3>
+                                <div className="vertical"></div>
+                                <h3>Location</h3>
+                            </div>
+                        </article>
+                    }
                     {search && searchFilter === 'name' && applicants.filter(applicant => applicant.name.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
                         <div onClick={() => handleClick(filteredApplicant.id)}>
                             <ApplicantTable
