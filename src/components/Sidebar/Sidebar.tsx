@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Sidebar.css";
 import styled from "styled-components";
 import logoLight from "../../images/interview-light.svg";
@@ -29,6 +29,7 @@ const SignoutContainer = styled.div`
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
   const { setLoggedIn } = React.useContext(AppContext);
+  const urlLocation = useLocation();
   const theme = useTheme();
   React.useEffect(() => {
     const toggleButton = document.getElementsByClassName('toggle-button')[0];
@@ -51,37 +52,37 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
         {theme.mode === 'dark' ? <img className="sidebar-logo" src={logoDark} alt="Interview Logo" /> : <img className="sidebar-logo" src={logoLight} alt="Interview Logo" />}
         <LinkContainer className="sidebar-links">
           <li>
-            <Link to="/interview/dashboard" className="sidebar-link">
+            <Link to="/interview/dashboard" className={urlLocation.pathname === "/interview/dashboard" ? "sidebar-link-active" : "sidebar-link"}>
               {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} /> : <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} swapOpacity />}
             DASHBOARD
             </Link>
           </li>
           <li>
-            <Link to="/interview/jobs" className="sidebar-link">
+            <Link to="/interview/jobs" className={urlLocation.pathname === "/interview/jobs" ? "sidebar-link-active" : "sidebar-link"}>
               {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} /> : <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} swapOpacity />}
               JOB VACANCIES
             </Link>
           </li>
           <li>
-            <Link to="/interview/candidates" className="sidebar-link">
+            <Link to="/interview/candidates" className={urlLocation.pathname === "/interview/candidates" ? "sidebar-link-active" : "sidebar-link"}>
               {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faSearch} /> : <FontAwesomeIcon className='sidebar-icon' icon={faSearch} swapOpacity />}
               CANDIDATE SEARCH
             </Link>
           </li>
           <li>
-            <Link to="/interview/studio" className="sidebar-link">
+            <Link to="/interview/studio" className={urlLocation.pathname === "/interview/studio" ? "sidebar-link-active" : "sidebar-link"}>
               <FontAwesomeIcon className='sidebar-icon' icon={faChartNetwork} />
               REPORTING STUDIO
             </Link>
           </li>
           <li>
-            <Link to="/interview/settings" className="sidebar-link">
+            <Link to="/interview/settings" className={urlLocation.pathname === "/interview/settings" ? "sidebar-link-active" : "sidebar-link"}>
               <FontAwesomeIcon className='sidebar-icon' icon={faUserCog} swapOpacity />
               USER SETTINGS
             </Link>
           </li>
           <li>
-            <Link to="/interview/account" className="sidebar-link">
+            <Link to="/interview/account" className={urlLocation.pathname === "/interview/account" ? "sidebar-link-active" : "sidebar-link"}>
               <FontAwesomeIcon className='sidebar-icon' icon={faUserChart} swapOpacity />
               ACCOUNT & BILLING
             </Link>

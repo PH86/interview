@@ -14,7 +14,6 @@
     max-width: 1000px;
     margin: 0 auto;
     border-radius: var(--radius);
-    box-shadow: var(--dark-shadow-inverse);
 }
 
 .applicant-table-header {

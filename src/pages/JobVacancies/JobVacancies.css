@@ -1,7 +1,6 @@
 .vacancy-table-container {
   margin: 1rem;
   border-radius: var(--radius);
-  box-shadow: var(--dark-shadow-inverse);
 }
 
 .vacancy-table-header {
