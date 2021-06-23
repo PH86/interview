@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import * as themeConf from './themes/theme';
+import { AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { AppContext } from "./context";
 import { Sidebar } from "./components/Sidebar/Sidebar";
@@ -51,30 +52,32 @@ const App: React.FC<{}> = (): React.ReactElement => {
 						<Router>
 							<Sidebar />
 							<MainContentContainer>
-								<Switch>
-									<Redirect exact from="/interview" to="/interview/dashboard" />
-									<Route path="/interview/dashboard" exact component={Dashboard} />
-									<Route path="/interview/jobs" exact component={JobVacancies} />
-									<Route
-										path="/interview/candidates"
-										exact
-										component={CandidateSearch}
-									/>
-									<Route
-										path="/interview/studio"
-										exact
-										component={ReportingStudio}
-									/>
-									<Route
-										path="/interview/settings"
-										exact
-										component={UserSettings}
-									/>
-									<Route path="/interview/account" exact component={Account} />
-									<Route path="/interview/jobs/:id">
-										<SingleJob />
-									</Route>
-								</Switch>
+								<AnimatePresence exitBeforeEnter>
+									<Switch>
+										<Redirect exact from="/interview" to="/interview/dashboard" />
+										<Route path="/interview/dashboard" exact component={Dashboard} />
+										<Route path="/interview/jobs" exact component={JobVacancies} />
+										<Route
+											path="/interview/candidates"
+											exact
+											component={CandidateSearch}
+										/>
+										<Route
+											path="/interview/studio"
+											exact
+											component={ReportingStudio}
+										/>
+										<Route
+											path="/interview/settings"
+											exact
+											component={UserSettings}
+										/>
+										<Route path="/interview/account" exact component={Account} />
+										<Route path="/interview/jobs/:id">
+											<SingleJob />
+										</Route>
+									</Switch>
+								</AnimatePresence>
 							</MainContentContainer>
 						</Router>
 					)}

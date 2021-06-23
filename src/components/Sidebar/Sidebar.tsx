@@ -54,7 +54,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
           <li>
             <Link to="/interview/dashboard" className={urlLocation.pathname === "/interview/dashboard" ? "sidebar-link-active" : "sidebar-link"}>
               {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} /> : <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} swapOpacity />}
-            DASHBOARD
+              DASHBOARD
             </Link>
           </li>
           <li>

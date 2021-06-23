@@ -2,10 +2,12 @@ import React from "react";
 import "./SingleJob.css";
 import Modal from "styled-react-modal";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { shadow } from '../../themes/theme';
 import { useParams } from "react-router-dom";
 import { applicants } from "../../utils/Applicants";
 import { jobDataFull } from "../../utils/JobVacancyFull";
+import { pageTransitions } from "../../utils/Animations";
 import { backgroundColor } from "../../themes/theme";
 import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
 import { ApplicantTable } from "../../components/Applicant/ApplicantTable";
@@ -46,7 +48,13 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
 	}
 
     return (
-        <div className='content-container'>
+        <motion.div 
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageTransitions}
+            className="content-container"
+		>
             <div className='job-content-container'>
                 <div>
                     <div className='applicant-container'>
@@ -139,6 +147,6 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
                     )}
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

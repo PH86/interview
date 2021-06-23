@@ -1,13 +1,14 @@
 import React from 'react';
 import './CandidateSearch.css';
 import Modal from "styled-react-modal";
+import { motion } from "framer-motion";
 import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
 import { ApplicantTable } from '../../components/Applicant/ApplicantTable';
 import { applicants } from '../../utils/Applicants';
+import { pageTransitions } from "../../utils/Animations";
 import { backgroundColor } from "../../themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
-import { FileWatcherEventKind } from 'typescript';
 
 const StyledModal = Modal.styled`
     width: 90vw;
@@ -41,7 +42,13 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
     }
 
     return (
-        <div className='content-container'>
+        <motion.div 
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageTransitions}
+            className="content-container"
+		>
             <h1>Candidate Search</h1>
             <div className='search-container'>
                 <div className='search-bar'>
@@ -160,6 +167,6 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                     </div>
                 </StyledModal>
             </div>
-        </div>
+        </motion.div>
     )
 }
