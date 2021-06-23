@@ -57,21 +57,9 @@ const App: React.FC<{}> = (): React.ReactElement => {
 										<Redirect exact from="/interview" to="/interview/dashboard" />
 										<Route path="/interview/dashboard" exact component={Dashboard} />
 										<Route path="/interview/jobs" exact component={JobVacancies} />
-										<Route
-											path="/interview/candidates"
-											exact
-											component={CandidateSearch}
-										/>
-										<Route
-											path="/interview/studio"
-											exact
-											component={ReportingStudio}
-										/>
-										<Route
-											path="/interview/settings"
-											exact
-											component={UserSettings}
-										/>
+										<Route path="/interview/candidates" exact component={CandidateSearch} />
+										<Route path="/interview/studio" exact component={ReportingStudio} />
+										<Route path="/interview/settings" exact component={UserSettings} />
 										<Route path="/interview/account" exact component={Account} />
 										<Route path="/interview/jobs/:id">
 											<SingleJob />
