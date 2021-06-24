@@ -1,10 +1,17 @@
 import { SignInForm } from "../../components/SignInForm/SignInForm";
 import "./SignIn.css";
+import { motion } from "framer-motion";
+import { pageTransitions } from "../../utils/Animations";
 import searchIcon from "../../images/searchIcon.png";
 
 export const SignIn: React.FC<{}> = (): React.ReactElement => {
   return (
-    <div className="container">
+    <motion.div className="container" 
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageTransitions}
+    >
       <div className="form-container">
         <SignInForm />
         <div className="form-container-footer">
@@ -22,6 +29,6 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
           seamlessly uniting the advantages of our state of the art technology
         </h6>
       </div>
-    </div>
+    </motion.div>
   );
 }
