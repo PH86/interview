@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppContext } from "../../context";
 import styled from "styled-components";
-import { backgroundColor, shadow, textColor } from '../../themes/theme'
+import { backgroundColor, textColor } from '../../themes/theme'
 
 const Article = styled.article`
     background-color: ${backgroundColor};

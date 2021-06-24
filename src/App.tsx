@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import * as themeConf from './themes/theme';
 import { AnimatePresence } from "framer-motion";
-import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from "react-router-dom";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import { AppContext } from "./context";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
@@ -48,7 +48,9 @@ const App: React.FC<{}> = (): React.ReactElement => {
 			<AppContext.Provider value={{ loggedIn, setLoggedIn, openModal, setOpenModal, showVacancy, setShowVacancy, jobForm, setJobForm }}>
 				<ModalProvider>
 					{!loggedIn ? (
-						<SignIn />
+						<AnimatePresence exitBeforeEnter>
+							<SignIn />
+						</AnimatePresence>
 					) : (
 						<>
 							<Sidebar />
