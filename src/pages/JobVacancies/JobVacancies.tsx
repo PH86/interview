@@ -1,6 +1,8 @@
 import React from "react";
 import Modal from "styled-react-modal";
+import { motion } from "framer-motion";
 import { jobData } from "../../utils/DummyVacancyData";
+import { pageTransitions } from "../../utils/Animations";
 import { VacancyCard } from "../../components/VacancyCard/VacancyCard";
 import "./JobVacancies.css";
 import "../../components/VacancyCard/VacancyCard.css";
@@ -36,7 +38,13 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 	}
 
 	return (
-		<div className="content-container">
+		<motion.div 
+			initial="out"
+			animate="in"
+			exit="out"
+			variants={pageTransitions}
+			className="content-container"
+		>
 			<h1>Job Vacancies</h1>
 			<div className='search-container'>
 				<div className='search-bar'>
@@ -156,6 +164,6 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					{showVacancy ? <VacancyFull /> : <VacancyForm />}
 				</div>
 			</StyledModal>
-		</div>
+		</motion.div>
 	);
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import "./ReportingStudio.css";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { shadow } from '../../themes/theme';
 import {
 	BarGraph,
@@ -10,6 +11,7 @@ import {
 } from "../../components/Graph/Graph";
 import { dummyData } from "../../utils/dataCollection";
 import { jobData } from "../../utils/DummyVacancyData";
+import { pageTransitions } from "../../utils/Animations";
 
 const GraphContainer = styled.div`
 	box-shadow: ${shadow};
@@ -24,7 +26,13 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 		getTopSevenAvarageSalariesWithLocation(dummySalaryData);
 	console.log(topSevenDummySalaryData);
 	return (
-		<div className="content-container">
+		<motion.div 
+			initial="out"
+			animate="in"
+			exit="out"
+			variants={pageTransitions}
+			className="content-container"
+		>
 			<h1>Reporting Studio</h1>
 			<div className="reporting-container">
 				<GraphContainer className="graph-container">
@@ -62,7 +70,7 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 					/>
 				</GraphContainer>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
