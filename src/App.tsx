@@ -26,7 +26,7 @@ const MainContentContainer = styled.div`
 const App: React.FC<{}> = (): React.ReactElement => {
 	const theme = useTheme();
 	const location = useLocation();
-	const [loggedIn, setLoggedIn] = React.useState(false);
+	const [loggedIn, setLoggedIn] = React.useState(true);
 	const [openModal, setOpenModal] = React.useState(false);
 	const [showVacancy, setShowVacancy] = React.useState(false);
 	const [jobForm, setJobForm] = React.useState({

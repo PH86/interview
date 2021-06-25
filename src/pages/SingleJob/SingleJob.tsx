@@ -7,7 +7,7 @@ import { shadow } from '../../themes/theme';
 import { useParams } from "react-router-dom";
 import { applicants } from "../../utils/Applicants";
 import { jobDataFull } from "../../utils/JobVacancyFull";
-import { pageTransitions } from "../../utils/Animations";
+import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "../../utils/Animations";
 import { backgroundColor } from "../../themes/theme";
 import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
 import { ApplicantTable } from "../../components/Applicant/ApplicantTable";
@@ -35,7 +35,7 @@ const StyledModal = Modal.styled`
 export const SingleJob: React.FC<{}> = (): React.ReactElement => {
     const { id } = useParams<{ id: string }>();
     const [openModal, setOpenModal] = React.useState<boolean>(false);
-    const [applicantId, setApplicantId] = React.useState<number>(); 
+    const [applicantId, setApplicantId] = React.useState<number>();
     const job = jobDataFull.filter((job) => job.id.toString() === id);
 
     const handleClick = (id: number) => {
@@ -44,65 +44,64 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
     }
 
     const toggleModal = () => {
-		setOpenModal(!openModal)
-	}
+        setOpenModal(!openModal)
+    }
 
     return (
-        <motion.div 
-            initial="out"
-            animate="in"
-            exit="out"
+        <motion.div
+            initial="initial"
+            animate="animate"
+            exit="initial"
             variants={pageTransitions}
             className="content-container"
-		>
+        >
             <div className='job-content-container'>
                 <div>
                     <div className='applicant-container'>
                         <h2 className='main-title'>Applicants</h2>
-                        <div className="applicant-table-container">
+                        <motion.div className="applicant-table-container" variants={staggerTransitions}>
                             <article>
-                                <div className="applicant-table-header">
+                                <motion.div className="applicant-table-header" variants={tableTransitions}>
                                     <h3>Name</h3>
                                     <div className="vertical"></div>
                                     <h3>Job Title</h3>
                                     <div className="vertical"></div>
                                     <h3>Location</h3>
-                                </div>
+                                </motion.div>
                             </article>
                             <div>
                                 {applicants.map((applicant) => {
                                     const { id, name, currentJob, location } = applicant;
-                                    return ( 
-                                        <div onClick={() => handleClick(id)}>
+                                    return (
+                                        <motion.div onClick={() => handleClick(id)} variants={tableTransitions}>
                                             <ApplicantTable id={id} name={name} currentJob={currentJob} location={location} />
-                                        </div>
+                                        </motion.div>
                                     )
                                 })}
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                     <StyledModal
                         isOpen={openModal}
                         onBackgroundClick={toggleModal}
                         onEscapeKeydown={toggleModal}
                     >
-                        <div>
+                        <motion.div variants={modalTransitions}>
                             <button onClick={() => setOpenModal(false)} className="standard-button">
                                 Close
                             </button>
                             {applicantId && applicants.filter(applicant => applicant.id.toString().includes(`${applicantId}`)).map(selectedApplicant => (
-                                <ApplicantCard 
-                                    id={selectedApplicant.id} 
-                                    name={selectedApplicant.name} 
-                                    currentJob={selectedApplicant.currentJob} 
-                                    location={selectedApplicant.location} 
-                                    email={selectedApplicant.email} 
-                                    phoneNumber={selectedApplicant.phoneNumber} 
-                                    cvLink={selectedApplicant.cvLink}  
+                                <ApplicantCard
+                                    id={selectedApplicant.id}
+                                    name={selectedApplicant.name}
+                                    currentJob={selectedApplicant.currentJob}
+                                    location={selectedApplicant.location}
+                                    email={selectedApplicant.email}
+                                    phoneNumber={selectedApplicant.phoneNumber}
+                                    cvLink={selectedApplicant.cvLink}
                                 />
-                              ))}
-                            
-                        </div>
+                            ))}
+                        </motion.div>
                     </StyledModal>
                 </div>
                 <div className='job-container'><h2>Job Description</h2>
