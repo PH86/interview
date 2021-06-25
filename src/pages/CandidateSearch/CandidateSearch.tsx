@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
 import { ApplicantTable } from '../../components/Applicant/ApplicantTable';
 import { applicants } from '../../utils/Applicants';
-import { pageTransitions } from "../../utils/Animations";
+import { pageTransitions, modalTransitions, staggerTransitions } from "../../utils/Animations";
 import { backgroundColor } from "../../themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
@@ -42,13 +42,13 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
     }
 
     return (
-        <motion.div 
-            initial="out"
-            animate="in"
-            exit="out"
+        <motion.div
+            initial="initial"
+            animate="animate"
+            exit="initial"
             variants={pageTransitions}
             className="content-container"
-		>
+        >
             <h1>Candidate Search</h1>
             <div className='search-container'>
                 <div className='search-bar'>
@@ -101,55 +101,57 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                         </label>
                     </div>
                 </div>
-                <div className="applicant-table-container">
+                <motion.div className="applicant-table-container" variants={staggerTransitions}>
                     {search &&
-                        <article>
-                            <div className="applicant-table-header">
-                                <h3>Name</h3>
-                                <div className="vertical"></div>
-                                <h3>Job Title</h3>
-                                <div className="vertical"></div>
-                                <h3>Location</h3>
-                            </div>
-                        </article>
+                        <motion.div variants={pageTransitions}>
+                            <article>
+                                <div className="applicant-table-header">
+                                    <h3>Name</h3>
+                                    <div className="vertical"></div>
+                                    <h3>Job Title</h3>
+                                    <div className="vertical"></div>
+                                    <h3>Location</h3>
+                                </div>
+                            </article>
+                        </motion.div>
                     }
                     {search && searchFilter === 'name' && applicants.filter(applicant => applicant.name.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
-                        <div onClick={() => handleClick(filteredApplicant.id)}>
+                        <motion.div onClick={() => handleClick(filteredApplicant.id)} variants={pageTransitions}>
                             <ApplicantTable
                                 id={filteredApplicant.id}
                                 name={filteredApplicant.name}
                                 currentJob={filteredApplicant.currentJob}
                                 location={filteredApplicant.location}
                             />
-                        </div>
+                        </motion.div>
                     ))}
                     {search && searchFilter === 'currentJob' && applicants.filter(applicant => applicant.currentJob.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
-                        <div onClick={() => handleClick(filteredApplicant.id)}>
+                        <motion.div onClick={() => handleClick(filteredApplicant.id)} variants={pageTransitions}>
                             <ApplicantTable
                                 id={filteredApplicant.id}
                                 name={filteredApplicant.name}
                                 currentJob={filteredApplicant.currentJob}
                                 location={filteredApplicant.location}
                             />
-                        </div>
+                        </motion.div>
                     ))}
                     {search && searchFilter === 'location' && applicants.filter(applicant => applicant.location.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
-                        <div onClick={() => handleClick(filteredApplicant.id)}>
+                        <motion.div onClick={() => handleClick(filteredApplicant.id)} variants={pageTransitions}>
                             <ApplicantTable
                                 id={filteredApplicant.id}
                                 name={filteredApplicant.name}
                                 currentJob={filteredApplicant.currentJob}
                                 location={filteredApplicant.location}
                             />
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
                 <StyledModal
                     isOpen={openModal}
                     onBackgroundClick={toggleModal}
                     onEscapeKeydown={toggleModal}
                 >
-                    <div>
+                    <motion.div variants={modalTransitions}>
                         <button onClick={() => setOpenModal(false)} className="standard-button">
                             Close
                         </button>
@@ -164,7 +166,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                                 cvLink={selectedApplicant.cvLink}
                             />
                         ))}
-                    </div>
+                    </motion.div>
                 </StyledModal>
             </div>
         </motion.div>

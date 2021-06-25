@@ -6,7 +6,7 @@ import logoLight from "../../images/interview-light.svg";
 import logoDark from '../../images/interview-dark.svg';
 import { AppContext } from "../../context";
 import { motion } from "framer-motion";
-import { sidebarTransitions } from "../../utils/Animations";
+import { sidebarTransitions, staggerTransitions } from "../../utils/Animations";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTachometerAltFast, faNewspaper, faSearch, faChartNetwork, faUserCog, faUserChart, faSun, faSpaceStationMoonAlt, faPortalEnter } from '@fortawesome/pro-duotone-svg-icons';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -46,84 +46,92 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
   }, []);
 
   return (
-    <nav className="sidebar">
-      <SidebarContainer className="sidebar-container">
-        <a href="#" className="toggle-button">
-          <GiHamburgerMenu className='sidebar-icon' />
-        </a>
-        {theme.mode === 'dark' ?
-          <motion.img
-            className="sidebar-logo"
-            src={logoDark}
-            alt="Interview Logo"
-            initial="out"
-            animate="in"
-            exit="out"
-            variants={sidebarTransitions}
-          /> :
-          <motion.img
-            className="sidebar-logo"
-            src={logoLight}
-            alt="Interview Logo"
-            initial="out"
-            animate="in"
-            exit="out"
-            variants={sidebarTransitions}
-          />}
-        <motion.div initial="out"
-          animate="in"
-          exit="out"
-          variants={sidebarTransitions}
-        >
-          <LinkContainer className="sidebar-links">
-            <li>
-              <Link to="/interview/dashboard" className={urlLocation.pathname === "/interview/dashboard" ? "sidebar-link-active" : "sidebar-link"}>
-                {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} /> : <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} swapOpacity />}
-                DASHBOARD
-              </Link>
-            </li>
-            <li>
-              <Link to="/interview/jobs" className={urlLocation.pathname === "/interview/jobs" ? "sidebar-link-active" : "sidebar-link"}>
-                {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} /> : <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} swapOpacity />}
-                JOB VACANCIES
-              </Link>
-            </li>
-            <li>
-              <Link to="/interview/candidates" className={urlLocation.pathname === "/interview/candidates" ? "sidebar-link-active" : "sidebar-link"}>
-                {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faSearch} /> : <FontAwesomeIcon className='sidebar-icon' icon={faSearch} swapOpacity />}
-                CANDIDATE SEARCH
-              </Link>
-            </li>
-            <li>
-              <Link to="/interview/studio" className={urlLocation.pathname === "/interview/studio" ? "sidebar-link-active" : "sidebar-link"}>
-                <FontAwesomeIcon className='sidebar-icon' icon={faChartNetwork} />
-                REPORTING STUDIO
-              </Link>
-            </li>
-            <li>
-              <Link to="/interview/settings" className={urlLocation.pathname === "/interview/settings" ? "sidebar-link-active" : "sidebar-link"}>
-                <FontAwesomeIcon className='sidebar-icon' icon={faUserCog} swapOpacity />
-                USER SETTINGS
-              </Link>
-            </li>
-            <li>
-              <Link to="/interview/account" className={urlLocation.pathname === "/interview/account" ? "sidebar-link-active" : "sidebar-link"}>
-                <FontAwesomeIcon className='sidebar-icon' icon={faUserChart} swapOpacity />
-                ACCOUNT & BILLING
-              </Link>
-            </li>
-            <li>
-              <a onClick={() => theme.toggle()}>
-                {theme.mode === 'dark' ? <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSun} />LIGHT MODE</a> : <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSpaceStationMoonAlt} swapOpacity />DARK MODE</a>}
-              </a>
-            </li>
-            <SignoutContainer onClick={() => setLoggedIn(false)} className='sidebar-signout'>
-              <p>User Name</p>
-              <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
-            </SignoutContainer>
-          </LinkContainer>
+    <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
+      <nav className="sidebar">
+        <motion.div variants={staggerTransitions}>
+          <SidebarContainer className="sidebar-container">
+            <a href="#" className="toggle-button">
+              <GiHamburgerMenu className='sidebar-icon' />
+            </a>
+            {theme.mode === 'dark' ?
+              <motion.img
+                className="sidebar-logo"
+                src={logoDark}
+                alt="Interview Logo"
+                variants={sidebarTransitions}
+              /> :
+              <motion.img
+                className="sidebar-logo"
+                src={logoLight}
+                alt="Interview Logo"
+                variants={sidebarTransitions}
+              />}
+            <LinkContainer className="sidebar-links">
+              <motion.div variants={sidebarTransitions}>
+                <li>
+                  <Link to="/interview/dashboard" className={urlLocation.pathname === "/interview/dashboard" ? "sidebar-link-active" : "sidebar-link"}>
+                    {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} /> : <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} swapOpacity />}
+                    DASHBOARD
+                  </Link>
+                </li>
+              </motion.div>
+              <motion.div variants={sidebarTransitions}>
+                <li>
+                  <Link to="/interview/jobs" className={urlLocation.pathname === "/interview/jobs" ? "sidebar-link-active" : "sidebar-link"}>
+                    {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} /> : <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} swapOpacity />}
+                    JOB VACANCIES
+                  </Link>
+                </li>
+              </motion.div>
+              <motion.div variants={sidebarTransitions}>
+                <li>
+                  <Link to="/interview/candidates" className={urlLocation.pathname === "/interview/candidates" ? "sidebar-link-active" : "sidebar-link"}>
+                    {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faSearch} /> : <FontAwesomeIcon className='sidebar-icon' icon={faSearch} swapOpacity />}
+                    CANDIDATE SEARCH
+                  </Link>
+                </li>
+              </motion.div>
+              <motion.div variants={sidebarTransitions}>
+                <li>
+                  <Link to="/interview/studio" className={urlLocation.pathname === "/interview/studio" ? "sidebar-link-active" : "sidebar-link"}>
+                    <FontAwesomeIcon className='sidebar-icon' icon={faChartNetwork} />
+                    REPORTING STUDIO
+                  </Link>
+                </li>
+              </motion.div>
+              <motion.div variants={sidebarTransitions}>
+                <li>
+                  <Link to="/interview/settings" className={urlLocation.pathname === "/interview/settings" ? "sidebar-link-active" : "sidebar-link"}>
+                    <FontAwesomeIcon className='sidebar-icon' icon={faUserCog} swapOpacity />
+                    USER SETTINGS
+                  </Link>
+                </li>
+              </motion.div>
+              <motion.div variants={sidebarTransitions}>
+                <li>
+                  <Link to="/interview/account" className={urlLocation.pathname === "/interview/account" ? "sidebar-link-active" : "sidebar-link"}>
+                    <FontAwesomeIcon className='sidebar-icon' icon={faUserChart} swapOpacity />
+                    ACCOUNT & BILLING
+                  </Link>
+                </li>
+              </motion.div>
+              <motion.div variants={sidebarTransitions}>
+                <li>
+                  <a onClick={() => theme.toggle()}>
+                    {theme.mode === 'dark' ? <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSun} />LIGHT MODE</a> : <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSpaceStationMoonAlt} swapOpacity />DARK MODE</a>}
+                  </a>
+                </li>
+              </motion.div>
+              <motion.div variants={sidebarTransitions}>
+                <SignoutContainer onClick={() => setLoggedIn(false)} className='sidebar-signout'>
+                  <p>User Name</p>
+                  <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
+                </SignoutContainer>
+              </motion.div>
+            </LinkContainer>
+          </SidebarContainer>
         </motion.div>
-      </SidebarContainer>
-    </nav>
+      </nav>
+    </motion.div>
   );
 }

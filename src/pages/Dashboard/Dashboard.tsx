@@ -2,15 +2,15 @@ import { DashCard } from "../../components/DashCard/DashCard";
 import { motion } from "framer-motion";
 import { DashboardLineGraph } from "../../components/Graph/Graph";
 import { dummyData } from "../../utils/dataCollection";
-import { pageTransitions } from "../../utils/Animations";
+import { pageTransitions, sidebarTransitions, staggerTransitions } from "../../utils/Animations";
 import "./Dashboard.css";
 
 export const Dashboard: React.FC<{}> = (): React.ReactElement => {
 	return (
 		<motion.div
-			initial="out"
-			animate="in"
-			exit="out"
+			initial="initial"
+			animate="animate"
+			exit="initial"
 			variants={pageTransitions}
 			className="content-container"
 		>
@@ -27,7 +27,6 @@ export const Dashboard: React.FC<{}> = (): React.ReactElement => {
 				<DashCard title="Current Applicants" content="40" />
 				<DashCard title="Interviews Today" content="4" />
 				<DashCard title="Callbacks Required" content="10" />
-
 			</div>
 			<h1>to do list or calendar could go here?</h1>
 		</motion.div>

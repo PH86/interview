@@ -26,10 +26,10 @@ export const ReportingStudio: React.FC<{}> = (): React.ReactElement => {
 		getTopSevenAvarageSalariesWithLocation(dummySalaryData);
 	console.log(topSevenDummySalaryData);
 	return (
-		<motion.div 
-			initial="out"
-			animate="in"
-			exit="out"
+		<motion.div
+			initial="initial"
+			animate="animate"
+			exit="initial"
 			variants={pageTransitions}
 			className="content-container"
 		>

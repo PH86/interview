@@ -6,10 +6,11 @@ import searchIcon from "../../images/searchIcon.png";
 
 export const SignIn: React.FC<{}> = (): React.ReactElement => {
   return (
-    <motion.div className="container" 
-      initial="out"
-      animate="in"
-      exit="out"
+    <motion.div
+      className="container"
+      initial="initial"
+      animate="animate"
+      exit="initial"
       variants={pageTransitions}
     >
       <div className="form-container">
