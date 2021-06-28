@@ -7,12 +7,12 @@ type TableRowsProps<T, K extends keyof T> = {
 }
 
 const TableRows = <T, K extends keyof T>({data, columns}: TableRowsProps<T, K>): React.ReactElement => {
-    const rows = data.map((row, i) => {
+    const rows = data.map((row, rowIndex) => {
         return (
-            <tr key={`tr-${i}`}>
-                {columns.map((column, j) => {
+            <tr key={`tr-${rowIndex}`}>
+                {columns.map((column, columnIndex) => {
                     return (
-                        <td key={`td-${j}`}>
+                        <td key={`td-${columnIndex}`}>
                             {row[column.key]}
                         </td>
                     )

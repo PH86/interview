@@ -3,14 +3,14 @@ import { pageTransitions } from "utils/Animations";
 import './Account.css'
 import Table, { ColumnDefinitionType } from 'components/Table/Table'
 
-interface Bill {
+interface iBill {
     date: string;
     amount: number;
     status: string;
     paymentMethod: string;
 }
 
-const billingData: Bill[] = [
+const billingData: iBill[] = [
     {
         date: '01,01,21',
         amount: 100,
@@ -31,7 +31,7 @@ const billingData: Bill[] = [
     }
 ]
 
-const columns: ColumnDefinitionType<Bill, keyof Bill>[] = [
+const columns: ColumnDefinitionType<iBill, keyof iBill>[] = [
     {
         key: 'date',
         header: 'Date'
