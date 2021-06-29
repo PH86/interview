@@ -1,0 +1,86 @@
+.content-container {
+    text-align: left;
+    padding: 1em;
+}
+
+.section-container {
+     margin: 0.5em 0 1.5em;
+     display: flex; 
+     align-items: flex-start;
+     justify-content: space-between;
+     flex-wrap: wrap;
+}
+
+
+.bills-container {
+    margin: 1em 0.5em;
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.detail-box {
+    border-radius: 15px;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.151);
+    max-width: 250px;
+    max-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5em 1em;
+}
+
+.detail-box  h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.detail-box p {
+    margin: 0.1em;
+}
+
+.detail-box .package-name { 
+    font-size: 1.2em;
+}
+
+.detail-box button {
+    margin-top: 1em;
+}
+
+.stats-container {
+    justify-content: flex-start;
+}
+
+.stat-box {
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    padding: 0.5em 1em;
+    margin-right: 1em;
+}
+
+.stat-box h2 {
+    font-size: 2em;
+}
+
+.stat-box p {
+    margin-left: 0.5em;
+    font-size: 1em;
+}
+
+
+
+
+button {
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #33add2;
+    color: #ffffff;
+}
+
+.latest-bill {
+    background-color: var(--clr-button-primary);
+    color: var(--clr-text-secondary);
+}
