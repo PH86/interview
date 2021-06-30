@@ -2,16 +2,12 @@ import React from "react";
 import "./ReportingStudio.css";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { shadow } from '../../themes/theme';
-import {
-	BarGraph,
-	IBarChartApplicantData,
-	IBarChartAverageSalaryData,
-	ReportingStudioLineGraph,
-} from "../../components/Graph/Graph";
-import { dummyData } from "../../utils/dataCollection";
-import { jobData } from "../../utils/DummyVacancyData";
-import { pageTransitions } from "../../utils/Animations";
+import { shadow } from 'themes/theme';
+import { IBarChartApplicantData, IBarChartAverageSalaryData } from "components/Graph/Graph";
+import { BarGraph, ReportingStudioLineGraph } from 'components'
+import { dummyData } from "utils/dataCollection";
+import { jobData } from "utils/DummyVacancyData";
+import { pageTransitions } from "utils/Animations";
 
 const GraphContainer = styled.div`
 	box-shadow: ${shadow};

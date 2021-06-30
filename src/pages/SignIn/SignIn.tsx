@@ -1,8 +1,8 @@
-import { SignInForm } from "../../components/SignInForm/SignInForm";
+import { SignInForm } from "components";
 import "./SignIn.css";
 import { motion } from "framer-motion";
-import { pageTransitions } from "../../utils/Animations";
-import searchIcon from "../../images/searchIcon.png";
+import { pageTransitions } from "utils/Animations";
+import searchIcon from "images/searchIcon.png";
 
 export const SignIn: React.FC<{}> = (): React.ReactElement => {
   return (

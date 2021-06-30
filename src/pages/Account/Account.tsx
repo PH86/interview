@@ -6,9 +6,8 @@ import { backgroundColor } from "themes/theme";
 import { pageTransitions, modalTransitions} from "utils/Animations";
 import './Account.css'
 
-import Table, { ColumnDefinitionType } from 'components/Table/Table'
-import Packages from 'components/Packages/Packages'
-import { MetaInfo } from 'components';
+import { ColumnDefinitionType } from 'components/Table/Table'
+import { MetaInfo, Table, Packages } from 'components';
 
 const StyledModal = Modal.styled`
     height: 90vh;

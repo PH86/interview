@@ -1,8 +1,7 @@
-import { DashCard } from "../../components/DashCard/DashCard";
+import { DashCard, DashboardLineGraph } from "components";
 import { motion } from "framer-motion";
-import { DashboardLineGraph } from "../../components/Graph/Graph";
-import { dummyData } from "../../utils/dataCollection";
-import { pageTransitions, sidebarTransitions, staggerTransitions } from "../../utils/Animations";
+import { dummyData } from "utils/dataCollection";
+import { pageTransitions, sidebarTransitions, staggerTransitions } from "utils/Animations";
 import "./Dashboard.css";
 
 export const Dashboard: React.FC<{}> = (): React.ReactElement => {
