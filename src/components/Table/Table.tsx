@@ -17,7 +17,7 @@ type TableType<T, K extends keyof T> = {
     data: Array<T>
 }
 
-const Table = <T, K extends keyof T>({
+export const Table = <T, K extends keyof T>({
 	columns,
     data
 }: TableType<T, K>): React.ReactElement => {
@@ -32,5 +32,3 @@ const Table = <T, K extends keyof T>({
         </table>
     )
 }
-
-export default Table
