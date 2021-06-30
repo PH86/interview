@@ -34,10 +34,11 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
     const [vacancies, setVacancies] = React.useState<IJobData[]>([]);
 
     React.useEffect(() => {
-        fetch('http://interview-server-heroku.herokuapp.com/vacancies', {headers: {'Content-Type': 'application/json'}})
-            .then((response) => response.json())
-            .then(setVacancies)
-        console.log(vacancies);
+        fetch(`${process.env.BASE_URL}/vacancies`, {headers: {'Content-Type': 'application/json'}})
+            .then((response) => {
+				response.json()
+				setVacancies
+			});
     },[])
 
     const toggleModal = () => {
