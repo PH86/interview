@@ -1,4 +1,4 @@
-import { IApplicantCard } from "../components/Applicant/ApplicantCard";
+import { IApplicantCard } from "components/Applicant/ApplicantCard";
 
 export const applicants: IApplicantCard[] = [
 	{

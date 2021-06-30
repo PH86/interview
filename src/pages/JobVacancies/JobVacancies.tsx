@@ -1,15 +1,13 @@
 import React from "react";
 import Modal from "styled-react-modal";
 import { motion } from "framer-motion";
-import { jobData } from "../../utils/DummyVacancyData";
-import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "../../utils/Animations";
-import { VacancyCard } from "../../components/VacancyCard/VacancyCard";
+import { jobData } from "utils/DummyVacancyData";
+import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "utils/Animations";
+import { VacancyCard, VacancyForm, VacancyFull } from "components";
 import "./JobVacancies.css";
-import "../../components/VacancyCard/VacancyCard.css";
-import { VacancyForm } from "../../components/VacancyForm/VacancyForm";
-import { AppContext } from "../../context";
-import { VacancyFull } from "../../components/VacancyFull/VacancyFull";
-import { backgroundColor } from "../../themes/theme";
+import "components/VacancyCard/VacancyCard.css";
+import { AppContext } from "context";
+import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
 

@@ -3,14 +3,13 @@ import "./SingleJob.css";
 import Modal from "styled-react-modal";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { shadow } from '../../themes/theme';
+import { shadow } from 'themes/theme';
 import { useParams } from "react-router-dom";
-import { applicants } from "../../utils/Applicants";
-import { jobDataFull } from "../../utils/JobVacancyFull";
-import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "../../utils/Animations";
-import { backgroundColor } from "../../themes/theme";
-import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
-import { ApplicantTable } from "../../components/Applicant/ApplicantTable";
+import { applicants } from "utils/Applicants";
+import { jobDataFull } from "utils/JobVacancyFull";
+import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "utils/Animations";
+import { backgroundColor } from "themes/theme";
+import { ApplicantCard, ApplicantTable } from 'components';
 
 const SingleJobContainer = styled.div`
     box-shadow: ${shadow};

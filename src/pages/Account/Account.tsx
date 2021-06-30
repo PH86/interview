@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { pageTransitions } from "utils/Animations";
-import './Account.css'
-import Table, { ColumnDefinitionType } from 'components/Table/Table'
+import './Account.css';
+import { ColumnDefinitionType } from 'components/Table/Table';
+import { Table } from 'components';
 
 interface iBill {
     date: string;

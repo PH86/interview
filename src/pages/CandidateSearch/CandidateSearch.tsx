@@ -2,11 +2,10 @@ import React from 'react';
 import './CandidateSearch.css';
 import Modal from "styled-react-modal";
 import { motion } from "framer-motion";
-import { ApplicantCard } from '../../components/Applicant/ApplicantCard';
-import { ApplicantTable } from '../../components/Applicant/ApplicantTable';
-import { applicants } from '../../utils/Applicants';
-import { pageTransitions, modalTransitions, staggerTransitions } from "../../utils/Animations";
-import { backgroundColor } from "../../themes/theme";
+import { ApplicantCard, ApplicantTable } from 'components';
+import { applicants } from 'utils/Applicants';
+import { pageTransitions, modalTransitions, staggerTransitions } from "utils/Animations";
+import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
 
