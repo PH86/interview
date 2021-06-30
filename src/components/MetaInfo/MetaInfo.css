@@ -1,0 +1,12 @@
+.meta-info-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 0.5em;
+}
+
+.meta-info-label {
+    color: var(--clr-text-tertiary);
+    font-size: 0.9em;
+}

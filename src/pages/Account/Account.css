@@ -23,8 +23,7 @@
 .detail-box {
     border-radius: 15px;
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.151);
-    max-width: 250px;
-    max-height: 250px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -34,6 +33,8 @@
 .detail-box  h2 {
     font-size: 3em;
     margin: 0;
+    font-family: 'Roboto Slab', 'Open Sans', sans-serif;
+
 }
 
 .detail-box p {
@@ -62,6 +63,8 @@
 
 .stat-box h2 {
     font-size: 2em;
+    font-family: 'Roboto Slab', 'Open Sans', sans-serif;
+
 }
 
 .stat-box p {
@@ -72,7 +75,7 @@
 
 
 
-button {
+.button {
     padding: 1em;
     border: none;
     border-radius: 5px;
