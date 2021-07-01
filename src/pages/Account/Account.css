@@ -1,4 +1,4 @@
-.content-container {
+.accounts-content-container {
     text-align: left;
     padding: 1em;
 }
@@ -10,7 +10,6 @@
      justify-content: space-between;
      flex-wrap: wrap;
 }
-
 
 .bills-container {
     margin: 1em 0.5em;

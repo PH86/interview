@@ -85,7 +85,7 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
             animate="animate"
             exit="initial"
             variants={pageTransitions}
-            className="content-container"
+            className="accounts-content-container"
         >
             <h1>Account details</h1>
 
@@ -145,17 +145,14 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
                 <Table columns={columns} data={billingData} />
             </div>
             <StyledModal
-                    isOpen={openModal}
-                    onBackgroundClick={toggleModal}
-                    onEscapeKeydown={toggleModal}
-                >
-                    <motion.div variants={modalTransitions}>
-                        {/* <button onClick={() => setOpenModal(false)} className="standard-button">
-                            Close
-                        </button> */}
-                        <Packages />
-                    </motion.div>
-                </StyledModal>
+                isOpen={openModal}
+                onBackgroundClick={toggleModal}
+                onEscapeKeydown={toggleModal}
+            >
+                <motion.div variants={modalTransitions}>
+                    <Packages />
+                </motion.div>
+            </StyledModal>
         </motion.div>
     )
 }

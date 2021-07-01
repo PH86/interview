@@ -3,13 +3,15 @@ import Modal from "styled-react-modal";
 import { motion } from "framer-motion";
 import { jobData } from "utils/DummyVacancyData";
 import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "utils/Animations";
-import { VacancyCard, VacancyForm, VacancyFull } from "components";
+import { VacancyForm, VacancyFull } from "components";
 import "./JobVacancies.css";
 import "components/VacancyCard/VacancyCard.css";
 import { AppContext } from "context";
 import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
+
+import { JobVacanciesList } from "./components/JobVacanciesList";
 
 const StyledModal = Modal.styled`
 	width: 90vw;
@@ -120,44 +122,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 						</motion.div>
 					</article>
 					<div>
-						{searchFilter === 'title' && jobData.filter(vacancy => vacancy.title.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredVacancy => (
-							<motion.div variants={tableTransitions}>
-								<VacancyCard
-									id={filteredVacancy.id}
-									title={filteredVacancy.title}
-									company={filteredVacancy.company}
-									salary={filteredVacancy.salary}
-									location={filteredVacancy.location}
-									applicants={filteredVacancy.applicants}
-									endDate={filteredVacancy.endDate}
-								/>
-							</motion.div>
-						))}
-						{searchFilter === 'company' && jobData.filter(vacancy => vacancy.company.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredVacancy => (
-							<motion.div variants={tableTransitions}>
-								<VacancyCard
-									id={filteredVacancy.id}
-									title={filteredVacancy.title}
-									company={filteredVacancy.company}
-									salary={filteredVacancy.salary}
-									location={filteredVacancy.location}
-									applicants={filteredVacancy.applicants} endDate={filteredVacancy.endDate}
-								/>
-							</motion.div>
-						))}
-						{searchFilter === 'location' && jobData.filter(vacancy => vacancy.location.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredVacancy => (
-							<motion.div variants={tableTransitions}>
-								<VacancyCard
-									id={filteredVacancy.id}
-									title={filteredVacancy.title}
-									company={filteredVacancy.company}
-									salary={filteredVacancy.salary}
-									location={filteredVacancy.location}
-									applicants={filteredVacancy.applicants}
-									endDate={filteredVacancy.endDate}
-								/>
-							</motion.div>
-						))}
+						<JobVacanciesList data={jobData} search={search} searchFilter={searchFilter}  />
 					</div>
 				</motion.div>
 			</motion.div>

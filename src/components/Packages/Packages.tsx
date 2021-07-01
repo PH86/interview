@@ -2,7 +2,7 @@ import './Packages.css';
 
 import { dummyPackageResponse } from 'utils/dummyPackageData';
 
-const Packages = () => {
+export const Packages = () => {
 
     const renderPackages = () => (
         <div className="packages-container">
@@ -32,5 +32,3 @@ const Packages = () => {
         </div>
     )
 }
-
-export default Packages

@@ -5,7 +5,6 @@
 .packages-page-container h1 { 
     margin: 0.3em 0;
     font-family: 'Roboto Slab', 'Open Sans', sans-serif;
-
 }
 
 .packages-page-container h2 { 
@@ -37,7 +36,7 @@
     color: var(--clr-text-tertiary);
 }
 
-span {
+.package-container span {
     font-size: 3em;
     font-family: 'Roboto Slab', 'Open Sans', sans-serif;
     color: initial;
@@ -47,12 +46,12 @@ span {
     color: var(--clr-text-tertiary);
 }
 
-ul {
+.packages-container ul {
     list-style: none;
     padding: 0 1em;
 }
 
-li {
+.packages-container li {
     margin-bottom: 1em;
 }
 
