@@ -35,10 +35,9 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 
     React.useEffect(() => {
         fetch(`${process.env.BASE_URL}/vacancies`, {headers: {'Content-Type': 'application/json'}})
-            .then((response) => {
-				response.json()
-				setVacancies
-			});
+            .then((response) => (response.json())
+			.then(setVacancies)
+			);
     },[])
 
     const toggleModal = () => {
