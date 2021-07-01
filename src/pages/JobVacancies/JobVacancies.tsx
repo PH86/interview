@@ -6,7 +6,7 @@ import { VacancyForm, VacancyFull } from "components";
 import "./JobVacancies.css";
 import "components/VacancyCard/VacancyCard.css";
 import { AppContext } from "context";
-import { IJobData, jobData } from "../../utils/DummyVacancyData";
+import { IJobData } from "../../utils/DummyVacancyData";
 import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
@@ -29,62 +29,20 @@ const StyledModal = Modal.styled`
     overflow-y: scroll;
 `;
 
-// export const useFetch = (url, method, headers = {}, body = null) => {
-//   const [response, setResponse] = useState(null);
-//   const [error, setError] = useState(null);
-//   const [isLoading, setIsLoading] = useState(false);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       setIsLoading(true);
-//       await fetch(url, {
-//         method,
-//         headers,
-//         body,
-//       })
-//         .then((res) => setResponse(res.json()))
-//         .catch((err) => setError(err))
-//         .finally(() => setIsLoading(false));
-//     };
-//     fetchData();
-//   }, [url]);
-//   return { response, error, isLoading };
-// };
-
-
 export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
     const { openModal, setOpenModal, showVacancy } = React.useContext(AppContext);
     const [search, setSearch] = React.useState<string>('');
     const [searchFilter, setSearchFilter] = React.useState<string>('title');
     const [vacancies, setVacancies] = React.useState<IJobData[]>([]);
 
-    // React.useEffect(() => {
-    //     fetch('http://interview-server-heroku.herokuapp.com/vacancies', {headers: {'Content-Type': 'application/json'}})
-    //         .then((response) => {
-    //             response.json()
-    //         })
-    //         .then((response) => {
-    //             let data;
-    //             data = response.json()
-    //             console.log(data);
-    //         })
-    // },[])
-
 	React.useEffect(() => {
-		const fetchData = async () => {
-			await fetch('http://interview-server-heroku.herokuapp.com/vacancies', {headers: {'Content-Type': 'application/json'}})
-			.then((res) => {
-				res.json()
-				console.log(res);
-				
-			})
-			.catch((err) => {
-				console.log(err);
-				
-			})
-		};
+		async function fetchData() {
+			const res = await fetch(`${process.env.BASE_URL}/vacancies`)
+			const json = await res.json();
+			setVacancies(json);
+		}
 		fetchData();
-		}, []);
+	}, [])
 
     const toggleModal = () => {
         setOpenModal(!openModal)
@@ -173,7 +131,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 						</motion.div>
 					</article>
 					<div>
-						<JobVacanciesList data={jobData} search={search} searchFilter={searchFilter}  />
+						<JobVacanciesList data={vacancies} search={search} searchFilter={searchFilter}  />
 					</div>
 				</motion.div>
 			</motion.div>
