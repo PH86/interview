@@ -53,4 +53,4 @@ export const JobVacanciesList: React.FC<IJobVacanciesList> = ({data, searchFilte
             ))}
         </div>
     )
-} 
+}
