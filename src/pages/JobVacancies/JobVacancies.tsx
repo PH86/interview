@@ -37,7 +37,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 
 	React.useEffect(() => {
 		async function fetchData() {
-			const res = await fetch(`${process.env.BASE_URL}/vacancies`)
+			const res = await fetch(`${process.env.REACT_APP_API_URL}/vacancies`)
 			const json = await res.json();
 			setVacancies(json);
 		}
