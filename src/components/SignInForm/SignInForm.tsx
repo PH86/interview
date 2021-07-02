@@ -1,15 +1,20 @@
 import React from "react";
 import "./SignInForm.css";
 import logo from "../../images/interview-dark.svg";
-import { AppContext } from "../../context";
+import { useAppContext } from "hooks/useAppContext";
+import history from "utils/history";
+import { urls } from 'utils/constants';
+
 
 export const SignInForm: React.FC<{}> = (): React.ReactElement => {
-	const { setLoggedIn } = React.useContext(AppContext);
+	const { signIn } = useAppContext()
 	const [passwordRecover, setPasswordRecover] = React.useState(false);
 
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
-		setLoggedIn(true);
+		signIn('test')
+		history.push(urls.dashboard)
+
 	};
 
 	const handleRecover = (event: React.FormEvent) => {
@@ -43,11 +48,15 @@ export const SignInForm: React.FC<{}> = (): React.ReactElement => {
 					<form id="loginForm" onSubmit={handleSubmit}>
 						<div className="input-container">
 							<label htmlFor="email">EMAIL ADDRESS</label>
-							<input type="email" id="email" name="email" required />
+							<input type="email" id="email" name="email" 
+							// required 
+							/>
 						</div>
 						<div className="input-container">
 							<label htmlFor="password">PASSWORD</label>
-							<input type="password" id="password" name="password" required />
+							<input type="password" id="password" name="password" 
+							// required 
+							/>
 						</div>
 					</form>
 					<div>

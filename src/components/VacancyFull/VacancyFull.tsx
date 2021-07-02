@@ -1,7 +1,8 @@
 import React from 'react'
-import { AppContext } from "../../context";
+import { AppContext } from "context/AppContext";
 import styled from "styled-components";
-import { backgroundColor, textColor } from '../../themes/theme'
+import { backgroundColor, textColor } from 'themes/theme'
+import { useAppContext } from 'hooks/useAppContext';
 
 const Article = styled.article`
     background-color: ${backgroundColor};
@@ -9,7 +10,7 @@ const Article = styled.article`
 `;
 
 export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
-    const { setOpenModal, setShowVacancy, jobForm, setJobForm } = React.useContext(AppContext);
+    const { setOpenModal, setShowVacancy, jobForm, setJobForm } = useAppContext();
     const submitForm = () => {
         setJobForm({
             jobTitle: '',
@@ -24,8 +25,8 @@ export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
             desiredRequirments: [],
             responsibilities: []
         });
-        setShowVacancy(false);
-        setOpenModal(false);
+        setShowVacancy();
+        setOpenModal();
     }
 
     return (
@@ -33,40 +34,40 @@ export const VacancyFull: React.FC<{}> = (): React.ReactElement => {
             <Article className='single-job-container'>
                 <div className='single-job-header'>
                     <div className='single-job-title'>
-                        <h1>{jobForm.jobTitle}</h1>
-                        <h4>End Date: {jobForm.endDate}</h4>
+                        <h1>{jobForm?.jobTitle}</h1>
+                        <h4>End Date: {jobForm?.endDate}</h4>
                     </div>
-                    <h2>{jobForm.companyName}</h2>
-                    <h4>Location: {jobForm.location}</h4>
-                    <h5>{jobForm.companyDescription}</h5>
-                    <h4>Salary: £{jobForm.salaryMin}-£{jobForm.salaryMax} per annum</h4>
+                    <h2>{jobForm?.companyName}</h2>
+                    <h4>Location: {jobForm?.location}</h4>
+                    <h5>{jobForm?.companyDescription}</h5>
+                    <h4>Salary: £{jobForm?.salaryMin}-£{jobForm?.salaryMax} per annum</h4>
                 </div>
                 <div className='single-job-header'>
                     <h2>Description</h2>
-                    <h5>{jobForm.jobDescription}</h5>
+                    <h5>{jobForm?.jobDescription}</h5>
                 </div>
                 <div className='single-job-header'>
                     <h3>Essential Requirements</h3>
                     <ul>
-                        {jobForm.essentialRequirments.map(essential => {
+                        {jobForm?.essentialRequirments.map((essential: string) => {
                             return <li>{essential}</li>
                         })}
                     </ul>
                     <h3>Desirable</h3>
                     <ul>
-                        {jobForm.desiredRequirments.map(desirable => {
+                        {jobForm?.desiredRequirments.map((desirable: string) => {
                             return <li>{desirable}</li>
                         })}
                     </ul>
                     <h3>Key Responsibilities</h3>
                     <ul>
-                        {jobForm.responsibilities.map(responsibility => {
+                        {jobForm?.responsibilities.map((responsibility: string) => {
                             return <li>{responsibility}</li>
                         })}
                     </ul>
                 </div>
                 <button onClick={() => submitForm()} className="standard-button">Submit</button>
-                <button onClick={() => setShowVacancy(false)} className="standard-button">Edit</button>
+                <button onClick={() => setShowVacancy()} className="standard-button">Edit</button>
             </Article>
         </div>
     )

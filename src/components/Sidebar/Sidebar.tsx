@@ -1,17 +1,20 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Sidebar.css";
 import styled from "styled-components";
-import logoLight from "../../images/interview-light.svg";
-import logoDark from '../../images/interview-dark.svg';
-import { AppContext } from "../../context";
 import { motion } from "framer-motion";
-import { sidebarTransitions, staggerTransitions } from "../../utils/Animations";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTachometerAltFast, faNewspaper, faSearch, faChartNetwork, faUserCog, faUserChart, faSun, faSpaceStationMoonAlt, faPortalEnter } from '@fortawesome/pro-duotone-svg-icons';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { useTheme } from '../../themes/themeManager';
-import { secondaryGrey, sidebarBackgroundColor, sidebarTextColor } from "../../themes/theme";
+
+import { useTheme } from 'themes/themeManager';
+import { secondaryGrey, sidebarBackgroundColor, sidebarTextColor } from "themes/theme";
+import "./Sidebar.css";
+import logoLight from "images/interview-light.svg";
+import logoDark from 'images/interview-dark.svg';
+
+import { useAppContext } from "hooks/useAppContext";
+import { sidebarTransitions, staggerTransitions } from "utils/Animations";
+
 
 const SidebarContainer = styled.div`
   background-color: ${sidebarBackgroundColor};
@@ -30,8 +33,8 @@ const SignoutContainer = styled.div`
 `;
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
-  const { setLoggedIn } = React.useContext(AppContext);
-  const urlLocation = useLocation();
+  const { signOut } = useAppContext();
+  // const urlLocation = useLocation();
   const theme = useTheme();
   React.useEffect(() => {
     const toggleButton = document.getElementsByClassName('toggle-button')[0];
@@ -67,7 +70,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
                 variants={sidebarTransitions}
               />}
             <LinkContainer className="sidebar-links">
-              <motion.div variants={sidebarTransitions}>
+              {/* <motion.div variants={sidebarTransitions}>
                 <li>
                   <Link to="/interview/dashboard" className={urlLocation.pathname === "/interview/dashboard" ? "sidebar-link-active" : "sidebar-link"}>
                     {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} /> : <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} swapOpacity />}
@@ -114,7 +117,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
                     ACCOUNT & BILLING
                   </Link>
                 </li>
-              </motion.div>
+              </motion.div> */}
               <motion.div variants={sidebarTransitions}>
                 <li>
                   <a onClick={() => theme.toggle()}>
@@ -123,7 +126,7 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
                 </li>
               </motion.div>
               <motion.div variants={sidebarTransitions}>
-                <SignoutContainer onClick={() => setLoggedIn(false)} className='sidebar-signout'>
+                <SignoutContainer onClick={() => signOut()} className='sidebar-signout'>
                   <p>User Name</p>
                   <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
                 </SignoutContainer>

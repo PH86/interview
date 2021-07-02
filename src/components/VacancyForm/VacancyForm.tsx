@@ -1,8 +1,8 @@
 import React from 'react';
 import './VacancyForm.css';
-import { AppContext } from '../../context';
 import styled from "styled-components";
-import { backgroundColor, textColor, shadow } from '../../themes/theme'
+import { backgroundColor, textColor, shadow } from 'themes/theme'
+import { useAppContext } from 'hooks/useAppContext';
 
 const Wrapper = styled.div`
 background-color: ${backgroundColor};
@@ -15,7 +15,7 @@ box-shadow: ${shadow};
 
 export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
 
-    const { setShowVacancy, jobForm, setJobForm } = React.useContext(AppContext);
+    const { setShowVacancy, jobForm, setJobForm } = useAppContext();
     const [jobTitle, setJobTitle] = React.useState('');
     const [companyName, setCompanyName] = React.useState('');
     const [location, setLocation] = React.useState('');
@@ -46,7 +46,7 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
             desiredRequirments: desiredRequirments,
             responsibilities: responsibilities
         })
-        setShowVacancy(true);
+        setShowVacancy();
     }
 
     const clearForm = () => {
@@ -64,17 +64,19 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
     }
 
     React.useEffect(() => {
-        setJobTitle(jobForm.jobTitle);
-        setCompanyName(jobForm.companyName);
-        setLocation(jobForm.location);
-        setCompanyDescription(jobForm.companyDescription);
-        setSalaryMin(jobForm.salaryMin);
-        setSalaryMax(jobForm.salaryMax);
-        setEndDate(jobForm.endDate);
-        setJobDescription(jobForm.jobDescription);
-        setEssentialRequirments(jobForm.essentialRequirments);
-        setDesiredRequirments(jobForm.desiredRequirments);
-        setResponsibilities(jobForm.responsibilities);
+        if (jobForm) {
+            setJobTitle(jobForm.jobTitle);
+            setCompanyName(jobForm.companyName);
+            setLocation(jobForm.location);
+            setCompanyDescription(jobForm.companyDescription);
+            setSalaryMin(jobForm.salaryMin);
+            setSalaryMax(jobForm.salaryMax);
+            setEndDate(jobForm.endDate);
+            setJobDescription(jobForm.jobDescription);
+            setEssentialRequirments(jobForm.essentialRequirments);
+            setDesiredRequirments(jobForm.desiredRequirments);
+            setResponsibilities(jobForm.responsibilities);
+        }
     }, []);
 
     const addEssentialRequirment = () => {

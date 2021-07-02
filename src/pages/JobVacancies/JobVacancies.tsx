@@ -5,11 +5,12 @@ import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions
 import { VacancyCard, VacancyForm, VacancyFull } from "components";
 import "./JobVacancies.css";
 import "components/VacancyCard/VacancyCard.css";
-import { AppContext } from "context";
+import { AppContext } from "context/AppContext";
 import { IJobData } from "../../utils/DummyVacancyData";
 import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
+import { useAppContext } from "hooks/useAppContext";
 
 const StyledModal = Modal.styled`
     width: 90vw;
@@ -28,7 +29,10 @@ const StyledModal = Modal.styled`
 `;
 
 export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
-    const { openModal, setOpenModal, showVacancy } = React.useContext(AppContext);
+    const { openModal, setOpenModal, showVacancy } = useAppContext();
+    
+    console.log(openModal);
+    
     const [search, setSearch] = React.useState<string>('');
     const [searchFilter, setSearchFilter] = React.useState<string>('title');
     const [vacancies, setVacancies] = React.useState<IJobData[]>([]);
@@ -41,7 +45,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
     },[])
 
     const toggleModal = () => {
-        setOpenModal(!openModal)
+        setOpenModal()
     }
 
     return (
@@ -170,16 +174,19 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
                     </div>
                 </motion.div>
             </motion.div>
-            <button onClick={() => setOpenModal(true)} className="standard-button">
+            <button onClick={() => setOpenModal()} className="standard-button">
                 Add Vacancy
             </button>
             <StyledModal
-                isOpen={openModal}
+                // TODO:  
+                // need to update this isOpen variable
+                // For some reason it's not accepting the context value
+                isOpen={false}
                 onBackgroundClick={toggleModal}
                 onEscapeKeydown={toggleModal}
             >
                 <motion.div variants={modalTransitions}>
-                    <button onClick={() => setOpenModal(false)} className="standard-button">
+                    <button onClick={() => setOpenModal()} className="standard-button">
                         Close
                     </button>
                     {showVacancy ? <VacancyFull /> : <VacancyForm />}
