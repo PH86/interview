@@ -33,13 +33,11 @@
 .package-price {
     font-size: 1em;
     margin: 0;
-    color: var(--clr-text-tertiary);
 }
 
 .package-container span {
     font-size: 3em;
     font-family: 'Roboto Slab', 'Open Sans', sans-serif;
-    color: initial;
 }
 
 .package-tag {

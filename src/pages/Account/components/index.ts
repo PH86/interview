@@ -1,2 +1,2 @@
 export { EditBillingInformation } from './EditBillingInformation'
-export { EditPaymentInformation } from './EditPaymentInformation'
+export { EditPaymentMethod } from './EditPaymentMethod'

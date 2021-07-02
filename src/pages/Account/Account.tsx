@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import Modal from "styled-react-modal";
 
-import { backgroundColor } from "themes/theme";
+import { backgroundColor, textColor } from "themes/theme";
 import { pageTransitions, modalTransitions} from "utils/Animations";
 import './Account.css'
 
 import { ColumnDefinitionType } from 'components/Table/Table'
 import { MetaInfo, Table, Packages } from 'components';
-import { EditBillingInformation, EditPaymentInformation } from './components';
+import { EditBillingInformation, EditPaymentMethod } from './components';
 
 const StyledModal = Modal.styled`
     top: '50%',
@@ -21,6 +21,7 @@ const StyledModal = Modal.styled`
     align-items: center;
     justify-content: center;
     background-color: ${backgroundColor};
+    color: ${textColor};
     border-radius: 15px;
 `;
 
@@ -131,7 +132,7 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
                         label="Expiring"
                         text="09/22"
                     />
-                    <button  className="standard-button" onClick={() => openModalComponent(<EditPaymentInformation />)}>Edit</button>
+                    <button  className="standard-button" onClick={() => openModalComponent(<EditPaymentMethod />)}>Edit</button>
                 </div>
             </div>
 
