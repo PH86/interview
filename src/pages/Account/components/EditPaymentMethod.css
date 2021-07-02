@@ -1,0 +1,21 @@
+.card-form {
+   width: 100%;
+}
+
+.card-form input {
+    margin-left: 0;
+}
+
+input.card-number {
+    width: 400px;
+}
+
+input.expiry-date {
+    width: 280px;
+}
+
+input.cvv-number { 
+    margin-left: 0.5em;
+    width: 100px;
+    min-width: 100px;
+}

@@ -1,5 +1,4 @@
-.content-container {
-    text-align: left;
+.accounts-content-container {
     padding: 1em;
 }
 
@@ -10,7 +9,6 @@
      justify-content: space-between;
      flex-wrap: wrap;
 }
-
 
 .bills-container {
     margin: 1em 0.5em;
@@ -23,8 +21,7 @@
 .detail-box {
     border-radius: 15px;
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.151);
-    max-width: 250px;
-    max-height: 250px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -34,6 +31,8 @@
 .detail-box  h2 {
     font-size: 3em;
     margin: 0;
+    font-family: 'Roboto Slab', 'Open Sans', sans-serif;
+
 }
 
 .detail-box p {
@@ -62,6 +61,8 @@
 
 .stat-box h2 {
     font-size: 2em;
+    font-family: 'Roboto Slab', 'Open Sans', sans-serif;
+
 }
 
 .stat-box p {
@@ -72,7 +73,7 @@
 
 
 
-button {
+.button {
     padding: 1em;
     border: none;
     border-radius: 5px;
@@ -83,4 +84,28 @@ button {
 .latest-bill {
     background-color: var(--clr-button-primary);
     color: var(--clr-text-secondary);
+}
+
+.modal-form {
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    align-items: flex-start;
+}
+
+.modal-form label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.modal-form input {
+    min-width: 250px;
+    margin-left: 2em;
+}
+
+.modal-form button {
+    margin-top: 1.5em;
 }
