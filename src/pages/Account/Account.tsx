@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import Modal from "styled-react-modal";
 
@@ -8,9 +8,9 @@ import './Account.css'
 
 import { ColumnDefinitionType } from 'components/Table/Table'
 import { MetaInfo, Table, Packages } from 'components';
+import { EditBillingInformation, EditPaymentInformation } from './components';
 
 const StyledModal = Modal.styled`
-    height: 90vh;
     top: '50%',
     left: '50%',
     right: 'auto',
@@ -74,9 +74,15 @@ const columns: ColumnDefinitionType<iBill, keyof iBill>[] = [
 
 export const Account: React.FC<{}> = (): React.ReactElement => {
     const [openModal, setOpenModal] = useState<boolean>(false);
+    const [modalComponent, setModalComponent] = useState<JSX.Element>()
 
     const toggleModal = () => {
         setOpenModal(!openModal)
+    }
+
+    const openModalComponent = (component: JSX.Element) => {
+        setModalComponent(component)
+        setOpenModal(true)
     }
     
     return (
@@ -85,7 +91,7 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
             animate="animate"
             exit="initial"
             variants={pageTransitions}
-            className="accounts-content-container"
+            className="content-container accounts-content-container"
         >
             <h1>Account details</h1>
 
@@ -94,7 +100,7 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
                     <p>Current subscription package</p>
                     <h2>£25</h2>
                     <p className="package-name">Standard Package</p>
-                    <button className="standard-button" onClick={() => setOpenModal(true)}>Change Plan</button>
+                    <button className="standard-button" onClick={() => openModalComponent(<Packages />)}>Change Plan</button>
                 </div>
                 <button className="standard-button latest-bill">View Latest Bill</button>
             </div>
@@ -113,7 +119,7 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
                         label="VAT number"
                         text="GB123456789"
                     />
-                    <button  className="standard-button" onClick={() => setOpenModal(true)}>Edit</button>
+                    <button  className="standard-button" onClick={() => openModalComponent(<EditBillingInformation />)}>Edit</button>
                 </div>
                 <div className="detail-box sub-box">
                     <p><b>Payment Method</b></p>
@@ -125,7 +131,7 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
                         label="Expiring"
                         text="09/22"
                     />
-                    <button  className="standard-button" onClick={() => setOpenModal(true)}>Edit</button>
+                    <button  className="standard-button" onClick={() => openModalComponent(<EditPaymentInformation />)}>Edit</button>
                 </div>
             </div>
 
@@ -150,7 +156,7 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
                 onEscapeKeydown={toggleModal}
             >
                 <motion.div variants={modalTransitions}>
-                    <Packages />
+                    {modalComponent}
                 </motion.div>
             </StyledModal>
         </motion.div>
