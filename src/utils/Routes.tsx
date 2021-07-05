@@ -21,13 +21,14 @@ export const Routes = () => {
     return (
         <Switch>
             <Route exact path={url.signIn} component={SignIn} />
-            <AuthenticatedRoute exact path={'/'} component={Dashboard} />
-            <AuthenticatedRoute exact path={url.dashboard} component={Dashboard} />
+            <AuthenticatedRoute exact path={url.home} component={Dashboard} />
+            <Redirect from={url.dashboard} to={url.home} />
             <AuthenticatedRoute exact path={url.jobs} component={JobVacancies} />
             <AuthenticatedRoute path={url.candidates} exact component={CandidateSearch} />
             <AuthenticatedRoute path={url.studio} exact component={ReportingStudio} />
             <AuthenticatedRoute path={url.settings} exact component={UserSettings} />
             <AuthenticatedRoute path={url.account}exact component={Account} />
+            <AuthenticatedRoute path={"*"} component={DefaultRoute} />
         </Switch>    
     )
 }

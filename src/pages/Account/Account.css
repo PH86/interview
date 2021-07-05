@@ -70,17 +70,6 @@
     font-size: 1em;
 }
 
-
-
-
-.button {
-    padding: 1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #33add2;
-    color: #ffffff;
-}
-
 .latest-bill {
     background-color: var(--clr-button-primary);
     color: var(--clr-text-secondary);

@@ -71,7 +71,6 @@ export const SignInForm: React.FC<{}> = (): React.ReactElement => {
 					</div>
 				</>
 			)}
-			<Link to={url.dashboard}>SIGN IN</Link>
 		</article>
 	);
 }
