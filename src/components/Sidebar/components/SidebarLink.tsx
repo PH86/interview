@@ -21,7 +21,7 @@ export const SidebarLink: React.FC<ISidebarLink> =  ({title, url, icon}) => {
     return (
         <motion.div variants={sidebarTransitions}>
             <li>
-            <Link to={url} className={routeMatch ? "sidebar-link-active" : "sidebar-link"}>
+            <Link to={url} className={`sidebar-link ${routeMatch ? "sidebar-link-active" : null}`}>
                 <FontAwesomeIcon className='sidebar-icon' icon={icon} swapOpacity={swapOpacity} />
                 {title}
             </Link>

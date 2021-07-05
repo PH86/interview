@@ -1,4 +1,5 @@
 import React, { useState }  from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,20 +36,12 @@ const SignoutContainer = styled.div`
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
   const { signOut } = useAppContext();
-  // const urlLocation = useLocation();
+  const urlLocation = useLocation();
   const theme = useTheme();
 
-  // React.useEffect(() => {
-  //   const toggleButton = document.getElementsByClassName('toggle-button')[0];
-  //   const sidebarLinks = document.getElementsByClassName('sidebar-links')[0];
-
-  //   toggleButton.addEventListener('click', () => {
-  //     sidebarLinks.classList.toggle('active');
-  //   });
-  //   sidebarLinks.addEventListener('click', () => {
-  //     sidebarLinks.classList.toggle('active');
-  //   });
-  // }, []);
+  React.useEffect(() => {
+    handleMenuToggle()
+  }, [urlLocation]);
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -82,20 +75,18 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
               <SidebarLink url={url.settings} title={'User Settings'} icon={faUserCog}/>
               <SidebarLink url={url.account} title={'Account Settings'} icon={faUserChart}/>
               
-              <motion.div variants={sidebarTransitions}>
-                <li>
-                  <button className="sidebar-link" onClick={() => theme.toggle()}>
-                    <FontAwesomeIcon className='sidebar-icon' icon={theme.mode === 'dark' ? faSun: faSpaceStationMoonAlt} />{theme.mode === 'dark' ? 'LIGHT' : 'NIGHT'} MODE
-                  </button>
-                </li>
-              </motion.div>
-              
-              <motion.div variants={sidebarTransitions}>
-                <SignoutContainer onClick={() => signOut()} className='sidebar-signout'>
+          
+                <SignoutContainer className='sidebar-signout'>
                   <p>User Name</p>
-                  <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
+                  <div>
+                    <button title="Toggle Theme" onClick={() => theme.toggle()}>
+                      <FontAwesomeIcon className='sidebar-icon' icon={theme.mode === 'dark' ? faSun: faSpaceStationMoonAlt} />
+                    </button>
+                    <button onClick={() => signOut()} >
+                    <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
+                    </button>
+                  </div>
                 </SignoutContainer>
-              </motion.div>
            
             </LinkContainer>
           </SidebarContainer>

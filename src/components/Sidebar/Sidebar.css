@@ -30,7 +30,6 @@
  }
 
 .sidebar-links li {
-  height: 5vh;
   list-style-type: none;
   width: 100%;
 }
@@ -42,7 +41,7 @@
 }
 
 .sidebar-link {
-  padding-left: 2rem;
+  padding: 1em 2em;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -54,13 +53,6 @@
 }
 
 .sidebar-link-active {
-  padding-left: 2rem;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  height: 100%;
-  font-size: 0.8rem;
-  font-weight: bold;
   color: white;
   background-color: rgb(124,126,132,0.5);
 }
@@ -76,7 +68,6 @@
 
 .toggle-button {
   position: absolute;
-  top: 2rem;
   right: 2rem;
   display: none;
   flex-direction: column;
@@ -85,6 +76,7 @@
   height: 21px;
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 .toggle-button .bar {
@@ -103,35 +95,46 @@
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.sidebar-signout:hover {
-  cursor: pointer;
-  background-color: var(--clr-primary-blue);
-  color: var(--clr-text-secondary)  
-}
-
 .sidebar-signout p {
   padding-left: 2rem;
   font-family: inherit;
   font-size: 1rem;
 }
 
+.sidebar-signout button { 
+  border: none;
+  background: none;
+  height: 4em;
+  cursor: pointer;
+  padding: 1em;
+}
+
+.sidebar-signout button:hover { 
+  background-color: var(--clr-primary-blue);
+  color: var(--clr-text-secondary)
+}
+
+.sidebar-signout .sidebar-icon {
+  padding: 0;
+}
+
 @media (max-width: 900px) {
   .sidebar-container{
-    float: none;
+    /* float: none; */
      width: 100vw;
-    height: 3rem;
+    height: 4rem;
     max-width: 1400px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    /* flex-direction: column; */
+    align-items: center;
+    /* padding-top: 1rem;
+    padding-bottom: 1rem; */
   }
   
   .sidebar-container img{
     margin: 0 auto;
     padding: 0;
-    height: 5vh;
+    height: 70%;
     width: auto;
   }
 
@@ -143,6 +146,8 @@
   .sidebar-links {
     display: none;
     width: 100%;
+    position: fixed;
+    top: 4em
   }
 
   .sidebar-signout {
@@ -156,7 +161,6 @@
 
   .sidebar-link {
     text-align: center;
-    margin: 0 auto;
   }
 
   .sidebar-links.active {

@@ -31,13 +31,3 @@ export const Routes = () => {
         </Switch>    
     )
 }
-
-{/* <Switch location={ location } key={ location.pathname }>
-<Redirect exact from="/interview" to="/interview/dashboard" />
-<Route path="/interview/dashboard" exact component={Dashboard} />
-<Route path="/interview/jobs" exact component={JobVacancies} />
-
-<Route path="/interview/jobs/:id">
-    <SingleJob />
-</Route>
-</Switch> */}
