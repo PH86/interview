@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useState, useEffect }  from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -36,14 +36,14 @@ const SignoutContainer = styled.div`
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
   const { signOut } = useAppContext();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const urlLocation = useLocation();
   const theme = useTheme();
 
-  React.useEffect(() => {
-    handleMenuToggle()
+  useEffect(() => {
+    setMenuOpen(false)
   }, [urlLocation]);
-
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen)
