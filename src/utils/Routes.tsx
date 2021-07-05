@@ -1,10 +1,15 @@
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
-import PrivateRoute from 'utils/PrivateRoute'
+import AuthenticatedRoute from 'utils/AuthenticatedRoute'
 
-import { urls } from './constants';
+import { url } from './constants';
 
 import { Dashboard } from "pages/Dashboard/Dashboard";
 import { SignIn } from "pages/SignIn/SignIn";
+import { JobVacancies } from "pages/JobVacancies/JobVacancies";
+import { CandidateSearch } from "pages/CandidateSearch/CandidateSearch";
+import { ReportingStudio } from "pages/ReportingStudio/ReportingStudio";
+import { UserSettings } from "pages/UserSettings/UserSettings";
+import { Account } from "pages/Account/Account";
 
 const DefaultRoute = () => (
     <div className="content-container">
@@ -15,9 +20,14 @@ const DefaultRoute = () => (
 export const Routes = () => {
     return (
         <Switch>
-            <Route path={urls.signIn} exact component={SignIn} />
-            <PrivateRoute exact path={urls.dashboard} component={Dashboard} />
-            <Route path={"*"} component={DefaultRoute} />
+            <Route exact path={url.signIn} component={SignIn} />
+            <AuthenticatedRoute exact path={'/'} component={Dashboard} />
+            <AuthenticatedRoute exact path={url.dashboard} component={Dashboard} />
+            <AuthenticatedRoute exact path={url.jobs} component={JobVacancies} />
+            <AuthenticatedRoute path={url.candidates} exact component={CandidateSearch} />
+            <AuthenticatedRoute path={url.studio} exact component={ReportingStudio} />
+            <AuthenticatedRoute path={url.settings} exact component={UserSettings} />
+            <AuthenticatedRoute path={url.account}exact component={Account} />
         </Switch>    
     )
 }
@@ -26,10 +36,7 @@ export const Routes = () => {
 <Redirect exact from="/interview" to="/interview/dashboard" />
 <Route path="/interview/dashboard" exact component={Dashboard} />
 <Route path="/interview/jobs" exact component={JobVacancies} />
-<Route path="/interview/candidates" exact component={CandidateSearch} />
-<Route path="/interview/studio" exact component={ReportingStudio} />
-<Route path="/interview/settings" exact component={UserSettings} />
-<Route path="/interview/account" exact component={Account} />
+
 <Route path="/interview/jobs/:id">
     <SingleJob />
 </Route>

@@ -1,5 +1,10 @@
-export const urls = {
+export const url = {
     home: '/',
     signIn: '/sign-in',
-    dashboard: '/dashboard'
+    dashboard: '/dashboard',
+    jobs: '/jobs',
+    candidates: '/candidates',
+    studio: '/studio',
+    settings: '/settings',
+    account: '/account'
 }

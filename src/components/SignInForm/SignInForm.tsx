@@ -2,19 +2,18 @@ import React from "react";
 import "./SignInForm.css";
 import logo from "../../images/interview-dark.svg";
 import { useAppContext } from "hooks/useAppContext";
-import history from "utils/history";
-import { urls } from 'utils/constants';
-
+import { url } from 'utils/constants';
+import { Link, useHistory } from "react-router-dom";
 
 export const SignInForm: React.FC<{}> = (): React.ReactElement => {
 	const { signIn } = useAppContext()
 	const [passwordRecover, setPasswordRecover] = React.useState(false);
+	const history = useHistory();
 
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
 		signIn('test')
-		history.push(urls.dashboard)
-
+		history.push(url.dashboard)
 	};
 
 	const handleRecover = (event: React.FormEvent) => {
@@ -45,7 +44,7 @@ export const SignInForm: React.FC<{}> = (): React.ReactElement => {
 				</>
 			) : (
 				<>
-					<form id="loginForm" onSubmit={handleSubmit}>
+					<form id="loginForm" onSubmit={(handleSubmit)}>
 						<div className="input-container">
 							<label htmlFor="email">EMAIL ADDRESS</label>
 							<input type="email" id="email" name="email" 
@@ -72,6 +71,7 @@ export const SignInForm: React.FC<{}> = (): React.ReactElement => {
 					</div>
 				</>
 			)}
+			<Link to={url.dashboard}>SIGN IN</Link>
 		</article>
 	);
 }

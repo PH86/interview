@@ -49,6 +49,8 @@
   height: 100%;
   font-size: 0.8rem;
   font-weight: bold;
+  border: none;
+  background: none;
 }
 
 .sidebar-link-active {
@@ -81,6 +83,8 @@
   justify-content: space-between;
   width: 30px;
   height: 21px;
+  border: none;
+  background: none;
 }
 
 .toggle-button .bar {
@@ -127,12 +131,8 @@
   .sidebar-container img{
     margin: 0 auto;
     padding: 0;
-    height: 6vh;
+    height: 5vh;
     width: auto;
-  }
-  
-  .sidebar button {
-    min-width: 120px;
   }
 
   .toggle-button {
