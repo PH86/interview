@@ -1,10 +1,10 @@
-import { Switch, Route, Redirect, useLocation } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import AuthenticatedRoute from 'utils/AuthenticatedRoute'
 
 import { url } from './constants';
 
 import { Dashboard } from "pages/Dashboard/Dashboard";
-import { SignIn } from "pages/SignIn/SignIn";
+import { SignIn, PasswordReset } from "pages/Auth";
 import { JobVacancies } from "pages/JobVacancies/JobVacancies";
 import { CandidateSearch } from "pages/CandidateSearch/CandidateSearch";
 import { ReportingStudio } from "pages/ReportingStudio/ReportingStudio";
@@ -21,6 +21,7 @@ export const Routes = () => {
     return (
         <Switch>
             <Route exact path={url.signIn} component={SignIn} />
+            <Route exact path={url.passwordReset} component={PasswordReset} />
             <AuthenticatedRoute exact path={url.home} component={Dashboard} />
             <Redirect from={url.dashboard} to={url.home} />
             <AuthenticatedRoute exact path={url.jobs} component={JobVacancies} />

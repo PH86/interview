@@ -12,10 +12,10 @@ import "./Sidebar.css";
 import logoLight from "images/interview-light.svg";
 import logoDark from 'images/interview-dark.svg';
 
-import { useAppContext } from "hooks/useAppContext";
 import { sidebarTransitions, staggerTransitions } from "utils/Animations";
 import { url } from "utils/constants";
 import { SidebarLink } from "./components/SidebarLink";
+import { useAuthContext } from "hooks/useAuthContext";
 
 
 const SidebarContainer = styled.div`
@@ -35,7 +35,7 @@ const SignoutContainer = styled.div`
 `;
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
-  const { signOut } = useAppContext();
+  const { signOut } = useAuthContext();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const urlLocation = useLocation();

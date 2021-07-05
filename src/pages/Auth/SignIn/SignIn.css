@@ -13,6 +13,11 @@
   justify-items: center;
 }
 
+.slim-container { 
+  display: block;
+  min-width: auto;
+}
+
 .form-container-footer {
   padding: 0.4rem 0rem;
   width: 100%;
@@ -20,6 +25,8 @@
   justify-content: center;
   background-color: var(--clr-secondary-grey);
   font-size: 0.8rem;
+  position: absolute;
+  bottom: 0;
 }
 
 .form-container-footer p {
