@@ -22,6 +22,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: var(--clr-secondary-grey);
   font-size: 0.8rem;
   position: absolute;
@@ -93,4 +94,11 @@
 
 .error-message { 
   color: var(--clr-text-error);
+}
+
+.form-heading {
+  font-size: 2em;
+  width: 70%;
+  margin: 0 auto 1em;
+  font-family: 'Roboto Slab', 'Open Sans', sans-serif;
 }

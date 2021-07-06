@@ -20,25 +20,25 @@ export const Register: React.FC<{}> = (): React.ReactElement => {
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-    fetch(`${process.env.REACT_APP_API_URL}${apiUrl.auth.signIn}`, {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userDetails),
-    })
-    .then((res) => {
-        // Handle successful api call
-        if (res.ok) {
-            res.json()
-        // Show error message
-        } else {
-            setApiError('There was a problem with your request')
-        }
-    })
-    .catch((err) => console.log('error', err.error))
-    // Remove this line once api call is set up as this is currently bypassing everything above
-    .finally(() => signIn('test'))
+        fetch(`${process.env.REACT_APP_API_URL}${apiUrl.auth.signIn}`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userDetails),
+        })
+        .then((res) => {
+            // Handle successful api call
+            if (res.ok) {
+                res.json()
+            // Show error message
+            } else {
+                setApiError('There was a problem with your request')
+            }
+        })
+        .catch((err) => console.log('error', err.error))
+        // Remove this line once api call is set up as this is currently bypassing everything above
+        .finally(() => signIn('test'))
     };
 
     return (
@@ -52,41 +52,55 @@ export const Register: React.FC<{}> = (): React.ReactElement => {
             <div className="form-container">
             <img className="form-logo" src={logo} alt="Interview Logo" />
             {apiError && <p className="error-message">{apiError}</p>}
-                
+                <p className="form-heading">Register</p>
                 <form id="loginForm" onSubmit={(handleSubmit)}>
-                            <div className="input-container">
-                                <label htmlFor="email">Email address</label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    onChange={(e) => handleOnChange(e)}
-                                    required 
-                                />
-                            </div>
-                            <div className="input-container">
-                                <label htmlFor="password">Password</label>
-                                <input 
-                                    type="password" 
-                                    id="password" 
-                                    name="password" 
-                                    onChange={(e) => handleOnChange(e)}
-                                    required 
-                                />
-                            </div>
+                    <div className="input-container">
+                        <label htmlFor="name">Your name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            onChange={(e) => handleOnChange(e)}
+                            required 
+                        />
+                    </div>
+                    <div className="input-container">
+                        <label htmlFor="email">Email address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            onChange={(e) => handleOnChange(e)}
+                            required 
+                        />
+                    </div>
+                    <div className="input-container">
+                        <label htmlFor="company">Company name</label>
+                        <input 
+                            type="text" 
+                            id="company-name" 
+                            name="company-name" 
+                            onChange={(e) => handleOnChange(e)}
+                            required 
+                        />
+                    </div>
+                    <div className="input-container">
+                        <label htmlFor="password">Set a password</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            onChange={(e) => handleOnChange(e)}
+                            required 
+                        />
+                    </div>
                 <button className="button" type="submit" form="loginForm">
-                                LOG IN
-                            </button>
-                        </form>
-                <Link 
-                                className="text-button"
-                    to={url.passwordReset} 
-                >
-                    Forgot your password?
-                </Link>
+                    CREATE ACCOUNT
+                </button>
+            </form>
             <div className="form-container-footer">
-                <p>Don’t have an account?</p>
-                <button className="text-button">Get started for free</button>
+                <p>Already have an account?</p>
+                <Link to={url.signIn} className="text-button">Sign In</Link>
             </div>
             </div>
             <div className="vertical"></div>

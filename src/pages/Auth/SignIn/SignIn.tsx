@@ -54,8 +54,8 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
       <div className="form-container">
       <img className="form-logo" src={logo} alt="Interview Logo" />
       {apiError && <p className="error-message">{apiError}</p>}
-			
       		<form id="loginForm" onSubmit={(handleSubmit)}>
+            <p className="form-heading">Sign in</p>
 						<div className="input-container">
 							<label htmlFor="email">Email address</label>
 							<input 
@@ -88,7 +88,7 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
             </Link>
         <div className="form-container-footer">
           <p>Don’t have an account?</p>
-          <button className="text-button">Get started for free</button>
+          <Link to={url.register} className="text-button">Get started for free</Link>
         </div>
       </div>
       <div className="vertical"></div>
