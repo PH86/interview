@@ -2,6 +2,7 @@ export const url = {
     home: '/interview/',
     signIn: '/interview/sign-in',
     passwordReset: '/interview/password-reset',
+    register: '/interview/register',
     dashboard: '/interview/dashboard',
     jobs: '/interview/jobs',
     candidates: '/interview/candidates',
