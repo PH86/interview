@@ -9,11 +9,12 @@ import { pageTransitions } from "utils/Animations";
 import searchIcon from "images/searchIcon.png";
 
 import { useAuthContext } from "hooks/useAuthContext";
-import { url } from 'utils/constants';
+import { apiUrl, url } from 'utils/constants';
 
 export const SignIn: React.FC<{}> = (): React.ReactElement => {
   const { signIn } = useAuthContext()
 	const [userDetails, setUserDetails] = useState({email: '', password: ''})
+  const [apiError, setApiError] = useState('')
 
 	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setUserDetails((userDetails) => ({...userDetails, [event.target.name]: event.target.value}))
@@ -21,22 +22,23 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
 
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
-    fetch(`${process.env.REACT_APP_API_URL}/api/login`, {
+    fetch(`${process.env.REACT_APP_API_URL}${apiUrl.auth.signIn}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userDetails),
     })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.token) {
-          signIn(result.token)
-        } else {
-          console.log(result.error)
-        }
-      })
-      .catch((err) => console.log('error', err.error))
+    .then((res) => {
+      // Handle successful api call
+      if (res.ok) {
+          res.json()
+      // Show error message
+      } else {
+          setApiError('There was a problem with your request')
+      }
+    })
+    .catch((err) => console.log('error', err.error))
   };
 
   return (
@@ -49,7 +51,9 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
     >
       <div className="form-container">
       <img className="form-logo" src={logo} alt="Interview Logo" />
-					<form id="loginForm" onSubmit={(handleSubmit)}>
+      {apiError && <p className="error-message">{apiError}</p>}
+			
+      		<form id="loginForm" onSubmit={(handleSubmit)}>
 						<div className="input-container">
 							<label htmlFor="email">Email address</label>
 							<input 

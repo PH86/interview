@@ -90,3 +90,7 @@
     align-items: center;
   }
 }
+
+.error-message { 
+  color: var(--clr-text-error);
+}
