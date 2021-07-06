@@ -39,6 +39,8 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
       }
     })
     .catch((err) => console.log('error', err.error))
+    // Remove this line once api call is set up as this is currently bypassing everything above
+    .finally(() => signIn('test'))
   };
 
   return (
