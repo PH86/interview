@@ -13,7 +13,7 @@ import { url } from 'utils/constants';
 
 export const SignIn: React.FC<{}> = (): React.ReactElement => {
   const { signIn } = useAuthContext()
-	const [userDetails, setUserDetails] = useState({})
+	const [userDetails, setUserDetails] = useState({email: '', password: ''})
 
 	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setUserDetails((userDetails) => ({...userDetails, [event.target.name]: event.target.value}))
@@ -21,8 +21,23 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
 
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
-		signIn(userDetails)
-	};
+    fetch(`${process.env.REACT_APP_API_URL}/api/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userDetails),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.token) {
+          signIn(result.token)
+        } else {
+          console.log(result.error)
+        }
+      })
+      .catch((err) => console.log('error', err.error))
+  };
 
   return (
     <motion.div

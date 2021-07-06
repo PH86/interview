@@ -8,21 +8,10 @@ export const useAuthContext = () => {
     const [authState, setAuthState] = useContext(AuthContext);
     const history = useHistory();
 
-    const signIn = (credentials: {}) => {
-        fetch(`${process.env.REACT_APP_API_URL}/sign-in`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accepts': 'application/json'
-            },
-            body: JSON.stringify(credentials)
-          })
-          .then(response => response.json())
-          .then(json => {
-            setAuthState(authState => ({...authState, user: json.user}))
-            localStorage.setItem('token', json.token)
-          })
+    const signIn = async (value: string) => {
+        setAuthState(authState => ({...authState, token: value}))
+        localStorage.setItem('token', value)
+        history.push(url.dashboard)
     }
 
     const signOut = () => {
@@ -52,6 +41,7 @@ export const useAuthContext = () => {
 
     return {
         user: authState.user,
+        token: authState.token,
         signIn, 
         signOut,
         resetPassword

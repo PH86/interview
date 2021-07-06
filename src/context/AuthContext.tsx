@@ -5,6 +5,7 @@ export interface IAuthState {
         id: number;
         email: string;
     } | {};
+    token?: string
 }
 
 type IAuthContext = [IAuthState, React.Dispatch<React.SetStateAction<IAuthState>>];
