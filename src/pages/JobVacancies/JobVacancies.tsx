@@ -2,17 +2,14 @@ import React from "react";
 import Modal from "styled-react-modal";
 import { motion } from "framer-motion";
 import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "utils/Animations";
-import { VacancyForm, VacancyFull } from "components";
+import { VacancyFormWrapper, JobVacanciesList } from "./components";
 import "./JobVacancies.css";
-import "components/VacancyCard/VacancyCard.css";
-import { AppContext } from "context/AppContext";
+import "./components/VacancyCard/VacancyCard.css";
 import { IJobData } from "../../utils/DummyVacancyData";
 import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
 import { useAppContext } from "hooks/useAppContext";
-
-import { JobVacanciesList } from "./components/JobVacanciesList";
 
 const StyledModal = Modal.styled`
     width: 90vw;
@@ -31,9 +28,7 @@ const StyledModal = Modal.styled`
 `;
 
 export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
-    const { openModal, setOpenModal, showVacancy } = useAppContext();
-    
-    console.log(openModal);
+    const { openModal, setOpenModal } = useAppContext();
     
     const [search, setSearch] = React.useState<string>('');
     const [searchFilter, setSearchFilter] = React.useState<string>('title');
@@ -51,6 +46,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
     const toggleModal = () => {
         setOpenModal()
     }
+
 	return (
 		<motion.div
 			initial="initial"
@@ -143,10 +139,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 				Add Vacancy
 			</button>
 			<StyledModal
-                // TODO:
-                // This library isn't accepting the context value
-                isOpen={false}
-				// isOpen={openModal}
+				isOpen={openModal}
 				onBackgroundClick={toggleModal}
 				onEscapeKeydown={toggleModal}
 			>
@@ -154,7 +147,10 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					<button onClick={() => setOpenModal()} className="standard-button">
 						Close
 					</button>
-					{showVacancy ? <VacancyFull /> : <VacancyForm />}
+
+					{/* {showVacancy ? <VacancyFull /> :  */}
+					<VacancyFormWrapper />
+					{/* } */}
 				</motion.div>
 			</StyledModal>
 		</motion.div>
