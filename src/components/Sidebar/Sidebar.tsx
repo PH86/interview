@@ -54,28 +54,22 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
       <nav className="sidebar">
         <motion.div variants={staggerTransitions}>
           <SidebarContainer className="sidebar-container">
-           
             <button className={`toggle-button ${menuOpen ? 'active' : null}`} onClick={handleMenuToggle}>
               <GiHamburgerMenu className='sidebar-icon' />
             </button>
-
             <motion.img
               className="sidebar-logo"
               src={theme.mode === 'dark' ? logoDark: logoLight}
               alt="Interview Logo"
               variants={sidebarTransitions}
             />
-
             <LinkContainer className={`sidebar-links ${menuOpen ? 'active' : null}`}>
-             
               <SidebarLink url={url.dashboard} title={'Dashboard'} icon={faTachometerAltFast}/>
               <SidebarLink url={url.jobs} title={'Job Vacancies'} icon={faNewspaper}/>
               <SidebarLink url={url.candidates} title={'Candidate Search'} icon={faSearch}/>
               <SidebarLink url={url.studio} title={'Reports'} icon={faChartNetwork}/>
               <SidebarLink url={url.settings} title={'User Settings'} icon={faUserCog}/>
-              <SidebarLink url={url.account} title={'Account Settings'} icon={faUserChart}/>
-              
-          
+              <SidebarLink url={url.account} title={'Account Settings'} icon={faUserChart}/>     
                 <SignoutContainer className='sidebar-signout'>
                   <p>User Name</p>
                   <div>
@@ -87,7 +81,6 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
                     </button>
                   </div>
                 </SignoutContainer>
-           
             </LinkContainer>
           </SidebarContainer>
         </motion.div>

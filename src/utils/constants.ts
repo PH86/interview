@@ -1,13 +1,13 @@
 export const url = {
-    home: '/',
-    signIn: '/sign-in',
-    passwordReset: '/password-reset',
-    dashboard: '/dashboard',
-    jobs: '/jobs',
-    candidates: '/candidates',
-    studio: '/studio',
-    settings: '/settings',
-    account: '/account',
+    home: '/interview/',
+    signIn: '/interview/sign-in',
+    passwordReset: '/interview/password-reset',
+    dashboard: '/interview/dashboard',
+    jobs: '/interview/jobs',
+    candidates: '/interview/candidates',
+    studio: '/interview/studio',
+    settings: '/interview/settings',
+    account: '/interview/account',
 }
 
 export const apiUrl = {

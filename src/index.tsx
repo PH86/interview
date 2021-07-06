@@ -9,13 +9,12 @@ import { ThemeManager } from 'themes/themeManager';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeManager>
-			<AppContextProvider>
+      <AppContextProvider>
         <BrowserRouter>
             <App />
         </BrowserRouter>
        </AppContextProvider>
      </ThemeManager>
-   </React.StrictMode>
-  ,
+   </React.StrictMode>,
   document.getElementById('root')
 );
