@@ -10,6 +10,7 @@ import { CandidateSearch } from "pages/CandidateSearch/CandidateSearch";
 import { ReportingStudio } from "pages/ReportingStudio/ReportingStudio";
 import { UserSettings } from "pages/UserSettings/UserSettings";
 import { Account } from "pages/Account/Account";
+import { SingleJob } from "pages/SingleJob/SingleJob";
 
 const DefaultRoute = () => (
     <div className="content-container">
@@ -24,6 +25,7 @@ export const Routes = () => {
             <Route exact path={url.passwordReset} component={PasswordReset} />
             <AuthenticatedRoute exact path={url.home} component={Dashboard} />
             <Redirect from={url.dashboard} to={url.home} />
+            <AuthenticatedRoute exact path={`${url.jobs}/:id`} component={SingleJob} />
             <AuthenticatedRoute exact path={url.jobs} component={JobVacancies} />
             <AuthenticatedRoute path={url.candidates} exact component={CandidateSearch} />
             <AuthenticatedRoute path={url.studio} exact component={ReportingStudio} />

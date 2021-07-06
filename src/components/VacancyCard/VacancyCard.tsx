@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import './VacancyCard.css'
 
+import { url } from 'utils/constants'
+
 interface IVacancyCard {
     id: number,
     title: string,
@@ -14,7 +16,7 @@ interface IVacancyCard {
 export const VacancyCard: React.FC<IVacancyCard> = ({ id, title, company, location, salary, applicants, endDate }): React.ReactElement => {
     return (
         <article key={id} >
-            <Link to={`/interview/jobs/${id}`} className='vacancy-card-container'>
+            <Link to={`${url.jobs}/${id}`} className='vacancy-card-container'>
                 <h4>{title}</h4>
                 <div className="vertical"></div>
                 <h4>{company}</h4>
