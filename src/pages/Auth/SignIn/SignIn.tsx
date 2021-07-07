@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useState, useCallback } from 'react'; 
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
@@ -16,9 +16,9 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
 	const [userDetails, setUserDetails] = useState({email: '', password: ''})
   const [apiError, setApiError] = useState('')
 
-	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleOnChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
 		setUserDetails((userDetails) => ({...userDetails, [event.target.name]: event.target.value}))
-	}
+	},[setUserDetails])
 
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();

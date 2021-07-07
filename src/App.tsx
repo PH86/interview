@@ -7,7 +7,6 @@ import "App.css";
 import { useTheme } from 'themes/themeManager';
 import { Routes } from "utils/Routes";
 
-
 const App: React.FC<{}> = (): React.ReactElement => {
 	const theme = useTheme();
 

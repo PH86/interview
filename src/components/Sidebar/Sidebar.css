@@ -41,7 +41,7 @@
 }
 
 .sidebar-link {
-  padding: 1em 2em;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -104,9 +104,9 @@
 .sidebar-signout button { 
   border: none;
   background: none;
-  height: 4em;
+  height: 4rem;
   cursor: pointer;
-  padding: 1em;
+  padding: 1rem;
 }
 
 .sidebar-signout button:hover { 
@@ -143,7 +143,7 @@
     display: none;
     width: 100%;
     position: fixed;
-    top: 4em
+    top: 4rem;
   }
 
   .sidebar-signout {

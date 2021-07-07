@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import './VacancyForm.css';
 import styled from "styled-components";
 import { backgroundColor, textColor, shadow } from 'themes/theme'
-import { useAppContext } from 'hooks/useAppContext';
+import { IJobData } from 'utils/JobVacancyFull';
 
 const Wrapper = styled.div`
 background-color: ${backgroundColor};
@@ -13,106 +13,101 @@ const Shadow = styled.div`
 box-shadow: ${shadow};
 `;
 
-export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
+interface IVacancyForm {
+    jobForm: IJobData,
+    setJobForm: React.Dispatch<React.SetStateAction<IJobData>>,
+    setScreen: React.Dispatch<React.SetStateAction<string>>,
+}
 
-    const { setShowVacancy, jobForm, setJobForm } = useAppContext();
-    const [jobTitle, setJobTitle] = React.useState('');
-    const [companyName, setCompanyName] = React.useState('');
-    const [location, setLocation] = React.useState('');
-    const [companyDescription, setCompanyDescription] = React.useState('');
-    const [salaryMin, setSalaryMin] = React.useState('');
-    const [salaryMax, setSalaryMax] = React.useState('');
-    const [endDate, setEndDate] = React.useState('');
-    const [jobDescription, setJobDescription] = React.useState('');
-    const [essentialRequirments, setEssentialRequirments] = React.useState<string[]>([]);
-    const [essentialRequirmentInput, setEssentialRequirmentInput] = React.useState('');
-    const [desiredRequirments, setDesiredRequirments] = React.useState<string[]>([]);
-    const [desiredRequirmentInput, setDesiredRequirmentInput] = React.useState('');
-    const [responsibilities, setResponsibilities] = React.useState<string[]>([]);
-    const [responsibilitiesInput, setResponsibilitiesInput] = React.useState('');
+export const VacancyForm: React.FC<IVacancyForm> = ({jobForm, setJobForm, setScreen}): React.ReactElement => {
+    
+    const [essentialRequirmentInput, setEssentialRequirmentInput] = useState('');
+    const [desiredRequirmentInput, setDesiredRequirmentInput] = useState('');
+    const [responsibilitiesInput, setResponsibilitiesInput] = useState('');
+
+    const handleInputOnChange = useCallback((event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setJobForm((jobForm) => ({...jobForm, [event.target.name]: event.target.value }))
+    },[setJobForm])
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setJobForm({
-            jobTitle: jobTitle,
-            companyName: companyName,
-            location: location,
-            companyDescription: companyDescription,
-            salaryMin: salaryMin,
-            salaryMax: salaryMax,
-            endDate: endDate,
-            jobDescription: jobDescription,
-            essentialRequirments: essentialRequirments,
-            desiredRequirments: desiredRequirments,
-            responsibilities: responsibilities
-        })
-        setShowVacancy();
+        setScreen('review')
     }
 
     const clearForm = () => {
-        setJobTitle('');
-        setCompanyName('');
-        setLocation('');
-        setCompanyDescription('');
-        setSalaryMin('');
-        setSalaryMax('');
-        setEndDate('');
-        setJobDescription('');
-        setEssentialRequirments([]);
-        setDesiredRequirments([]);
-        setResponsibilities([]);
+        setJobForm({
+            id: 0,
+            title: '',
+            company: '',
+            location: '',
+            companyDescription: '',
+            applicants: 0,
+            salary: 0,
+            salaryMin: 0,
+            salaryMax: 0,
+            endDate: '',
+            jobDescription: '',
+            requirementsEssential: [],
+            requirementsDesirable: [],
+            responsibilities: []
+        })
     }
 
-    React.useEffect(() => {
-        if (jobForm) {
-            setJobTitle(jobForm.jobTitle);
-            setCompanyName(jobForm.companyName);
-            setLocation(jobForm.location);
-            setCompanyDescription(jobForm.companyDescription);
-            setSalaryMin(jobForm.salaryMin);
-            setSalaryMax(jobForm.salaryMax);
-            setEndDate(jobForm.endDate);
-            setJobDescription(jobForm.jobDescription);
-            setEssentialRequirments(jobForm.essentialRequirments);
-            setDesiredRequirments(jobForm.desiredRequirments);
-            setResponsibilities(jobForm.responsibilities);
-        }
-    }, []);
-
     const addEssentialRequirment = () => {
-        let arr: string[] = essentialRequirments;
-        arr.push(essentialRequirmentInput);
-        setEssentialRequirments(arr.filter(e => e));
-        setEssentialRequirmentInput('');
+        if (essentialRequirmentInput) {
+            setJobForm((jobForm) => ({...jobForm, 
+                requirementsEssential: [...jobForm.requirementsEssential, 
+                    essentialRequirmentInput]
+            }))
+            setEssentialRequirmentInput('')
+        }
     }
 
     const removeEssentialRequirment = (requirment: string) => {
-        setEssentialRequirments(
-            essentialRequirments.filter((item) => requirment !== item))
+        setJobForm((jobForm) => ({...jobForm, 
+            essentialRequirments: 
+                jobForm.requirementsEssential.filter(item => item !== requirment)
+        }))
     }
 
     const addDesiredRequirment = () => {
-        let arr: string[] = desiredRequirments;
-        arr.push(desiredRequirmentInput);
-        setDesiredRequirments(arr.filter(e => e));
-        setDesiredRequirmentInput('');
+        if (desiredRequirmentInput) {
+            setJobForm((jobForm) => ({...jobForm, 
+                requirementsDesirable: [...jobForm.requirementsDesirable, 
+                    desiredRequirmentInput]
+            }))
+            setDesiredRequirmentInput('')
+        }
     }
 
     const removeDesiredRequirment = (requirment: string) => {
-        setDesiredRequirments(
-            desiredRequirments.filter((item) => requirment !== item))
+        setJobForm((jobForm) => ({...jobForm, 
+            desiredRequirments: 
+                jobForm.requirementsDesirable.filter(item => item !== requirment)
+        }))
     }
 
     const addResponsibility = () => {
-        let arr: string[] = responsibilities;
-        arr.push(responsibilitiesInput);
-        setResponsibilities(arr.filter(e => e));
-        setResponsibilitiesInput('');
+        if (responsibilitiesInput) {
+            setJobForm((jobForm) => ({...jobForm, 
+                responsibilities: [...jobForm.responsibilities, 
+                    responsibilitiesInput]
+            }))
+            setResponsibilitiesInput('')
+        }
     }
 
     const removeResponsibility = (requirment: string) => {
-        setResponsibilities(
-            responsibilities.filter((item) => requirment !== item))
+        setJobForm((jobForm) => ({...jobForm, 
+            responsibilities: 
+                jobForm.responsibilities.filter(item => item !== requirment)
+        }))
+    }
+
+    const clearJobFormArray = (jobFormArray: string) => {
+        setJobForm((jobForm) => ({...jobForm,
+            [jobFormArray]: []
+        }))
     }
 
     return (
@@ -125,11 +120,11 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                         <input
                             className='form-input'
                             type='text'
-                            id='jobTitle'
-                            name='jobTitle'
+                            id='title'
+                            name='title'
                             placeholder='Job Title'
-                            value={jobTitle}
-                            onChange={(e) => setJobTitle(e.target.value)}
+                            value={jobForm.title}
+                            onChange={(e) => handleInputOnChange(e)}
                             required
                         />
                         <input
@@ -138,8 +133,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             id='salaryMin'
                             name='salaryMin'
                             placeholder='Salary Min'
-                            value={salaryMin}
-                            onChange={(e) => setSalaryMin(e.target.value)}
+                            value={jobForm.salaryMin}
+                            onChange={(e) => handleInputOnChange(e)}
                             required
                         />
                         <input
@@ -148,8 +143,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             id='salaryMax'
                             name='salaryMax'
                             placeholder='Salary Max'
-                            value={salaryMax}
-                            onChange={(e) => setSalaryMax(e.target.value)}
+                            value={jobForm.salaryMax}
+                            onChange={(e) => handleInputOnChange(e)}
                             required
                         />
                     </div>
@@ -158,8 +153,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                         id='jobDescription'
                         name='jobDescription'
                         placeholder='Job Description'
-                        value={jobDescription}
-                        onChange={(e) => setJobDescription(e.target.value)}
+                        value={jobForm.jobDescription}
+                        onChange={(e) => handleInputOnChange(e)}
                         required
                     />
                 </Shadow>
@@ -169,11 +164,11 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                         <input
                             className='form-input'
                             type='text'
-                            id='companyName'
-                            name='companyName'
+                            id='company'
+                            name='company'
                             placeholder='Company Name'
-                            value={companyName}
-                            onChange={(e) => setCompanyName(e.target.value)}
+                            value={jobForm.company}
+                            onChange={(e) => handleInputOnChange(e)}
                             required
                         />
                         <input
@@ -182,8 +177,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             id='location'
                             name='location'
                             placeholder='Location'
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
+                            value={jobForm.location}
+                            onChange={(e) => handleInputOnChange(e)}
                             required
                         />
 
@@ -193,8 +188,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                         id='companyDescription'
                         name='companyDescription'
                         placeholder='Company Description'
-                        value={companyDescription}
-                        onChange={(e) => setCompanyDescription(e.target.value)}
+                        value={jobForm.companyDescription}
+                        onChange={(e) => handleInputOnChange(e)}
                         required
                     />
                     <div>
@@ -205,8 +200,8 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                                 id='endDate'
                                 name='endDate'
                                 placeholder='End Date'
-                                value={endDate}
-                                onChange={(e) => setEndDate(e.target.value)}
+                                value={jobForm.endDate}
+                                onChange={(e) => handleInputOnChange(e)}
                                 required
                             />
                         </label>
@@ -215,7 +210,7 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                 <Shadow className='form-list-container'>
                     <h2>Essential Requirments</h2>
                     <ul className='form-list'>
-                        {essentialRequirments.map(requirment => {
+                        {jobForm.requirementsEssential.map(requirment => {
                             return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-button' type="button" onClick={() => removeEssentialRequirment(requirment)}>Remove</button></div>
                         })}
                     </ul>
@@ -225,20 +220,20 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                             type='text'
                             id='essentialRequirmentInput'
                             name='essentialRequirmentInput'
-                            placeholder='Essntial Requirment'
+                            placeholder='Essential Requirment'
                             value={essentialRequirmentInput}
                             onChange={(e) => setEssentialRequirmentInput(e.target.value)}
                         />
                         <div className='requirment-button-container'>
                             <button type="button" className='standard-button' onClick={() => addEssentialRequirment()}>add</button>
-                            <button type="button" className='standard-button' onClick={() => setEssentialRequirments([])}>clear</button>
+                            <button type="button" className='standard-button' onClick={() => clearJobFormArray('essentialRequirments')}>clear</button>
                         </div>
                     </div>
                 </Shadow>
                 <Shadow className='form-list-container'>
                     <h2>Desired Requirments</h2>
                     <ul className='form-list'>
-                        {desiredRequirments.map(requirment => {
+                        {jobForm.requirementsDesirable.map(requirment => {
                             return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-button' type="button" onClick={() => removeDesiredRequirment(requirment)}>Remove</button></div>
                         })}
                     </ul>
@@ -254,14 +249,14 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                         />
                         <div className='requirment-button-container'>
                             <button type="button" className='standard-button' onClick={() => addDesiredRequirment()}>add</button>
-                            <button type="button" className='standard-button' onClick={() => setDesiredRequirments([])}>clear</button>
+                            <button type="button" className='standard-button' onClick={() => clearJobFormArray('desiredRequirments')}>clear</button>
                         </div>
                     </div>
                 </Shadow>
                 <Shadow className='form-list-container'>
                     <h2>Responsibilities</h2>
                     <ul className='form-list'>
-                        {responsibilities.map(requirment => {
+                        {jobForm.responsibilities.map(requirment => {
                             return <div className='form-list-item-container'><li className='form-list-item'>{requirment}</li><button className='remove-button' type="button" onClick={() => removeResponsibility(requirment)}>Remove</button></div>
                         })}
                     </ul>
@@ -277,12 +272,12 @@ export const VacancyForm: React.FC<{}> = (): React.ReactElement => {
                         />
                         <div className='requirment-button-container'>
                             <button type="button" className='standard-button' onClick={() => addResponsibility()}>add</button>
-                            <button type="button" className='standard-button' onClick={() => setResponsibilities([])}>clear</button>
+                            <button type="button" className='standard-button' onClick={() => clearJobFormArray('responsibilities')}>clear</button>
                         </div>
                     </div>
                 </Shadow>
                 <button type="submit" className='standard-button'>Review Job</button>
-                <button type="button" onClick={() => clearForm()} className='standard-button'>Clear Form</button>
+                <button type="button" onClick={() => clearForm()} className='standard-button red-button'>Clear Form</button>
             </Wrapper>
         </form>
     )
