@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './VacancyForm.css';
 import styled from "styled-components";
 import { backgroundColor, textColor, shadow } from 'themes/theme'
@@ -25,9 +25,9 @@ export const VacancyForm: React.FC<IVacancyForm> = ({jobForm, setJobForm, setScr
     const [desiredRequirmentInput, setDesiredRequirmentInput] = useState('');
     const [responsibilitiesInput, setResponsibilitiesInput] = useState('');
 
-    const handleInputOnChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputOnChange = useCallback((event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setJobForm((jobForm) => ({...jobForm, [event.target.name]: event.target.value }))
-    }
+    },[setJobForm])
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();

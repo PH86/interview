@@ -1,4 +1,4 @@
-import { useState } from "react"; 
+import React, { useState, useCallback } from "react"; 
 import { useHistory } from 'react-router';
 import { motion } from "framer-motion";
 import { pageTransitions } from "utils/Animations";
@@ -10,9 +10,9 @@ export const PasswordReset: React.FC<{}> = (): React.ReactElement => {
     const [apiError, setApiError] = useState('')
     const history = useHistory()
 
-	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleOnChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
 		setEmail(event.target.value)
-	}
+	}, [setEmail])
 
     const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();

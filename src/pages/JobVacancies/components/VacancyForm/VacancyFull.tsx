@@ -1,8 +1,6 @@
-import { useAppContext } from 'hooks/useAppContext';
 import React from 'react'
 import styled from "styled-components";
 import { backgroundColor, textColor } from 'themes/theme'
-import { apiUrl } from 'utils/constants';
 import { IJobData } from 'utils/JobVacancyFull';
 
 const Article = styled.article`
@@ -13,32 +11,10 @@ const Article = styled.article`
 interface IVacancyFull {
     jobForm: IJobData,
     setScreen: React.Dispatch<React.SetStateAction<string>>,
+    handleSubmit: () => void,
 }
 
-export const VacancyFull: React.FC<IVacancyFull> = ({jobForm, setScreen}): React.ReactElement => {
-    const { setOpenModal } = useAppContext()
-    
-    const handleSubmit = () => {
-        fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(jobForm),
-          })
-          .then((res) => {
-            // Handle successful api call
-            if (res.ok) {
-                res.json()
-            // Show error message
-            } else {
-                console.log('There was a problem with your request')
-            }
-          })
-          .catch((err) => console.log('error', err.error))
-          // Remove this line once api call is set up as this is currently bypassing everything above
-          .finally(() => setOpenModal())
-    }
+export const VacancyFull: React.FC<IVacancyFull> = ({jobForm, setScreen, handleSubmit}): React.ReactElement => {
     
     return (
         <div>
