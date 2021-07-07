@@ -10,6 +10,7 @@ import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
 import { useAppContext } from "hooks/useAppContext";
+import { apiUrl } from "utils/constants";
 
 const StyledModal = Modal.styled`
     width: 90vw;
@@ -36,7 +37,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 
 	React.useEffect(() => {
 		async function fetchData() {
-			const res = await fetch(`${process.env.REACT_APP_API_URL}/vacancies`)
+			const res = await fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}`)
 			const json = await res.json();
 			setVacancies(json);
 		}

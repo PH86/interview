@@ -133,7 +133,7 @@ export const VacancyForm: React.FC<IVacancyForm> = ({jobForm, setJobForm, setScr
                             id='salaryMin'
                             name='salaryMin'
                             placeholder='Salary Min'
-                            value={jobForm.salaryMin}
+                            value={jobForm.salaryMin || ''}
                             onChange={(e) => handleInputOnChange(e)}
                             required
                         />
@@ -143,7 +143,7 @@ export const VacancyForm: React.FC<IVacancyForm> = ({jobForm, setJobForm, setScr
                             id='salaryMax'
                             name='salaryMax'
                             placeholder='Salary Max'
-                            value={jobForm.salaryMax}
+                            value={jobForm.salaryMax || ''}
                             onChange={(e) => handleInputOnChange(e)}
                             required
                         />

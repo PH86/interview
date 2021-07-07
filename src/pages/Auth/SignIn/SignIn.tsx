@@ -55,7 +55,6 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
       <img className="form-logo" src={logo} alt="Interview Logo" />
       {apiError && <p className="error-message">{apiError}</p>}
       		<form id="loginForm" onSubmit={(handleSubmit)}>
-            <p className="form-heading">Sign in</p>
 						<div className="input-container">
 							<label htmlFor="email">Email address</label>
 							<input 

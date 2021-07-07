@@ -24,8 +24,7 @@ export const Routes = () => {
             <Route exact path={url.signIn} component={SignIn} />
             <Route exact path={url.passwordReset} component={PasswordReset} />
             <Route exact path={url.register} component={Register} />
-            <AuthenticatedRoute exact path={url.home} component={Dashboard} />
-            <Redirect from={url.dashboard} to={url.home} />
+            <AuthenticatedRoute exact path={url.dashboard} component={Dashboard} />
             <AuthenticatedRoute exact path={`${url.jobs}/:id`} component={SingleJob} />
             <AuthenticatedRoute exact path={url.jobs} component={JobVacancies} />
             <AuthenticatedRoute path={url.candidates} exact component={CandidateSearch} />

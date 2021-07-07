@@ -64,18 +64,25 @@ export const Sidebar: React.FC<{}> = (): React.ReactElement => {
               variants={sidebarTransitions}
             />
             <LinkContainer className={`sidebar-links ${menuOpen ? 'active' : null}`}>
-              <SidebarLink url={url.dashboard} title={'Dashboard'} icon={faTachometerAltFast}/>
-              <SidebarLink url={url.jobs} title={'Job Vacancies'} icon={faNewspaper}/>
-              <SidebarLink url={url.candidates} title={'Candidate Search'} icon={faSearch}/>
-              <SidebarLink url={url.studio} title={'Reports'} icon={faChartNetwork}/>
-              <SidebarLink url={url.settings} title={'User Settings'} icon={faUserCog}/>
-              <SidebarLink url={url.account} title={'Account Settings'} icon={faUserChart}/>     
+              <SidebarLink url={url.dashboard} title={'Dashboard'} icon={faTachometerAltFast}  swapOpacity={theme.mode !== 'dark'}/>
+              <SidebarLink url={url.jobs} title={'Job Vacancies'} icon={faNewspaper} swapOpacity={theme.mode !== 'dark'}/>
+              <SidebarLink url={url.candidates} title={'Candidate Search'} icon={faSearch} swapOpacity={theme.mode !== 'dark'}/>
+              <SidebarLink url={url.studio} title={'Reporting Studio'} icon={faChartNetwork} />
+              <SidebarLink url={url.settings} title={'User Settings'} icon={faUserCog} swapOpacity={true}/>
+              <SidebarLink url={url.account} title={'Account & Billing'} icon={faUserChart} swapOpacity={true}/>     
+              <motion.div variants={sidebarTransitions}>
+                <li>
+                  <a onClick={() => theme.toggle()}>
+                    {theme.mode === 'dark' ? <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSun} />LIGHT MODE</a> : <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSpaceStationMoonAlt} swapOpacity />DARK MODE</a>}
+                  </a>
+                </li>
+              </motion.div>
                 <SignoutContainer className='sidebar-signout'>
                   <p>User Name</p>
                   <div>
-                    <button title="Toggle Theme" onClick={() => theme.toggle()}>
+                    {/* <button title="Toggle Theme" onClick={() => theme.toggle()}>
                       <FontAwesomeIcon className='sidebar-icon' icon={theme.mode === 'dark' ? faSun: faSpaceStationMoonAlt} />
-                    </button>
+                    </button> */}
                     <button onClick={() => signOut()} >
                     <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
                     </button>

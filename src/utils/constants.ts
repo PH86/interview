@@ -1,9 +1,8 @@
 export const url = {
-    home: '/interview/',
+    dashboard: '/interview/',
     signIn: '/interview/sign-in',
     passwordReset: '/interview/password-reset',
     register: '/interview/register',
-    dashboard: '/interview/dashboard',
     jobs: '/interview/jobs',
     candidates: '/interview/candidates',
     studio: '/interview/studio',
