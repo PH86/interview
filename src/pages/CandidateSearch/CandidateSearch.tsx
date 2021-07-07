@@ -3,11 +3,11 @@ import './CandidateSearch.css';
 import Modal from "styled-react-modal";
 import { motion } from "framer-motion";
 import { ApplicantCard, ApplicantTable } from 'components';
-import { applicants } from 'utils/Applicants';
 import { pageTransitions, modalTransitions, staggerTransitions } from "utils/Animations";
 import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
+import { IApplicantCard } from 'components/Applicant/ApplicantCard';
 
 const StyledModal = Modal.styled`
     width: 90vw;
@@ -30,6 +30,23 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
     const [searchFilter, setSearchFilter] = React.useState<string>('name');
     const [openModal, setOpenModal] = React.useState<boolean>(false);
     const [applicantId, setApplicantId] = React.useState<number>();
+    const [candidates, setCandidates] = React.useState<IApplicantCard[]>();
+
+    React.useEffect(() => {
+        getCandidates();
+    },[]);
+
+    const getCandidates = async () => {
+        try {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/candidates`);
+            const candidateData = await res.json();
+            if(candidateData) {
+                setCandidates(candidateData);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
     const handleClick = (id: number) => {
         setApplicantId(id)
@@ -114,7 +131,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                             </article>
                         </motion.div>
                     }
-                    {search && searchFilter === 'name' && applicants.filter(applicant => applicant.name.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
+                    {search && searchFilter === 'name' && candidates?.filter(applicant => applicant.name.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
                         <motion.div onClick={() => handleClick(filteredApplicant.id)} variants={pageTransitions}>
                             <ApplicantTable
                                 id={filteredApplicant.id}
@@ -124,7 +141,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                             />
                         </motion.div>
                     ))}
-                    {search && searchFilter === 'currentJob' && applicants.filter(applicant => applicant.currentJob.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
+                    {search && searchFilter === 'currentJob' && candidates?.filter(applicant => applicant.currentJob.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
                         <motion.div onClick={() => handleClick(filteredApplicant.id)} variants={pageTransitions}>
                             <ApplicantTable
                                 id={filteredApplicant.id}
@@ -134,7 +151,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                             />
                         </motion.div>
                     ))}
-                    {search && searchFilter === 'location' && applicants.filter(applicant => applicant.location.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
+                    {search && searchFilter === 'location' && candidates?.filter(applicant => applicant.location.toLowerCase().includes(`${search}`.toLowerCase())).map(filteredApplicant => (
                         <motion.div onClick={() => handleClick(filteredApplicant.id)} variants={pageTransitions}>
                             <ApplicantTable
                                 id={filteredApplicant.id}
@@ -154,7 +171,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
                         <button onClick={() => setOpenModal(false)} className="standard-button">
                             Close
                         </button>
-                        {applicantId && applicants.filter(applicant => applicant.id.toString().includes(`${applicantId}`)).map(selectedApplicant => (
+                        {applicantId && candidates?.filter(applicant => applicant.id.toString().includes(`${applicantId}`)).map(selectedApplicant => (
                             <ApplicantCard
                                 id={selectedApplicant.id}
                                 name={selectedApplicant.name}
