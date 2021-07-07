@@ -1,4 +1,4 @@
-interface IJobData {
+export interface IJobData {
     id: number,
     title: string,
     company: string,

@@ -2,16 +2,14 @@ import React from "react";
 import Modal from "styled-react-modal";
 import { motion } from "framer-motion";
 import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "utils/Animations";
-import { VacancyForm, VacancyFull } from "components";
+import { VacancyFormWrapper, JobVacanciesList } from "./components";
 import "./JobVacancies.css";
-import "components/VacancyCard/VacancyCard.css";
-import { AppContext } from "context";
+import "./components/VacancyCard/VacancyCard.css";
 import { IJobData } from "../../utils/DummyVacancyData";
 import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
-
-import { JobVacanciesList } from "./components/JobVacanciesList";
+import { useAppContext } from "hooks/useAppContext";
 
 const StyledModal = Modal.styled`
     width: 90vw;
@@ -30,7 +28,8 @@ const StyledModal = Modal.styled`
 `;
 
 export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
-    const { openModal, setOpenModal, showVacancy } = React.useContext(AppContext);
+    const { openModal, setOpenModal } = useAppContext();
+    
     const [search, setSearch] = React.useState<string>('');
     const [searchFilter, setSearchFilter] = React.useState<string>('title');
     const [vacancies, setVacancies] = React.useState<IJobData[]>([]);
@@ -45,8 +44,9 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 	}, [])
 
     const toggleModal = () => {
-        setOpenModal(!openModal)
+        setOpenModal()
     }
+
 	return (
 		<motion.div
 			initial="initial"
@@ -135,7 +135,7 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 					</div>
 				</motion.div>
 			</motion.div>
-			<button onClick={() => setOpenModal(true)} className="standard-button">
+			<button onClick={() => setOpenModal()} className="standard-button">
 				Add Vacancy
 			</button>
 			<StyledModal
@@ -144,10 +144,10 @@ export const JobVacancies: React.FC<{}> = (): React.ReactElement => {
 				onEscapeKeydown={toggleModal}
 			>
 				<motion.div variants={modalTransitions}>
-					<button onClick={() => setOpenModal(false)} className="standard-button">
+					<button onClick={() => setOpenModal()} className="standard-button">
 						Close
 					</button>
-					{showVacancy ? <VacancyFull /> : <VacancyForm />}
+					<VacancyFormWrapper />
 				</motion.div>
 			</StyledModal>
 		</motion.div>

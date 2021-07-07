@@ -1,17 +1,22 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./Sidebar.css";
+import React, { useState, useEffect }  from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
-import logoLight from "../../images/interview-light.svg";
-import logoDark from '../../images/interview-dark.svg';
-import { AppContext } from "../../context";
 import { motion } from "framer-motion";
-import { sidebarTransitions, staggerTransitions } from "../../utils/Animations";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTachometerAltFast, faNewspaper, faSearch, faChartNetwork, faUserCog, faUserChart, faSun, faSpaceStationMoonAlt, faPortalEnter } from '@fortawesome/pro-duotone-svg-icons';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { useTheme } from '../../themes/themeManager';
-import { secondaryGrey, sidebarBackgroundColor, sidebarTextColor } from "../../themes/theme";
+
+import { useTheme } from 'themes/themeManager';
+import { secondaryGrey, sidebarBackgroundColor, sidebarTextColor } from "themes/theme";
+import "./Sidebar.css";
+import logoLight from "images/interview-light.svg";
+import logoDark from 'images/interview-dark.svg';
+
+import { sidebarTransitions, staggerTransitions } from "utils/Animations";
+import { url } from "utils/constants";
+import { SidebarLink } from "./components/SidebarLink";
+import { useAuthContext } from "hooks/useAuthContext";
+
 
 const SidebarContainer = styled.div`
   background-color: ${sidebarBackgroundColor};
@@ -30,104 +35,52 @@ const SignoutContainer = styled.div`
 `;
 
 export const Sidebar: React.FC<{}> = (): React.ReactElement => {
-  const { setLoggedIn } = React.useContext(AppContext);
+  const { signOut } = useAuthContext();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const urlLocation = useLocation();
   const theme = useTheme();
-  React.useEffect(() => {
-    const toggleButton = document.getElementsByClassName('toggle-button')[0];
-    const sidebarLinks = document.getElementsByClassName('sidebar-links')[0];
 
-    toggleButton.addEventListener('click', () => {
-      sidebarLinks.classList.toggle('active');
-    });
-    sidebarLinks.addEventListener('click', () => {
-      sidebarLinks.classList.toggle('active');
-    });
-  }, []);
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [urlLocation]);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen)
+  }
 
   return (
     <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
       <nav className="sidebar">
         <motion.div variants={staggerTransitions}>
           <SidebarContainer className="sidebar-container">
-            <a href="#" className="toggle-button">
+            <button className={`toggle-button ${menuOpen ? 'active' : null}`} onClick={handleMenuToggle}>
               <GiHamburgerMenu className='sidebar-icon' />
-            </a>
-            {theme.mode === 'dark' ?
-              <motion.img
-                className="sidebar-logo"
-                src={logoDark}
-                alt="Interview Logo"
-                variants={sidebarTransitions}
-              /> :
-              <motion.img
-                className="sidebar-logo"
-                src={logoLight}
-                alt="Interview Logo"
-                variants={sidebarTransitions}
-              />}
-            <LinkContainer className="sidebar-links">
-              <motion.div variants={sidebarTransitions}>
-                <li>
-                  <Link to="/interview/dashboard" className={urlLocation.pathname === "/interview/dashboard" ? "sidebar-link-active" : "sidebar-link"}>
-                    {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} /> : <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAltFast} swapOpacity />}
-                    DASHBOARD
-                  </Link>
-                </li>
-              </motion.div>
-              <motion.div variants={sidebarTransitions}>
-                <li>
-                  <Link to="/interview/jobs" className={urlLocation.pathname === "/interview/jobs" ? "sidebar-link-active" : "sidebar-link"}>
-                    {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} /> : <FontAwesomeIcon className='sidebar-icon' icon={faNewspaper} swapOpacity />}
-                    JOB VACANCIES
-                  </Link>
-                </li>
-              </motion.div>
-              <motion.div variants={sidebarTransitions}>
-                <li>
-                  <Link to="/interview/candidates" className={urlLocation.pathname === "/interview/candidates" ? "sidebar-link-active" : "sidebar-link"}>
-                    {theme.mode === 'dark' ? <FontAwesomeIcon className='sidebar-icon' icon={faSearch} /> : <FontAwesomeIcon className='sidebar-icon' icon={faSearch} swapOpacity />}
-                    CANDIDATE SEARCH
-                  </Link>
-                </li>
-              </motion.div>
-              <motion.div variants={sidebarTransitions}>
-                <li>
-                  <Link to="/interview/studio" className={urlLocation.pathname === "/interview/studio" ? "sidebar-link-active" : "sidebar-link"}>
-                    <FontAwesomeIcon className='sidebar-icon' icon={faChartNetwork} />
-                    REPORTING STUDIO
-                  </Link>
-                </li>
-              </motion.div>
-              <motion.div variants={sidebarTransitions}>
-                <li>
-                  <Link to="/interview/settings" className={urlLocation.pathname === "/interview/settings" ? "sidebar-link-active" : "sidebar-link"}>
-                    <FontAwesomeIcon className='sidebar-icon' icon={faUserCog} swapOpacity />
-                    USER SETTINGS
-                  </Link>
-                </li>
-              </motion.div>
-              <motion.div variants={sidebarTransitions}>
-                <li>
-                  <Link to="/interview/account" className={urlLocation.pathname === "/interview/account" ? "sidebar-link-active" : "sidebar-link"}>
-                    <FontAwesomeIcon className='sidebar-icon' icon={faUserChart} swapOpacity />
-                    ACCOUNT & BILLING
-                  </Link>
-                </li>
-              </motion.div>
-              <motion.div variants={sidebarTransitions}>
-                <li>
-                  <a onClick={() => theme.toggle()}>
-                    {theme.mode === 'dark' ? <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSun} />LIGHT MODE</a> : <a className="sidebar-link"><FontAwesomeIcon className='sidebar-icon' icon={faSpaceStationMoonAlt} swapOpacity />DARK MODE</a>}
-                  </a>
-                </li>
-              </motion.div>
-              <motion.div variants={sidebarTransitions}>
-                <SignoutContainer onClick={() => setLoggedIn(false)} className='sidebar-signout'>
+            </button>
+            <motion.img
+              className="sidebar-logo"
+              src={theme.mode === 'dark' ? logoDark: logoLight}
+              alt="Interview Logo"
+              variants={sidebarTransitions}
+            />
+            <LinkContainer className={`sidebar-links ${menuOpen ? 'active' : null}`}>
+              <SidebarLink url={url.dashboard} title={'Dashboard'} icon={faTachometerAltFast}/>
+              <SidebarLink url={url.jobs} title={'Job Vacancies'} icon={faNewspaper}/>
+              <SidebarLink url={url.candidates} title={'Candidate Search'} icon={faSearch}/>
+              <SidebarLink url={url.studio} title={'Reports'} icon={faChartNetwork}/>
+              <SidebarLink url={url.settings} title={'User Settings'} icon={faUserCog}/>
+              <SidebarLink url={url.account} title={'Account Settings'} icon={faUserChart}/>     
+                <SignoutContainer className='sidebar-signout'>
                   <p>User Name</p>
-                  <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
+                  <div>
+                    <button title="Toggle Theme" onClick={() => theme.toggle()}>
+                      <FontAwesomeIcon className='sidebar-icon' icon={theme.mode === 'dark' ? faSun: faSpaceStationMoonAlt} />
+                    </button>
+                    <button onClick={() => signOut()} >
+                    <FontAwesomeIcon className='sidebar-icon' icon={faPortalEnter} />
+                    </button>
+                  </div>
                 </SignoutContainer>
-              </motion.div>
             </LinkContainer>
           </SidebarContainer>
         </motion.div>
