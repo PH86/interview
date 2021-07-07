@@ -4,6 +4,7 @@ import Modal from "styled-react-modal";
 import { motion } from "framer-motion";
 import { ApplicantCard, ApplicantTable } from 'components';
 import { pageTransitions, modalTransitions, staggerTransitions } from "utils/Animations";
+import { apiUrl } from 'utils/constants';
 import { backgroundColor } from "themes/theme";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-duotone-svg-icons';
@@ -38,7 +39,7 @@ export const CandidateSearch: React.FC<{}> = (): React.ReactElement => {
 
     const getCandidates = async () => {
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/candidates`);
+            const res = await fetch(`${process.env.REACT_APP_API_URL}${apiUrl.candidates}`);
             const candidateData = await res.json();
             if(candidateData) {
                 setCandidates(candidateData);
