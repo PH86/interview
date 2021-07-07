@@ -5,7 +5,8 @@ import { AuthContext } from 'context/AuthContext';
 import { url } from 'utils/constants';
 
 export const useAuthContext = () => {	
-    const [authState, setAuthState] = useContext(AuthContext);
+    const { authState, setAuthState } = useContext(AuthContext);
+    
     const history = useHistory();
 
     const signIn = async (value: string) => {

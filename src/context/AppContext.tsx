@@ -4,17 +4,22 @@ export interface IAppState {
 	openModal: boolean;
 }
 
-type IAppContext = [IAppState, React.Dispatch<React.SetStateAction<IAppState>>];
+interface IAppContext {
+	appState: IAppState, 
+	setAppState: React.Dispatch<React.SetStateAction<IAppState>>
+};
 
-const AppContext = createContext<IAppContext>([{openModal: false}, () => null]);
+const AppContext = createContext({} as IAppContext);
 
 const AppContextProvider: FC = (props: any) => {
 	const [appState, setAppState] = useState<IAppState>({
 		openModal: false,
 	})
 
+	const value = { appState, setAppState}
+
 	return (
-		<AppContext.Provider value={[appState, setAppState]}>
+		<AppContext.Provider value={value}>
 			{props.children}
 		</AppContext.Provider>
 	)

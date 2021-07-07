@@ -1,11 +1,9 @@
-import { useState } from 'react'; 
+import { useState } from "react"; 
 import { useHistory } from 'react-router';
 import { motion } from "framer-motion";
-
 import { pageTransitions } from "utils/Animations";
 import logo from "images/interview-dark.svg";
-
-import { url, apiUrl } from 'utils/constants';
+import { url, apiUrl } from "utils/constants";
 
 export const PasswordReset: React.FC<{}> = (): React.ReactElement => {
 	const [email, setEmail] = useState('')
@@ -28,7 +26,6 @@ export const PasswordReset: React.FC<{}> = (): React.ReactElement => {
         .then((res) => {
             // Handle successful api call
             if (res.ok) {
-                res.json()
                 history.push(url.signIn)
             // Show error message
             } else {
