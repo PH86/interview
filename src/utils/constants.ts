@@ -15,5 +15,6 @@ export const apiUrl = {
         signIn: '/sign-in',
         passwordReset: '/password-reset'
     },
-    vacancies: '/vacancies'
+    vacancies: '/vacancies',
+    candidates: '/candidates'
 }
