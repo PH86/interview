@@ -52,6 +52,7 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
       variants={pageTransitions}
     >
       <div className="form-container">
+      <article className="form-container">
       <img className="form-logo" src={logo} alt="Interview Logo" />
       {apiError && <p className="error-message">{apiError}</p>}
       		<form id="loginForm" onSubmit={(handleSubmit)}>
@@ -75,16 +76,21 @@ export const SignIn: React.FC<{}> = (): React.ReactElement => {
 								required 
 							/>
 						</div>
-            <button className="button" type="submit" form="loginForm">
+            
+					</form>
+          <div>
+          <button className="button" type="submit" form="loginForm">
 							LOG IN
 						</button>
-					</form>
-          <Link 
+            <Link 
 							className="text-button"
               to={url.passwordReset} 
             >
               Forgot your password?
             </Link>
+          </div>
+          
+        </article>
         <div className="form-container-footer">
           <p>Don’t have an account?</p>
           <Link to={url.register} className="text-button">Get started for free</Link>

@@ -1,5 +1,8 @@
 .packages-page-container {
     padding: 1em 1.5em;
+    border-radius: var(--radius);
+    background-color: var(--clr-text-secondary);
+    color: var(--clr-text-primary);
 }
 
 .packages-page-container h1 { 

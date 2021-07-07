@@ -58,14 +58,14 @@ export const PasswordReset: React.FC<{}> = (): React.ReactElement => {
                     />
                 </div>
                 <div className="input-container">
-                    <h3>
+                    <p>
                         Please enter the email address you would like the recovery link
-                        sent to{" "}
-                    </h3>
+                        sent to.
+                    </p>
                 </div>
             </form>
             <button className="button" type="submit" form="recoverForm">
-                Recover
+                SUBMIT
             </button>
             </div>
         </motion.div>

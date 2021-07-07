@@ -13,7 +13,6 @@ interface ISidebarLink {
 }
 
 export const SidebarLink: React.FC<ISidebarLink> =  ({title, url, icon, swapOpacity}) => {
-    const theme = useTheme();
     const routeMatch = useRouteMatch({path: url, exact: true})
 
     return (
