@@ -4,7 +4,7 @@ import AuthenticatedRoute from 'utils/AuthenticatedRoute'
 import { url } from './constants';
 
 import { Dashboard } from "pages/Dashboard/Dashboard";
-import { SignIn, PasswordReset } from "pages/Auth";
+import { SignIn, PasswordReset, Register } from "pages/Auth";
 import { JobVacancies } from "pages/JobVacancies/JobVacancies";
 import { CandidateSearch } from "pages/CandidateSearch/CandidateSearch";
 import { ReportingStudio } from "pages/ReportingStudio/ReportingStudio";
@@ -23,8 +23,8 @@ export const Routes = () => {
         <Switch>
             <Route exact path={url.signIn} component={SignIn} />
             <Route exact path={url.passwordReset} component={PasswordReset} />
-            <AuthenticatedRoute exact path={url.home} component={Dashboard} />
-            <Redirect from={url.dashboard} to={url.home} />
+            <Route exact path={url.register} component={Register} />
+            <AuthenticatedRoute exact path={url.dashboard} component={Dashboard} />
             <AuthenticatedRoute exact path={`${url.jobs}/:id`} component={SingleJob} />
             <AuthenticatedRoute exact path={url.jobs} component={JobVacancies} />
             <AuthenticatedRoute path={url.candidates} exact component={CandidateSearch} />

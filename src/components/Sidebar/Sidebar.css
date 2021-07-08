@@ -32,6 +32,7 @@
 .sidebar-links li {
   list-style-type: none;
   width: 100%;
+  height: 5vh;
 }
 
 .sidebar-links li:hover {
@@ -41,15 +42,16 @@
 }
 
 .sidebar-link {
-  padding: 1rem 2rem;
+  padding-left: 2rem;
+  display: -webkit-flex;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
   text-decoration: none;
   height: 100%;
-  font-size: 0.8rem;
-  font-weight: bold;
-  border: none;
-  background: none;
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .sidebar-link-active {
@@ -101,11 +103,14 @@
   font-size: 1rem;
 }
 
-.sidebar-signout button { 
+.sidebar-links button { 
   border: none;
   background: none;
-  height: 4rem;
   cursor: pointer;
+  width: 100%;
+}
+
+.sidebar-signout button { 
   padding: 1rem;
 }
 
@@ -131,7 +136,6 @@
     margin: 0 auto;
     padding: 0;
     height: 70%;
-    width: auto;
   }
 
   .toggle-button {

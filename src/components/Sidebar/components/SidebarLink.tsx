@@ -9,17 +9,17 @@ interface ISidebarLink {
     title: string,
     url: string,
     icon: IconProp,
+    swapOpacity?: boolean
 }
 
-export const SidebarLink: React.FC<ISidebarLink> =  ({title, url, icon}) => {
-    const theme = useTheme();
-    const routeMatch = useRouteMatch(url)
+export const SidebarLink: React.FC<ISidebarLink> =  ({title, url, icon, swapOpacity}) => {
+    const routeMatch = useRouteMatch({path: url, exact: true})
 
     return (
         <motion.div variants={sidebarTransitions}>
             <li>
             <Link to={url} className={`sidebar-link ${routeMatch ? "sidebar-link-active" : null}`}>
-                <FontAwesomeIcon className='sidebar-icon' icon={icon} swapOpacity={theme.mode === 'dark'} />
+                <FontAwesomeIcon className='sidebar-icon' icon={icon} swapOpacity={swapOpacity} />
                 {title}
             </Link>
             </li>

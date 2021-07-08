@@ -103,7 +103,7 @@ export const Account: React.FC<{}> = (): React.ReactElement => {
                     <p className="package-name">Standard Package</p>
                     <button className="standard-button" onClick={() => openModalComponent(<Packages />)}>Change Plan</button>
                 </div>
-                <button className="standard-button latest-bill">View Latest Bill</button>
+                <button className="standard-button latest-bill" onClick={() => alert('PDF download to go here')}>View Latest Bill</button>
             </div>
             <div className="section-container">
                 <div className="detail-box sub-box">
