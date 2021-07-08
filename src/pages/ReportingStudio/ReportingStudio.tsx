@@ -75,7 +75,7 @@ const getJobsPerLocationObject = (): Record<string, number> =>
 		const { location } = jobDatum;
 		if (!result[location]) result[location] = 0;
 
-		result[location] += jobDatum.applicants;
+		result[location] += jobDatum.applicants.length;
 
 		return result;
 	}, {} as Record<string, number>);
