@@ -50,58 +50,49 @@ export const Register: React.FC<{}> = (): React.ReactElement => {
             variants={pageTransitions}
         >
             <div className="form-container">
-            <img className="form-logo" src={logo} alt="Interview Logo" />
-            {apiError && <p className="error-message">{apiError}</p>}
-                <p className="form-heading">Register</p>
-                <form id="loginForm" onSubmit={(handleSubmit)}>
-                    <div className="input-container">
-                        <label htmlFor="name">Your name</label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            onChange={(e) => handleOnChange(e)}
-                            required 
-                        />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="email">Email address</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            onChange={(e) => handleOnChange(e)}
-                            required 
-                        />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="company">Company name</label>
-                        <input 
-                            type="text" 
-                            id="company-name" 
-                            name="company-name" 
-                            onChange={(e) => handleOnChange(e)}
-                            required 
-                        />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="password">Set a password</label>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            name="password" 
-                            onChange={(e) => handleOnChange(e)}
-                            required 
-                        />
-                    </div>
-                <button className="button" type="submit" form="loginForm">
-                    CREATE ACCOUNT
-                </button>
-            </form>
-            <div className="form-container-footer">
-                <p>Already have an account?</p>
-                <Link to={url.signIn} className="text-button">Sign In</Link>
-            </div>
+                <article className="form-container">
+                    <img className="form-logo" src={logo} alt="Interview Logo" />
+                    {apiError && <p className="error-message">{apiError}</p>}
+                        <form id="loginForm" onSubmit={(handleSubmit)}>
+                            <div className="input-container">
+                                <label htmlFor="name">Your name</label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    onChange={(e) => handleOnChange(e)}
+                                    required 
+                                />
+                            </div>
+                            <div className="input-container">
+                                <label htmlFor="email">Email address</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    onChange={(e) => handleOnChange(e)}
+                                    required 
+                                />
+                            </div>
+                            <div className="input-container">
+                                <label htmlFor="password">Set a password</label>
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    onChange={(e) => handleOnChange(e)}
+                                    required 
+                                />
+                            </div>
+                        <button className="button" type="submit" form="loginForm">
+                            CREATE ACCOUNT
+                        </button>
+                    </form>
+                </article>
+                <div className="form-container-footer">
+                    <p>Already have an account?</p>
+                    <Link to={url.signIn} className="text-button">Sign In</Link>
+                </div>
             </div>
             <div className="vertical"></div>
             <div className="info-container">
