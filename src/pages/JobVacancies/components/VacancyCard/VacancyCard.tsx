@@ -4,12 +4,12 @@ import './VacancyCard.css'
 import { url } from 'utils/constants'
 
 interface IVacancyCard {
-    id: number,
+    id: string,
     title: string,
     company: string,
     location: string,
     salary: number,
-    applicants: number,
+    applicants: string[],
     endDate: string,
 }
 
@@ -25,7 +25,7 @@ export const VacancyCard: React.FC<IVacancyCard> = ({ id, title, company, locati
                 <div className="vertical"></div>
                 <h4>{`£${salary}`}</h4>
                 <div className="vertical"></div>
-                <h4 className='vacancy-card-media-remove'>{applicants}</h4>
+                <h4 className='vacancy-card-media-remove'>{applicants.length}</h4>
                 <div className="vertical"></div>
                 <h4 className='vacancy-card-media-remove'>{endDate}</h4>
             </Link>

@@ -5,11 +5,12 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { shadow } from 'themes/theme';
 import { useParams } from "react-router-dom";
-import { applicants } from "utils/Applicants";
-import { jobDataFull } from "utils/JobVacancyFull";
 import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "utils/Animations";
 import { backgroundColor } from "themes/theme";
 import { ApplicantCard, ApplicantTable } from 'components';
+import { IApplicantCard } from 'components/Applicant/ApplicantCard';
+import { IJobData } from "utils/DummyVacancyData";
+import { apiUrl } from 'utils/constants';
 
 const SingleJobContainer = styled.div`
     box-shadow: ${shadow};
@@ -35,7 +36,39 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
     const { id } = useParams<{ id: string }>();
     const [openModal, setOpenModal] = React.useState<boolean>(false);
     const [applicantId, setApplicantId] = React.useState<number>();
-    const job = jobDataFull.filter((job) => job.id.toString() === id);
+    const [candidates, setCandidates] = React.useState<IApplicantCard[]>();
+    const [singleVacancy, setSingleVacancy] = React.useState<IJobData>();
+
+    React.useEffect(() => {
+        getSingleJob()
+        getCandidates()
+    },[]);
+
+    const getSingleJob = async () => {
+        try {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}/${id}`);
+            const vacancyData = await res.json();
+            console.log(`${process.env.REACT_APP_API_URL}/${id}`)
+            if(vacancyData) {
+                setSingleVacancy(vacancyData);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    const getCandidates = async () => {
+        try {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}/${id}${apiUrl.candidates}`);
+            const candidateData = await res.json();
+            console.log(`${process.env.REACT_APP_API_URL}${id}${apiUrl.candidates}`)
+            if(candidateData) {
+                setCandidates(candidateData);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
     const handleClick = (id: number) => {
         setApplicantId(id)
@@ -69,7 +102,7 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
                                 </motion.div>
                             </article>
                             <div>
-                                {applicants.map((applicant) => {
+                                {candidates?.map((applicant) => {
                                     const { id, name, currentJob, location } = applicant;
                                     return (
                                         <motion.div onClick={() => handleClick(id)} variants={tableTransitions}>
@@ -89,7 +122,7 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
                             <button onClick={() => setOpenModal(false)} className="standard-button">
                                 Close
                             </button>
-                            {applicantId && applicants.filter(applicant => applicant.id.toString().includes(`${applicantId}`)).map(selectedApplicant => (
+                            {applicantId && candidates?.filter(applicant => applicant.id.toString().includes(`${applicantId}`)).map(selectedApplicant => (
                                 <ApplicantCard
                                     id={selectedApplicant.id}
                                     name={selectedApplicant.name}
@@ -104,45 +137,45 @@ export const SingleJob: React.FC<{}> = (): React.ReactElement => {
                     </StyledModal>
                 </div>
                 <div className='job-container'><h2>Job Description</h2>
-                    {job.map(item =>
-                        <article key={item.id} className='single-job-container' >
+                    {singleVacancy &&
+                        <article key={singleVacancy.id} className='single-job-container' >
                             <SingleJobContainer className='single-job-header'>
                                 <div className='single-job-title'>
-                                    <h1>{item.title}</h1>
-                                    <h4>End Date: {item.endDate}</h4>
+                                    <h1>{singleVacancy.title}</h1>
+                                    <h4>End Date: {singleVacancy.endDate}</h4>
                                 </div>
-                                <h2>{item.company}</h2>
-                                <h4>Location: {item.location}</h4>
-                                <h5>{item.companyDescription}</h5>
-                                <h4>Salary: £{item.salaryMin}-£{item.salaryMax} per annum</h4>
-                                <h4>{item.applicants} applicants</h4>
+                                <h2>{singleVacancy.company}</h2>
+                                <h4>Location: {singleVacancy.location}</h4>
+                                <h5>{singleVacancy.companyDescription}</h5>
+                                <h4>Salary: £{singleVacancy.salaryMin}-£{singleVacancy.salaryMax} per annum</h4>
+                                <h4>{singleVacancy.applicants} applicants</h4>
                             </SingleJobContainer>
                             <SingleJobContainer className='single-job-header'>
                                 <h2>Description</h2>
-                                <h5>{item.jobDescription}</h5>
+                                <h5>{singleVacancy.jobDescription}</h5>
                             </SingleJobContainer>
                             <SingleJobContainer className='single-job-header'>
                                 <h3>Essential Requirements</h3>
                                 <ul>
-                                    {item.requirementsEssential.map(essential => {
+                                    {singleVacancy.requirementsEssential.map(essential => {
                                         return <li>{essential}</li>
                                     })}
                                 </ul>
                                 <h3>Desirable</h3>
                                 <ul>
-                                    {item.requirementsDesirable.map(desirable => {
+                                    {singleVacancy.requirementsDesirable.map(desirable => {
                                         return <li>{desirable}</li>
                                     })}
                                 </ul>
                                 <h3>Key Responsibilities</h3>
                                 <ul>
-                                    {item.responsibilities.map(responsibility => {
+                                    {singleVacancy.responsibilities.map(responsibility => {
                                         return <li>{responsibility}</li>
                                     })}
                                 </ul>
                             </SingleJobContainer>
                         </article>
-                    )}
+                    }
                 </div>
             </div>
         </motion.div>
