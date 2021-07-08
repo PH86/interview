@@ -1,18 +1,19 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
-import { AppContext } from 'context/AppContext';
+import { AppContext } from "context/AppContext";
 
-export const useAppContext = () => {	
-    const { appState, setAppState } = useContext(AppContext);
+export const useAppContext = () => {
+  const { appState, setAppState } = useContext(AppContext);
 
-    const setOpenModal = () => {
-        setAppState(appState => ({...appState, openModal: !appState.openModal}))
-    }
+  const setOpenModal = () => {
+    setAppState((prev) => ({
+      ...prev,
+      openModal: !appState.openModal,
+    }));
+  };
 
-    return { 
-        openModal: appState.openModal,
-        setOpenModal,
-    };
-}
-
- 
+  return {
+    openModal: appState.openModal,
+    setOpenModal,
+  };
+};

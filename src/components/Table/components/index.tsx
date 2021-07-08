@@ -1,2 +1,2 @@
-export {default as TableHeader} from './TableHeader'
-export {default as TableRows} from './TableRows'
+export { TableHeader } from "components/Table/components/TableHeader";
+export { TableRows } from "components/Table/components/TableRows";

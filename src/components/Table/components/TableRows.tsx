@@ -1,31 +1,24 @@
-import React from 'react';
-import { ColumnDefinitionType } from '../Table'
+import React from "react";
+import { ColumnDefinitionType } from "../Table";
 
 type TableRowsProps<T, K extends keyof T> = {
-    data: Array<T>;
-    columns: Array<ColumnDefinitionType<T, K>>;
-}
+  data: Array<T>;
+  columns: Array<ColumnDefinitionType<T, K>>;
+};
 
-const TableRows = <T, K extends keyof T>({data, columns}: TableRowsProps<T, K>): React.ReactElement => {
-    const rows = data.map((row, rowIndex) => {
-        return (
-            <tr key={`tr-${rowIndex}`}>
-                {columns.map((column, columnIndex) => {
-                    return (
-                        <td key={`td-${columnIndex}`}>
-                            {row[column.key]}
-                        </td>
-                    )
-                })}
-            </tr>
-        )
-    });
-    
+export const TableRows = <T, K extends keyof T>({
+  data,
+  columns,
+}: TableRowsProps<T, K>): React.ReactElement => {
+  const rows = data.map((row) => {
     return (
-        <tbody>
-            {rows}
-        </tbody>
-    )
-}
+      <tr key={`tr-${row}`}>
+        {columns.map((column) => {
+          return <td key={`td-${column.key}`}>{row[column.key]}</td>;
+        })}
+      </tr>
+    );
+  });
 
-export default TableRows;
+  return <tbody>{rows}</tbody>;
+};

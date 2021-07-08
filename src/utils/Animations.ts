@@ -3,14 +3,14 @@ export const pageTransitions = {
     opacity: 1,
     transition: {
       duration: 0.3,
-    }
+    },
   },
   initial: {
     opacity: 0,
     transition: {
       duration: 0.1,
-    }
-  }
+    },
+  },
 };
 
 export const modalTransitions = {
@@ -18,11 +18,11 @@ export const modalTransitions = {
     opacity: 1,
     transition: {
       duration: 0.4,
-    }
+    },
   },
   initial: {
     opacity: 0,
-  }
+  },
 };
 
 export const sidebarTransitions = {
@@ -30,38 +30,38 @@ export const sidebarTransitions = {
     opacity: 0,
     transition: {
       duration: 0.6,
-    }
+    },
   },
   animate: {
     opacity: 1,
     transition: {
       duration: 0.6,
-    }
-  }
+    },
+  },
 };
 
-let easing = [0.6, -0.05, 0.01, 0.99];
+const easing = [0.6, -0.05, 0.01, 0.99];
 
 export const staggerTransitions = {
   animate: {
     transition: {
-      staggerChildren: 0.05
-    }
-  }
+      staggerChildren: 0.05,
+    },
+  },
 };
 
 export const tableTransitions = {
   initial: {
     y: 10,
     opacity: 0,
-    transition: { duration: 0.3, ease: easing }
+    transition: { duration: 0.3, ease: easing },
   },
   animate: {
     y: 0,
     opacity: 1,
     transition: {
       duration: 0.3,
-      ease: easing
-    }
-  }
+      ease: easing,
+    },
+  },
 };
