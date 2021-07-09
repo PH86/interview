@@ -24,15 +24,14 @@
   margin-bottom: 1rem;
   width: 70%;
   min-width: 250px;
-  display: flex;
-  flex-direction: column;
 }
 
 .input-container label {
   font-size: 0.7rem;
   font-weight: bold;
-  padding-bottom: 0.3rem;
   color: var(--clr-text-tertiary);
+  display: flex;
+  flex-direction: column;
 }
 
 .input-container input {
@@ -40,6 +39,8 @@
   background-color: var(--clr-secondary-grey);
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   font-size: 16px;
+  margin-top: 0.3rem;
+  width: 100%;
 }
 
 .button {
@@ -62,6 +63,10 @@
   cursor: pointer;
   outline: inherit;
   font-size: 0.8rem;
+}
+
+.center-text { 
+  text-align: center;
 }
 
 @media (max-width: 1100px) {

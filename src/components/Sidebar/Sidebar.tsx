@@ -34,7 +34,6 @@ import { SidebarLink } from "./components/SidebarLink";
 const SidebarContainer = styled.div`
   background-color: ${sidebarBackgroundColor};
   color: ${sidebarTextColor};
-  transition: var(--transition);
 `;
 
 const LinkContainer = styled.ul`

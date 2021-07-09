@@ -4,16 +4,12 @@ import Modal from "styled-react-modal";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { applicants } from "utils/Applicants";
-import { jobDataFull } from "utils/JobVacancyFull";
-import {
-  pageTransitions,
-  staggerTransitions,
-  tableTransitions,
-  modalTransitions,
-} from "utils/Animations";
+import { pageTransitions, staggerTransitions, tableTransitions, modalTransitions } from "utils/Animations";
 import { backgroundColor, shadow } from "themes/theme";
-import { ApplicantCard, ApplicantTable } from "components";
+import { ApplicantCard, ApplicantTable } from 'components';
+import { IApplicantCard } from 'components/Applicant/ApplicantCard';
+import { IJobData } from "utils/DummyVacancyData";
+import { apiUrl } from 'utils/constants';
 
 const SingleJobContainer = styled.div`
   box-shadow: ${shadow};
@@ -35,11 +31,43 @@ const StyledModal = Modal.styled`
     overflow-y: scroll;
 `;
 
-export const SingleJob: React.FC = (): React.ReactElement => {
-  const { id } = useParams<{ id: string }>();
-  const [openModal, setOpenModal] = React.useState<boolean>(false);
-  const [applicantId, setApplicantId] = React.useState<number>();
-  const job = jobDataFull.filter((singleJob) => singleJob.id.toString() === id);
+export const SingleJob: React.FC<{}> = (): React.ReactElement => {
+    const { id } = useParams<{ id: string }>();
+    const [openModal, setOpenModal] = React.useState<boolean>(false);
+    const [applicantId, setApplicantId] = React.useState<number>();
+    const [candidates, setCandidates] = React.useState<IApplicantCard[]>();
+    const [singleVacancy, setSingleVacancy] = React.useState<IJobData>();
+
+    React.useEffect(() => {
+        getSingleJob()
+        getCandidates()
+    },[]);
+
+    const getSingleJob = async () => {
+        try {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}/${id}`);
+            const vacancyData = await res.json();
+            console.log(`${process.env.REACT_APP_API_URL}/${id}`)
+            if(vacancyData) {
+                setSingleVacancy(vacancyData);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    const getCandidates = async () => {
+        try {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}/${id}${apiUrl.candidates}`);
+            const candidateData = await res.json();
+            console.log(`${process.env.REACT_APP_API_URL}${id}${apiUrl.candidates}`)
+            if(candidateData) {
+                setCandidates(candidateData);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
   const handleClick = (selectId: number) => {
     setApplicantId(selectId);
@@ -50,132 +78,105 @@ export const SingleJob: React.FC = (): React.ReactElement => {
     setOpenModal(!openModal);
   };
 
-  return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="initial"
-      variants={pageTransitions}
-      className="content-container"
-    >
-      <div className="job-content-container">
-        <div>
-          <div className="applicant-container">
-            <h2 className="main-title">Applicants</h2>
-            <motion.div
-              className="applicant-table-container"
-              variants={staggerTransitions}
-            >
-              <article>
-                <motion.div
-                  className="applicant-table-header"
-                  variants={tableTransitions}
-                >
-                  <h3>Name</h3>
-                  <div className="vertical" />
-                  <h3>Job Title</h3>
-                  <div className="vertical" />
-                  <h3>Location</h3>
-                </motion.div>
-              </article>
-              <div>
-                {applicants.map((applicant) => {
-                  // eslint-disable-next-line @typescript-eslint/no-shadow
-                  const { id, name, currentJob, location } = applicant;
-                  return (
-                    <motion.div
-                      onClick={() => handleClick(id)}
-                      variants={tableTransitions}
+    return (
+        <motion.div
+            initial="initial"
+            animate="animate"
+            exit="initial"
+            variants={pageTransitions}
+            className="content-container"
+        >
+            <div className='job-content-container'>
+                <div>
+                    <div className='applicant-container'>
+                        <h2 className='main-title'>Applicants</h2>
+                        <motion.div className="applicant-table-container" variants={staggerTransitions}>
+                            <article>
+                                <motion.div className="applicant-table-header" variants={tableTransitions}>
+                                    <h3>Name</h3>
+                                    <div className="vertical"></div>
+                                    <h3>Job Title</h3>
+                                    <div className="vertical"></div>
+                                    <h3>Location</h3>
+                                </motion.div>
+                            </article>
+                            <div>
+                                {candidates?.map((applicant) => {
+                                    const { id, name, currentJob, location } = applicant;
+                                    return (
+                                        <motion.div onClick={() => handleClick(id)} variants={tableTransitions}>
+                                            <ApplicantTable id={id} name={name} currentJob={currentJob} location={location} />
+                                        </motion.div>
+                                    )
+                                })}
+                            </div>
+                        </motion.div>
+                    </div>
+                    <StyledModal
+                        isOpen={openModal}
+                        onBackgroundClick={toggleModal}
+                        onEscapeKeydown={toggleModal}
                     >
-                      <ApplicantTable
-                        id={id}
-                        name={name}
-                        currentJob={currentJob}
-                        location={location}
-                      />
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </div>
-          <StyledModal
-            isOpen={openModal}
-            onBackgroundClick={toggleModal}
-            onEscapeKeydown={toggleModal}
-          >
-            <motion.div variants={modalTransitions}>
-              <button
-                onClick={() => setOpenModal(false)}
-                className="standard-button"
-                type="button"
-              >
-                Close
-              </button>
-              {applicantId &&
-                applicants
-                  .filter((applicant) =>
-                    applicant.id.toString().includes(`${applicantId}`)
-                  )
-                  .map((selectedApplicant) => (
-                    <ApplicantCard
-                      id={selectedApplicant.id}
-                      name={selectedApplicant.name}
-                      currentJob={selectedApplicant.currentJob}
-                      location={selectedApplicant.location}
-                      email={selectedApplicant.email}
-                      phoneNumber={selectedApplicant.phoneNumber}
-                      cvLink={selectedApplicant.cvLink}
-                    />
-                  ))}
-            </motion.div>
-          </StyledModal>
-        </div>
-        <div className="job-container">
-          <h2>Job Description</h2>
-          {job.map((item) => (
-            <article key={item.id} className="single-job-container">
-              <SingleJobContainer className="single-job-header">
-                <div className="single-job-title">
-                  <h1>{item.title}</h1>
-                  <h4>End Date: {item.endDate}</h4>
+                        <motion.div variants={modalTransitions}>
+                            <button onClick={() => setOpenModal(false)} className="standard-button">
+                                Close
+                            </button>
+                            {applicantId && candidates?.filter(applicant => applicant.id.toString().includes(`${applicantId}`)).map(selectedApplicant => (
+                                <ApplicantCard
+                                    id={selectedApplicant.id}
+                                    name={selectedApplicant.name}
+                                    currentJob={selectedApplicant.currentJob}
+                                    location={selectedApplicant.location}
+                                    email={selectedApplicant.email}
+                                    phoneNumber={selectedApplicant.phoneNumber}
+                                    cvLink={selectedApplicant.cvLink}
+                                />
+                            ))}
+                        </motion.div>
+                    </StyledModal>
                 </div>
-                <h2>{item.company}</h2>
-                <h4>Location: {item.location}</h4>
-                <h5>{item.companyDescription}</h5>
-                <h4>
-                  Salary: £{item.salaryMin}-£{item.salaryMax} per annum
-                </h4>
-                <h4>{item.applicants} applicants</h4>
-              </SingleJobContainer>
-              <SingleJobContainer className="single-job-header">
-                <h2>Description</h2>
-                <h5>{item.jobDescription}</h5>
-              </SingleJobContainer>
-              <SingleJobContainer className="single-job-header">
-                <h3>Essential Requirements</h3>
-                <ul>
-                  {item.requirementsEssential.map((essential) => {
-                    return <li>{essential}</li>;
-                  })}
-                </ul>
-                <h3>Desirable</h3>
-                <ul>
-                  {item.requirementsDesirable.map((desirable) => {
-                    return <li>{desirable}</li>;
-                  })}
-                </ul>
-                <h3>Key Responsibilities</h3>
-                <ul>
-                  {item.responsibilities.map((responsibility) => {
-                    return <li>{responsibility}</li>;
-                  })}
-                </ul>
-              </SingleJobContainer>
-            </article>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
+                <div className='job-container'><h2>Job Description</h2>
+                    {singleVacancy &&
+                        <article key={singleVacancy.id} className='single-job-container' >
+                            <SingleJobContainer className='single-job-header'>
+                                <div className='single-job-title'>
+                                    <h1>{singleVacancy.title}</h1>
+                                    <h4>End Date: {singleVacancy.endDate}</h4>
+                                </div>
+                                <h2>{singleVacancy.company}</h2>
+                                <h4>Location: {singleVacancy.location}</h4>
+                                <h5>{singleVacancy.companyDescription}</h5>
+                                <h4>Salary: £{singleVacancy.salaryMin}-£{singleVacancy.salaryMax} per annum</h4>
+                                <h4>{singleVacancy.applicants} applicants</h4>
+                            </SingleJobContainer>
+                            <SingleJobContainer className='single-job-header'>
+                                <h2>Description</h2>
+                                <h5>{singleVacancy.jobDescription}</h5>
+                            </SingleJobContainer>
+                            <SingleJobContainer className='single-job-header'>
+                                <h3>Essential Requirements</h3>
+                                <ul>
+                                    {singleVacancy.requirementsEssential.map(essential => {
+                                        return <li>{essential}</li>
+                                    })}
+                                </ul>
+                                <h3>Desirable</h3>
+                                <ul>
+                                    {singleVacancy.requirementsDesirable.map(desirable => {
+                                        return <li>{desirable}</li>
+                                    })}
+                                </ul>
+                                <h3>Key Responsibilities</h3>
+                                <ul>
+                                    {singleVacancy.responsibilities.map(responsibility => {
+                                        return <li>{responsibility}</li>
+                                    })}
+                                </ul>
+                            </SingleJobContainer>
+                        </article>
+                    }
+                </div>
+            </div>
+        </motion.div>
+    );
+}

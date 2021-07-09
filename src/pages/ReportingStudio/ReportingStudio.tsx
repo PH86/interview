@@ -22,8 +22,7 @@ const getJobsPerLocationObject = (): Record<string, number> =>
     // eslint-disable-next-line no-param-reassign
     if (!result[location]) result[location] = 0;
 
-    // eslint-disable-next-line no-param-reassign
-    result[location] += jobDatum.applicants;
+		result[location] += jobDatum.applicants.length;
 
     return result;
   }, {} as Record<string, number>);
