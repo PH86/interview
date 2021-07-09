@@ -72,7 +72,7 @@ const columns: ColumnDefinitionType<iBill, keyof iBill>[] = [
         width: 150
     },
 ]
-
+ 
 export const Account: React.FC<{}> = (): React.ReactElement => {
     const [openModal, setOpenModal] = useState<boolean>(false);
     const [modalComponent, setModalComponent] = useState<JSX.Element>()

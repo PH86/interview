@@ -4,7 +4,6 @@ export const EditBillingInformation = () => {
     return (
         <div className="packages-page-container">
         <h1>Billing Information</h1>
-        <h2>Edit</h2>
         <form className="modal-form">
             <label htmlFor="company-name">
                 Company name
@@ -18,7 +17,14 @@ export const EditBillingInformation = () => {
                 VAT number
                 <input name="vat-number" type="text" placeholder="Enter your VAT number"/>
             </label>
-            <button type="submit" className="standard-button">Save</button>
+            <div>
+                <button type="submit" className="standard-button">
+                    Save
+                </button>
+                <button type="submit" className="standard-button text-button">
+                    Undo changes
+                </button>
+            </div>  
         </form>
     </div>
     )

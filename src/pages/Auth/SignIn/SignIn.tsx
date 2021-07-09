@@ -87,7 +87,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
               </label>
             </div>
           </form>
-          <div>
+          <div className="center-text">
             <button className="button" type="submit" form="loginForm">
               LOG IN
             </button>

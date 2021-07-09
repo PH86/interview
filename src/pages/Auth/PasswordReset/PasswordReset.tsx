@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react"; 
-import { useHistory } from 'react-router';
+import { useHistory, Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { pageTransitions } from "utils/Animations";
 import logo from "images/interview-dark.svg";
@@ -48,6 +48,12 @@ export const PasswordReset: React.FC<{}> = (): React.ReactElement => {
             {apiError && <p className="error-message">{apiError}</p>}
             <form className="form" id="recoverForm" onSubmit={handleSubmit}>
                 <div className="input-container">
+                    <p>
+                        Please enter the email address you would like the recovery link
+                        sent to.
+                    </p>
+                </div>
+                <div className="input-container">
                     <label htmlFor="email">EMAIL ADDRESS</label>
                     <input 
                         type="email" 
@@ -57,16 +63,15 @@ export const PasswordReset: React.FC<{}> = (): React.ReactElement => {
                         required 
                     />
                 </div>
-                <div className="input-container">
-                    <p>
-                        Please enter the email address you would like the recovery link
-                        sent to.
-                    </p>
-                </div>
             </form>
-            <button className="button" type="submit" form="recoverForm">
-                SUBMIT
-            </button>
+            <div className="center-text">
+                <button className="button" type="submit" form="recoverForm">
+                    SUBMIT
+                </button>
+                <Link className="text-button" to={url.signIn}>
+                    Back to sign in
+                </Link>
+            </div>
             </div>
         </motion.div>
     );
