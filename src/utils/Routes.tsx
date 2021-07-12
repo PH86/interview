@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import AuthenticatedRoute from "utils/AuthenticatedRoute";
 
 import { Dashboard } from "pages/Dashboard/Dashboard";
@@ -18,7 +18,7 @@ const DefaultRoute = () => (
   </div>
 );
 
-export const Routes = () => {
+export const Routes = (): React.ReactElement => {
   return (
     <Switch>
       <Route exact path={url.signIn} component={SignIn} />

@@ -3,7 +3,6 @@ import "./CandidateSearch.css";
 import Modal from "styled-react-modal";
 import { motion } from "framer-motion";
 import { ApplicantCard, ApplicantTable } from "components";
-import { applicants } from "utils/Applicants";
 import {
   pageTransitions,
   modalTransitions,
@@ -144,64 +143,10 @@ export const CandidateSearch: React.FC = (): React.ReactElement => {
               </article>
             </motion.div>
           )}
-          <h3 className="radio-container-title">Search by:</h3>
-          <div className="radio-container-multiple">
-            <div className="radio-container-div">
-              <label htmlFor="name" className="radio-container">
-                Name
-                <input
-                  id="name"
-                  type="radio"
-                  checked={searchFilter === "name"}
-                  value="name"
-                  onChange={(e) => setSearchFilter(e.target.value)}
-                />
-                <span className="checkmark"></span>
-              </label>
-            </div>
-            <div className="radio-container-div">
-              <label htmlFor="currentJob" className="radio-container">
-                Job title
-                <input
-                  id="currentJob"
-                  type="radio"
-                  checked={searchFilter === "currentJob"}
-                  value="currentJob"
-                  onChange={(e) => setSearchFilter(e.target.value)}
-                />
-                <span className="checkmark"></span>
-              </label>
-            </div>
-            <div className="radio-container-div">
-              <label htmlFor="location" className="radio-container">
-                Location
-                <input
-                  type="radio"
-                  checked={searchFilter === "location"}
-                  value="location"
-                  onChange={(e) => setSearchFilter(e.target.value)}
-                />
-                <span className="checkmark"></span>
-              </label>
-            </div>
-          </div>
           <motion.div
             className="applicant-table-container"
             variants={staggerTransitions}
           >
-            {search && (
-              <motion.div variants={pageTransitions}>
-                <article>
-                  <div className="applicant-table-header">
-                    <h3>Name</h3>
-                    <div className="vertical"></div>
-                    <h3>Job Title</h3>
-                    <div className="vertical"></div>
-                    <h3>Location</h3>
-                  </div>
-                </article>
-              </motion.div>
-            )}
             {search &&
               searchFilter === "name" &&
               candidates
@@ -266,28 +211,6 @@ export const CandidateSearch: React.FC = (): React.ReactElement => {
                   </motion.div>
                 ))}
           </motion.div>
-
-          {search &&
-            searchFilter === "location" &&
-            applicants
-              .filter((applicant) =>
-                applicant.location
-                  .toLowerCase()
-                  .includes(`${search}`.toLowerCase())
-              )
-              .map((filteredApplicant) => (
-                <motion.div
-                  onClick={() => handleClick(filteredApplicant.id)}
-                  variants={pageTransitions}
-                >
-                  <ApplicantTable
-                    id={filteredApplicant.id}
-                    name={filteredApplicant.name}
-                    currentJob={filteredApplicant.currentJob}
-                    location={filteredApplicant.location}
-                  />
-                </motion.div>
-              ))}
         </motion.div>
         <StyledModal
           isOpen={openModal}
