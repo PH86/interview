@@ -1,17 +1,19 @@
-import React from 'react';
-import './MetaInfo.css'
+import React from "react";
+import "./MetaInfo.css";
 
 export interface IMetaInfo {
-    label: string;
-    text: string;
+  label: string;
+  text: string;
 }
 
-export const MetaInfo: React.FC<IMetaInfo> = ({ label, text}): React.ReactElement => {
-    return (
-        <div className='meta-info-container'>
-            <p className='meta-info-label'>{label}</p>
-            <p className='meta-info-text'>{text}</p>
-        </div>
-    )
-}
-
+export const MetaInfo: React.FC<IMetaInfo> = ({
+  label,
+  text,
+}: IMetaInfo): React.ReactElement => {
+  return (
+    <div className="meta-info-container">
+      <p className="meta-info-label">{label}</p>
+      <p className="meta-info-text">{text}</p>
+    </div>
+  );
+};

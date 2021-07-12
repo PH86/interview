@@ -1,3 +1,3 @@
-export { SignIn } from './SignIn/SignIn';
-export { PasswordReset } from './PasswordReset/PasswordReset';
-export { Register } from './Register/Register';
+export { SignIn } from "pages/Auth/SignIn/SignIn";
+export { PasswordReset } from "pages/Auth/PasswordReset/PasswordReset";
+export { Register } from "pages/Auth/Register/Register";

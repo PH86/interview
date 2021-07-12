@@ -1,31 +1,30 @@
-import { useContext } from 'react';
-import { useHistory } from 'react-router';
+import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
-import { AuthContext } from 'context/AuthContext';
-import { url } from 'utils/constants';
+import { AuthContext } from "context/AuthContext";
+import { url } from "utils/constants";
 
-export const useAuthContext = () => {	
-    const { authState, setAuthState } = useContext(AuthContext);
-    
-    const history = useHistory();
+export const useAuthContext = () => {
+  const { authState, setAuthState } = useContext(AuthContext);
 
-    const signIn = async (value: string) => {
-        setAuthState(authState => ({...authState, token: value}))
-        localStorage.setItem('token', value)
-        history.push(url.dashboard)
-    }
+  const history = useHistory();
 
-    const signOut = () => {
-        setAuthState(authState => ({...authState, user: {}}))
-        localStorage.removeItem('token');
-		history.push(url.signIn)
-    }
+  const signIn = async (value: string) => {
+    setAuthState((prev) => ({ ...prev, token: value }));
+    localStorage.setItem("token", value);
+    history.push(url.dashboard);
+  };
 
-    return {
-        user: authState.user,
-        token: authState.token,
-        signIn, 
-        signOut,
-    };
-}
+  const signOut = () => {
+    setAuthState((prev) => ({ ...prev, user: {} }));
+    localStorage.removeItem("token");
+    history.push(url.signIn);
+  };
 
+  return {
+    user: authState.user,
+    token: authState.token,
+    signIn,
+    signOut,
+  };
+};

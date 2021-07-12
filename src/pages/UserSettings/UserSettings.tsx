@@ -25,7 +25,7 @@ const StyledModal = Modal.styled`
     border-radius: 15px;
 `;
 
-export const UserSettings: React.FC<{}> = (): React.ReactElement => {
+export const UserSettings: React.FC = (): React.ReactElement => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [modalComponent, setModalComponent] = useState<JSX.Element>();
 
@@ -56,9 +56,10 @@ export const UserSettings: React.FC<{}> = (): React.ReactElement => {
           <MetaInfo label="Email address" text="test.user@company.com" />
           <MetaInfo label="Phone number" text="07900000000" />
           <MetaInfo label="Job position" text="Hiring Manager" />
-           <button
+          <button
             className="standard-button"
             onClick={() => openModalComponent(<AccountInformation />)}
+            type="button"
           >
             Edit
           </button>
@@ -71,6 +72,7 @@ export const UserSettings: React.FC<{}> = (): React.ReactElement => {
           <button
             className="standard-button"
             onClick={() => openModalComponent(<SecurityInformation />)}
+            type="button"
           >
             Edit
           </button>
