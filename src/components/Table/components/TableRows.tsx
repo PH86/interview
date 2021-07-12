@@ -10,9 +10,10 @@ export const TableRows = <T, K extends keyof T>({
   data,
   columns,
 }: TableRowsProps<T, K>): React.ReactElement => {
-  const rows = data.map((row) => {
+  const rows = data.map((row, index) => {
     return (
-      <tr key={`tr-${row}`}>
+      // eslint-disable-next-line react/no-array-index-key
+      <tr key={`tr-${index}`}>
         {columns.map((column) => {
           return <td key={`td-${column.key}`}>{row[column.key]}</td>;
         })}

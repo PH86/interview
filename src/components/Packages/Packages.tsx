@@ -6,7 +6,7 @@ export const Packages = (): React.ReactElement => {
   const renderPackages = () => (
     <div className="packages-container">
       {dummyPackageResponse.map((packageItem) => (
-        <div className="package-container">
+        <div className="package-container" key={packageItem.name}>
           <p className="package-name">{packageItem.name}</p>
           <h3 className="package-price">
             <span>£{packageItem.price}</span>/ Month
@@ -14,8 +14,9 @@ export const Packages = (): React.ReactElement => {
           <p className="package-tag">{packageItem.tag}</p>
           <div className="package-details">
             <ul>
-              {packageItem.details.map((packageItemDetail) => (
-                <li>{packageItemDetail}</li>
+              {packageItem.details.map((packageItemDetail, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <li key={index}>{packageItemDetail}</li>
               ))}
             </ul>
           </div>
