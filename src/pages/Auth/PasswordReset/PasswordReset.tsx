@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { useHistory , Link} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageTransitions } from "utils/Animations";
 import logo from "images/interview-dark.svg";
@@ -35,47 +35,49 @@ export const PasswordReset: React.FC = (): React.ReactElement => {
           setApiError("There was a problem with your request");
         }
       })
-      .catch((err) => console.log("error", err.error));
+      .catch((err) => err);
   };
 
-    return (
-        <motion.div
-            className="container slim-container"
-            initial="initial"
-            animate="animate"
-            exit="initial"
-            variants={pageTransitions}
-        >
-            <div className="form-container">
-            <img className="form-logo" src={logo} alt="Interview Logo" />
-            {apiError && <p className="error-message">{apiError}</p>}
-            <form className="form" id="recoverForm" onSubmit={handleSubmit}>
-                <div className="input-container">
-                    <p>
-                        Please enter the email address you would like the recovery link
-                        sent to.
-                    </p>
-                </div>
-                <div className="input-container">
-                    <label htmlFor="email">EMAIL ADDRESS</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        onChange={(event) => handleOnChange(event)}
-                        required 
-                    />
-                </div>
-            </form>
-            <div className="center-text">
-                <button className="button" type="submit" form="recoverForm">
-                    SUBMIT
-                </button>
-                <Link className="text-button" to={url.signIn}>
-                    Back to sign in
-                </Link>
-            </div>
-            </div>
-        </motion.div>
-    );
-}
+  return (
+    <motion.div
+      className="container slim-container"
+      initial="initial"
+      animate="animate"
+      exit="initial"
+      variants={pageTransitions}
+    >
+      <div className="form-container">
+        <img className="form-logo" src={logo} alt="Interview Logo" />
+        {apiError && <p className="error-message">{apiError}</p>}
+        <form className="form" id="recoverForm" onSubmit={handleSubmit}>
+          <div className="input-container">
+            <p>
+              Please enter the email address you would like the recovery link
+              sent to.
+            </p>
+          </div>
+          <div className="input-container">
+            <label htmlFor="email">
+              EMAIL ADDRESS
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={(event) => handleOnChange(event)}
+                required
+              />
+            </label>
+          </div>
+        </form>
+        <div className="center-text">
+          <button className="button" type="submit" form="recoverForm">
+            SUBMIT
+          </button>
+          <Link className="text-button" to={url.signIn}>
+            Back to sign in
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  );
+};

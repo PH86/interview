@@ -2,7 +2,7 @@ import "./Packages.css";
 
 import { dummyPackageResponse } from "utils/dummyPackageData";
 
-export const Packages = () => {
+export const Packages = (): React.ReactElement => {
   const renderPackages = () => (
     <div className="packages-container">
       {dummyPackageResponse.map((packageItem) => (

@@ -19,10 +19,12 @@ const GraphContainer = styled.div`
 const getJobsPerLocationObject = (): Record<string, number> =>
   jobData.reduce((result, jobDatum) => {
     const { location } = jobDatum;
+    if (!result[location]) {
+      // eslint-disable-next-line no-param-reassign
+      result[location] = 0;
+    }
     // eslint-disable-next-line no-param-reassign
-    if (!result[location]) result[location] = 0;
-
-		result[location] += jobDatum.applicants.length;
+    result[location] += jobDatum.applicants.length;
 
     return result;
   }, {} as Record<string, number>);
@@ -57,11 +59,12 @@ const getAverageSalaryPerLocation = (): Record<string, number> => {
 
   jobData.forEach((job) => {
     const { location } = job;
-    if (!runningTotals[location])
+    if (!runningTotals[location]) {
       runningTotals[location] = {
         sumOfSalaries: 0,
         numberOfJobs: 0,
       };
+    }
 
     runningTotals[location].sumOfSalaries += job.salary;
     runningTotals[location].numberOfJobs += 1;
@@ -102,7 +105,6 @@ export const ReportingStudio: React.FC = (): React.ReactElement => {
   const dummySalaryData = getFormattedAverageSalaryPerLocationObjects();
   const topSevenDummySalaryData =
     getTopSevenAvarageSalariesWithLocation(dummySalaryData);
-  console.log(topSevenDummySalaryData);
   return (
     <motion.div
       initial="initial"

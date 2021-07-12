@@ -1,5 +1,4 @@
 import React from "react";
-import { IApplicantCard } from "./ApplicantCard";
 import "./ApplicantTable.css";
 
 interface IApplicantTable {

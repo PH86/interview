@@ -4,31 +4,39 @@ import "./VacancyCard.css";
 import { url } from "utils/constants";
 
 interface IVacancyCard {
-    id: string,
-    title: string,
-    company: string,
-    location: string,
-    salary: number,
-    applicants: string[],
-    endDate: string,
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  salary: number;
+  applicants: string[];
+  endDate: string;
 }
 
-export const VacancyCard: React.FC<IVacancyCard> = ({ id, title, company, location, salary, applicants, endDate }): React.ReactElement => {
-    return (
-        <article key={id} >
-            <Link to={`${url.jobs}/${id}`} className='vacancy-card-container'>
-                <h4>{title}</h4>
-                <div className="vertical"></div>
-                <h4>{company}</h4>
-                <div className="vertical"></div>
-                <h4>{location}</h4>
-                <div className="vertical"></div>
-                <h4>{`£${salary}`}</h4>
-                <div className="vertical"></div>
-                <h4 className='vacancy-card-media-remove'>{applicants.length}</h4>
-                <div className="vertical"></div>
-                <h4 className='vacancy-card-media-remove'>{endDate}</h4>
-            </Link>
-        </article>
-    )
-}
+export const VacancyCard: React.FC<IVacancyCard> = ({
+  id,
+  title,
+  company,
+  location,
+  salary,
+  applicants,
+  endDate,
+}): React.ReactElement => {
+  return (
+    <article key={id}>
+      <Link to={`${url.jobs}/${id}`} className="vacancy-card-container">
+        <h4>{title}</h4>
+        <div className="vertical"></div>
+        <h4>{company}</h4>
+        <div className="vertical"></div>
+        <h4>{location}</h4>
+        <div className="vertical"></div>
+        <h4>{`£${salary}`}</h4>
+        <div className="vertical"></div>
+        <h4 className="vacancy-card-media-remove">{applicants.length}</h4>
+        <div className="vertical"></div>
+        <h4 className="vacancy-card-media-remove">{endDate}</h4>
+      </Link>
+    </article>
+  );
+};

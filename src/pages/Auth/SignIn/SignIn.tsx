@@ -44,7 +44,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
           setApiError("There was a problem with your request");
         }
       })
-      .catch((err) => console.log("error", err.error))
+      .catch((err) => err)
       // Remove this line once api call is set up as this is currently bypassing everything above
       .finally(() => signIn("test"));
   };
