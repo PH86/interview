@@ -68,3 +68,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## To configure eslint and prettier formatting on save (for VSCode)
+
+# Download eslint extension
+
+Open settings (JSON) - Shift, Command + P
+
+Add these lines to the settings file
+"eslint.validate": [
+"javascript",
+"javascriptreact",
+"typescript",
+"typescriptreact"
+]
+
+# Download prettier extension
+
+Open settings (JSON) - Shift, Command + P
+
+Add these two lines to settings file
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+"editor.formatOnSave": true,
