@@ -39,7 +39,6 @@ const SidebarContainer = styled.div`
 const LinkContainer = styled.ul`
   background-color: ${sidebarBackgroundColor};
   color: ${sidebarTextColor};
-  transition: var(--transition);
 `;
 
 const SignoutContainer = styled.div`
@@ -89,24 +88,25 @@ export const Sidebar: React.FC = (): React.ReactElement => {
                 url={url.dashboard}
                 title="Dashboard"
                 icon={faTachometerAltFast}
-                swapOpacity={theme.mode !== "dark"}
+                swapOpacity={false}
               />
               <SidebarLink
                 url={url.jobs}
                 title="Job Vacancies"
                 icon={faNewspaper}
-                swapOpacity={theme.mode !== "dark"}
+                swapOpacity={false}
               />
               <SidebarLink
                 url={url.candidates}
                 title="Candidate Search"
                 icon={faSearch}
-                swapOpacity={theme.mode !== "dark"}
+                swapOpacity={false}
               />
               <SidebarLink
                 url={url.studio}
                 title="Reporting Studio"
                 icon={faChartNetwork}
+                swapOpacity={false}
               />
               <SidebarLink
                 url={url.settings}

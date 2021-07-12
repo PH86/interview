@@ -39,11 +39,9 @@ export const VacancyFormWrapper = (): React.ReactElement => {
         if (res.ok) {
           res.json();
           // Show error message
-        } else {
-          console.log("There was a problem with your request");
         }
       })
-      .catch((err) => console.log("error", err.error))
+      .catch((err) => err)
       // Remove this line once api call is set up as this is currently bypassing everything above
       .finally(() => setOpenModal());
   };

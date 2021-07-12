@@ -29,7 +29,7 @@ export const SecurityInformation = () => {
           <button type="submit" className="standard-button text-button">
             Undo changes
           </button>
-        </div>  
+        </div>
       </form>
     </div>
   );
