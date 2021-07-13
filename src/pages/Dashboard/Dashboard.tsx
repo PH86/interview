@@ -2,6 +2,14 @@ import { DashCard, DashboardLineGraph } from "components";
 import { motion } from "framer-motion";
 import { dummyData } from "utils/dataCollection";
 import { pageTransitions } from "utils/Animations";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPhoneSquare,
+  faCalendarDay,
+  faUsers,
+  faNewspaper,
+  faAddressCard,
+} from "@fortawesome/pro-duotone-svg-icons";
 import "./Dashboard.css";
 
 export const Dashboard: React.FC = (): React.ReactElement => {
@@ -22,12 +30,48 @@ export const Dashboard: React.FC = (): React.ReactElement => {
           dataKeyXAxis="name"
           dataKeyArea="Applicants"
         />
-        <DashCard title="Current Vacancies" content="9" />
-        <DashCard title="Current Applicants" content="40" />
-        <DashCard title="Interviews Today" content="4" />
-        <DashCard title="Callbacks Required" content="10" />
+        <DashCard
+          title="Active Vacancies"
+          content="9"
+          icon={
+            <FontAwesomeIcon className="dashboard-icon" icon={faNewspaper} />
+          }
+        />
+        <DashCard
+          title="Ending This Week"
+          content="3"
+          icon={
+            <FontAwesomeIcon className="dashboard-icon" icon={faNewspaper} />
+          }
+        />
+        <DashCard
+          title="Total Applicants"
+          content="40"
+          icon={<FontAwesomeIcon className="dashboard-icon" icon={faUsers} />}
+        />
+        <DashCard
+          title="New Applicants"
+          content="6"
+          icon={
+            <FontAwesomeIcon className="dashboard-icon" icon={faAddressCard} />
+          }
+        />
+        <DashCard
+          title="Interviews Today"
+          content="4"
+          icon={
+            <FontAwesomeIcon className="dashboard-icon" icon={faCalendarDay} />
+          }
+        />
+        <DashCard
+          title="Callbacks Required"
+          content="10"
+          icon={
+            <FontAwesomeIcon className="dashboard-icon" icon={faPhoneSquare} />
+          }
+        />
       </div>
-      <h1>to do list or calendar could go here?</h1>
+      <h1>to do list to go here</h1>
     </motion.div>
   );
 };

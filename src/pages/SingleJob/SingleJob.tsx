@@ -10,7 +10,7 @@ import {
   tableTransitions,
   modalTransitions,
 } from "utils/Animations";
-import { backgroundColor, shadow } from "themes/theme";
+import { backgroundColor, shadow, textColor } from "themes/theme";
 import { ApplicantCard, ApplicantTable } from "components";
 import { IApplicantCard } from "components/Applicant/ApplicantCard";
 import { IJobData } from "utils/DummyVacancyData";
@@ -21,25 +21,24 @@ const SingleJobContainer = styled.div`
 `;
 
 const StyledModal = Modal.styled`
-    width: 90vw;
-    height: 90vh;
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: ${backgroundColor};
-    overflow-y: scroll;
+  top: '50%',
+  left: '50%',
+  right: 'auto',
+  bottom: 'auto',
+  marginRight: '-50%',
+  transform: 'translate(-50%, -50%)',
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${backgroundColor};
+  color: ${textColor};
+  border-radius: 15px;
 `;
 
 export const SingleJob: React.FC = (): React.ReactElement => {
   const { id } = useParams<{ id: string }>();
   const [openModal, setOpenModal] = React.useState<boolean>(false);
-  const [applicantId, setApplicantId] = React.useState<number>();
+  const [applicantId, setApplicantId] = React.useState<string>();
   const [candidates, setCandidates] = React.useState<IApplicantCard[]>();
   const [singleVacancy, setSingleVacancy] = React.useState<IJobData>();
 
@@ -79,7 +78,7 @@ export const SingleJob: React.FC = (): React.ReactElement => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleClick = (selectId: number) => {
+  const handleClick = (selectId: string) => {
     setApplicantId(selectId);
     setOpenModal(true);
   };
@@ -143,17 +142,10 @@ export const SingleJob: React.FC = (): React.ReactElement => {
             onEscapeKeydown={toggleModal}
           >
             <motion.div variants={modalTransitions}>
-              <button
-                onClick={() => setOpenModal(false)}
-                className="standard-button"
-                type="button"
-              >
-                Close
-              </button>
               {applicantId &&
                 candidates
                   ?.filter((applicant) =>
-                    applicant.id.toString().includes(`${applicantId}`)
+                    applicant.id.includes(`${applicantId}`)
                   )
                   .map((selectedApplicant) => (
                     <ApplicantCard
@@ -164,6 +156,7 @@ export const SingleJob: React.FC = (): React.ReactElement => {
                       email={selectedApplicant.email}
                       phoneNumber={selectedApplicant.phoneNumber}
                       cvLink={selectedApplicant.cvLink}
+                      closeModal={() => setOpenModal(false)}
                     />
                   ))}
             </motion.div>

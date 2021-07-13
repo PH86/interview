@@ -34,7 +34,7 @@ export const CandidateSearch: React.FC = (): React.ReactElement => {
   const [search, setSearch] = React.useState("");
   const [searchFilter, setSearchFilter] = React.useState<string>("name");
   const [openModal, setOpenModal] = React.useState<boolean>(false);
-  const [applicantId, setApplicantId] = React.useState<number>();
+  const [applicantId, setApplicantId] = React.useState<string>();
   const [candidates, setCandidates] = React.useState<IApplicantCard[]>();
 
   // eslint-disable-next-line consistent-return
@@ -56,7 +56,7 @@ export const CandidateSearch: React.FC = (): React.ReactElement => {
     getCandidates();
   }, []);
 
-  const handleClick = (id: number) => {
+  const handleClick = (id: string) => {
     setApplicantId(id);
     setOpenModal(true);
   };
@@ -239,6 +239,7 @@ export const CandidateSearch: React.FC = (): React.ReactElement => {
                     email={selectedApplicant.email}
                     phoneNumber={selectedApplicant.phoneNumber}
                     cvLink={selectedApplicant.cvLink}
+                    closeModal={() => setOpenModal(false)}
                   />
                 ))}
           </motion.div>

@@ -7,13 +7,14 @@ import { FiPhone } from "react-icons/fi";
 import { CgFileDocument } from "react-icons/cg";
 
 export interface IApplicantCard {
-  id: number;
+  id: string;
   name: string;
   currentJob: string;
   location: string;
   email: string;
   phoneNumber: string;
   cvLink: string;
+  closeModal: () => void;
 }
 
 const Card = styled.article`
@@ -28,6 +29,7 @@ export const ApplicantCard: React.FC<IApplicantCard> = ({
   email,
   phoneNumber,
   cvLink,
+  closeModal,
 }: IApplicantCard): React.ReactElement => {
   return (
     <Card key={id} className="applicant-card-container">
@@ -48,6 +50,13 @@ export const ApplicantCard: React.FC<IApplicantCard> = ({
           {cvLink}
         </a>
       </h4>
+      <button
+        onClick={() => closeModal()}
+        className="standard-button"
+        type="button"
+      >
+        Close
+      </button>
     </Card>
   );
 };

@@ -1,17 +1,27 @@
 .dashboard-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
 }
 
 .dashcards-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-icon {
+  vertical-align: middle;
+  font-size: 3rem;
+  padding-right: 1rem;
+  --fa-primary-color: var(--clr-text-primary);
+  --fa-secondary-color: var(--clr-primary-blue);
+  --fa-primary-opacity: 0.9;
+  --fa-secondary-opacity: 0.8;
 }
 
 @media (max-width: 500px) {
-	.dashboard-container {
-		flex-direction: column;
-	}
+  .dashboard-container {
+    flex-direction: column;
+  }
 }

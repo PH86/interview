@@ -1,47 +1,47 @@
-.applicant-card-container{
-    min-width: 250px;
-    width: min-content;
-    padding-left: 1rem;
-    margin: 1rem auto;
-    margin-top: 0;
-    border-radius: var(--radius);
-    box-shadow: var(--dark-shadow-inverse);
-    text-align: left;
-    background-color: var(--clr-text-secondary);
-    color: var(--clr-text-primary);
+.applicant-card-container {
+  min-width: 250px;
+  width: min-content;
+  padding-left: 1rem;
+  margin: 0 auto;
+  margin-top: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--dark-shadow-inverse);
+  text-align: left;
+  background-color: var(--clr-text-secondary);
+  color: var(--clr-text-primary);
 }
 
-.applicant-name{
-    margin: 0;
-    font-size: 2rem;
+.applicant-name {
+  margin: 0;
+  font-size: 2rem;
 }
 
-.applicant-job{
-    margin: 0;
-    font-weight: normal;
+.applicant-job {
+  margin: 0;
+  font-weight: normal;
 }
 
-.applicant-card-container h4{
-    margin: 0;
-    font-size: 1rem;
+.applicant-card-container h4 {
+  margin: 0;
+  font-size: 1rem;
 }
 
-.applicant-icon{
-    vertical-align: middle;
-    font-size: 1.1rem;
-    padding-right: 0.5rem;
+.applicant-icon {
+  vertical-align: middle;
+  font-size: 1.1rem;
+  padding-right: 0.5rem;
 }
 
-.applicant-cv{
-    padding-bottom: 0.5rem;
+.applicant-cv {
+  padding-bottom: 0.5rem;
 }
 
-.applicant-cv a{
-    color: var(--clr-primary-blue);
+.applicant-cv a {
+  color: var(--clr-primary-blue);
 }
 
 @media (max-width: 1100px) {
-    .applicant-name{
-        font-size: 1.5rem;
-    }
+  .applicant-name {
+    font-size: 1.5rem;
+  }
 }
