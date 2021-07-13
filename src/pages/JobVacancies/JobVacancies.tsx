@@ -85,6 +85,7 @@ export const JobVacancies: React.FC = (): React.ReactElement => {
             <label htmlFor="title" className="radio-container">
               Job Title
               <input
+                id="title"
                 type="radio"
                 checked={searchFilter === "title"}
                 value="title"
@@ -97,6 +98,7 @@ export const JobVacancies: React.FC = (): React.ReactElement => {
             <label htmlFor="company" className="radio-container">
               Company
               <input
+                id="company"
                 type="radio"
                 checked={searchFilter === "company"}
                 value="company"
@@ -109,6 +111,7 @@ export const JobVacancies: React.FC = (): React.ReactElement => {
             <label htmlFor="location" className="radio-container">
               Location
               <input
+                id="location"
                 type="radio"
                 checked={searchFilter === "location"}
                 value="location"
