@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
   width: 100%;
   background: var(--clr-text-secondary);
 }
@@ -9,7 +9,7 @@
   width: 240px;
   min-width: 240px;
   float: left;
-  font-family: "Open Sans", sans-serif; 
+  font-family: "Open Sans", sans-serif;
   z-index: 1;
 }
 
@@ -27,41 +27,43 @@
   width: 100%;
   display: flex;
   flex-direction: column;
- }
+}
 
 .sidebar-links li {
   list-style-type: none;
   width: 100%;
+  min-height: 42px;
   height: 5vh;
 }
 
 .sidebar-links li:hover {
   cursor: pointer;
   background-color: var(--clr-primary-blue);
-  color: var(--clr-text-secondary)
+  color: var(--clr-text-secondary);
 }
 
 .sidebar-link {
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
   align-items: center;
   text-decoration: none;
   height: 100%;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .sidebar-link-active {
   color: white;
-  background-color: rgb(124,126,132,0.5);
+  background-color: rgb(124, 126, 132, 0.5);
 }
 
-.sidebar-icon{
+.sidebar-icon {
   padding-right: 1rem;
   font-size: 1.4rem;
+  min-width: 40px;
 }
 
 .sidebar-link:hover {
@@ -103,20 +105,20 @@
   font-size: 1rem;
 }
 
-.sidebar-links button { 
+.sidebar-links button {
   border: none;
   background: none;
   cursor: pointer;
   width: 100%;
 }
 
-.sidebar-signout button { 
+.sidebar-signout button {
   padding: 1rem;
 }
 
-.sidebar-signout button:hover { 
+.sidebar-signout button:hover {
   background-color: var(--clr-primary-blue);
-  color: var(--clr-text-secondary)
+  color: var(--clr-text-secondary);
 }
 
 .sidebar-signout .sidebar-icon {
@@ -124,15 +126,15 @@
 }
 
 @media (max-width: 900px) {
-  .sidebar-container{
-     width: 100vw;
+  .sidebar-container {
+    width: 100vw;
     height: 4rem;
     max-width: 1400px;
     display: flex;
     align-items: center;
   }
-  
-  .sidebar-container img{
+
+  .sidebar-container img {
     margin: 0 auto;
     padding: 0;
     height: 70%;

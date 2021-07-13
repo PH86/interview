@@ -2,7 +2,7 @@ import React from "react";
 import "./ApplicantTable.css";
 
 interface IApplicantTable {
-  id: number;
+  id: string;
   name: string;
   currentJob: string;
   location: string;
