@@ -35,6 +35,7 @@
 
 .add-vacancy {
   min-width: 140px;
+  background-color: var(--clr-button-primary);
 }
 
 .search-icon {
