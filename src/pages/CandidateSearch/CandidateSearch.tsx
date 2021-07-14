@@ -8,26 +8,25 @@ import {
   modalTransitions,
   staggerTransitions,
 } from "utils/Animations";
-import { backgroundColor } from "themes/theme";
+import { backgroundColor, textColor } from "themes/theme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/pro-duotone-svg-icons";
 import { IApplicantCard } from "components/Applicant/ApplicantCard";
 import { apiUrl } from "utils/constants";
 
 const StyledModal = Modal.styled`
-    width: 90vw;
-    height: 90vh;
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: ${backgroundColor};
-    overflow-y: scroll;
+top: '50%',
+left: '50%',
+right: 'auto',
+bottom: 'auto',
+marginRight: '-50%',
+transform: 'translate(-50%, -50%)',
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: ${backgroundColor};
+color: ${textColor};
+border-radius: 15px;
 `;
 
 export const CandidateSearch: React.FC = (): React.ReactElement => {
@@ -137,9 +136,7 @@ export const CandidateSearch: React.FC = (): React.ReactElement => {
               <article>
                 <div className="applicant-table-header">
                   <h3>Name</h3>
-                  <div className="vertical" />
                   <h3>Job Title</h3>
-                  <div className="vertical" />
                   <h3>Location</h3>
                 </div>
               </article>
@@ -220,13 +217,6 @@ export const CandidateSearch: React.FC = (): React.ReactElement => {
           onEscapeKeydown={toggleModal}
         >
           <motion.div variants={modalTransitions}>
-            <button
-              onClick={() => setOpenModal(false)}
-              className="standard-button"
-              type="button"
-            >
-              Close
-            </button>
             {applicantId &&
               candidates
                 ?.filter((applicant) =>

@@ -6,19 +6,17 @@
 .vacancy-table-header {
   margin: 0rem 0rem;
   display: grid;
-  grid-template-columns: 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6% 0.1% 16.6%;
+  grid-template-columns: repeat(6, 16.6%);
   text-decoration: none;
-  border: 1px groove var(--clr-secondary-grey); 
-  background-color: 	rgb(152,152,152, 0.5);
-}
-
-.vertical {
-  border: 1px groove var(--clr-secondary-grey);
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--clr-secondary-grey);
+  color: var(--clr-primary-grey);
 }
 
 @media (max-width: 720px) {
   .vacancy-table-header {
-    grid-template-columns: 25% 0.1% 25% 0.1% 25% 0.1% 25%;
+    grid-template-columns: 25% 25% 25% 25%;
   }
 
   .vacancy-table-header h3 {

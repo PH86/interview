@@ -1,133 +1,130 @@
 .job-content-container {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
+  display: grid;
+  grid-template-columns: repeat(2, auto);
 }
 
 .applicant-container {
-    margin: 0 auto;
-    padding-top: 1rem;
-    margin: 0.5rem 1rem;
-    min-width: 600px;
+  margin: 0 auto;
+  padding-top: 1rem;
+  margin: 0.5rem 1rem;
+  min-width: 600px;
 }
 
-.applicant-table-container { 
-    max-width: 1000px;
-    margin: 0 auto;
-    border-radius: var(--radius);
+.applicant-table-container {
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: var(--radius);
 }
 
 .applicant-table-header {
-    margin: 0;
-    display: grid;
-    grid-template-columns: 33% 0.1% 33% 0.1% 33%;
-    text-decoration: none;
-    border: 1px groove var(--clr-secondary-grey); 
-    background-color: 	rgb(152,152,152, 0.5);
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--clr-secondary-grey);
+  color: var(--clr-primary-grey);
 }
 
-.vacancy-card-container h4{
-    margin: 0.8rem;
-    color: var(--clr-text-primary);
+.vacancy-card-container h4 {
+  margin: 0.8rem;
 }
 
 .vacancy-card-container:hover {
-    color: var(--clr-text-secondary);
-    background-color: var(--clr-primary-blue);
-}
-  
-.vertical {
-    border: 1px groove var(--clr-secondary-grey);
+  color: var(--clr-text-secondary);
+  background-color: var(--clr-primary-blue);
 }
 
 .main-title {
-    width: 100%;
+  width: 100%;
 }
 
 .job-container {
-    padding-top: 1rem;
-    margin: 0.5rem;
+  padding-top: 1rem;
+  margin: 0.5rem;
 }
 
 .single-job-container {
-    padding-bottom: 1rem;
-    max-width: 900px;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: start;
+  padding-bottom: 1rem;
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: start;
 }
 
 .single-job-header {
-    padding-left: 1rem;
-    margin-bottom: 1rem;
-    border-radius: var(--radius);
-    background-color: var(--clr-text-secondary);
-    color: var(--clr-text-primary);
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  background-color: var(--clr-text-secondary);
+  color: var(--clr-text-primary);
 }
 
 .single-job-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .single-job-header h1 {
-    margin: 0;
-    font-size: 2rem;
+  margin: 0;
+  font-size: 2rem;
 }
 
 .single-job-header h2 {
-    margin: 0;
-    font-weight: normal;
+  margin: 0;
+  font-weight: normal;
 }
 
 .single-job-header h3 {
-    margin: 0;
-    padding-top: 0.8rem;
-    padding-bottom: 0.2rem;
-    font-weight: normal;
+  margin: 0;
+  padding-top: 0.8rem;
+  padding-bottom: 0.2rem;
+  font-weight: normal;
 }
 
 .single-job-header h4 {
-    margin: 0;
-    padding-bottom: 0.5rem;
-    margin-right: 1rem;
-    font-size: 1rem;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  margin-right: 1rem;
+  font-size: 1rem;
 }
 
 .single-job-header h5 {
-    margin: 0;
-    padding-bottom: 1rem;
+  margin: 0;
+  padding-bottom: 1rem;
 }
 
 .single-job-header ul {
-    padding-left: 1rem;
-    padding-bottom: 1rem;
-    font-size: 0.9rem;
-    font-weight: bold;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 @media (max-width: 1360px) {
-    .job-content-container {
-        display: flex;
-        flex-direction: column-reverse;
-    }
+  .job-content-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
-    .single-job-container {
-        margin-right: auto;
-    }
+  .single-job-container {
+    margin-right: auto;
+  }
 
-    .applicant-container {
-        width: 98%;
-    }
+  .applicant-container {
+    width: 98%;
+    margin: 0 auto;
+  }
 
-    .single-job-title h1 {
-        font-size: 1.5rem;
-    }
+  .single-job-title h1 {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 720px) {
-    .applicant-container {
-        min-width: 300px;
-    }
+  .applicant-container {
+    min-width: 300px;
+  }
 }
-

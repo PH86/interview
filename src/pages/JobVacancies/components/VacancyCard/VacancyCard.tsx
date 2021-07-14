@@ -26,15 +26,10 @@ export const VacancyCard: React.FC<IVacancyCard> = ({
     <article key={id}>
       <Link to={`${url.jobs}/${id}`} className="vacancy-card-container">
         <h4>{title}</h4>
-        <div className="vertical"></div>
         <h4>{company}</h4>
-        <div className="vertical"></div>
         <h4>{location}</h4>
-        <div className="vertical"></div>
         <h4>{`£${salary}`}</h4>
-        <div className="vertical"></div>
         <h4 className="vacancy-card-media-remove">{applicants.length}</h4>
-        <div className="vertical"></div>
         <h4 className="vacancy-card-media-remove">{endDate}</h4>
       </Link>
     </article>

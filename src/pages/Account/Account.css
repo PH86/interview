@@ -1,113 +1,121 @@
 .accounts-content-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .section-container {
-     margin: 0.5rem 0 1.5rem;
-     display: flex; 
-     align-items: flex-start;
-     justify-content: space-between;
-     flex-wrap: wrap;
+  margin: 0.5rem 0 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .bills-container {
-    margin: 1rem 0.5rem;
-    display: flex; 
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+  margin: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .detail-box {
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.151);
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1.5rem 1rem;
-    border-radius: var(--radius);
-    background-color: var(--clr-text-secondary);
-    color: var(--clr-text-primary);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.151);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem 1rem;
+  border-radius: var(--radius);
+  background-color: var(--clr-text-secondary);
+  color: var(--clr-text-primary);
 }
 
-.detail-box  h2 {
-    font-size: 3rem;
-    margin: 0;
-    font-family: 'Roboto Slab', 'Open Sans', sans-serif;
-
+.detail-box h2 {
+  font-size: 3rem;
+  margin: 0;
+  font-family: "Roboto Slab", "Open Sans", sans-serif;
 }
 
 .detail-box p {
-    margin: 0.1rem;
+  margin: 0.1rem;
 }
 
-.detail-box .package-name { 
-    font-size: 1.2rem;
+.detail-box .package-name {
+  font-size: 1.2rem;
 }
 
 .detail-box button {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .stats-container {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .stat-box {
-    flex-direction: row;
-    align-items: center;
-    width: fit-content;
-    padding: 0.5rem 1rem;
-    margin-right: 1rem;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
 }
 
 .stat-box h2 {
-    font-size: 2rem;
-    font-family: 'Roboto Slab', 'Open Sans', sans-serif;
-
+  font-size: 2rem;
+  font-family: "Roboto Slab", "Open Sans", sans-serif;
 }
 
 .stat-box p {
-    margin-left: 0.5rem;
-    font-size: 1rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
 }
 
 .latest-bill {
-    background-color: var(--clr-button-primary);
-    color: var(--clr-text-secondary);
+  background-color: var(--clr-button-primary);
+  color: var(--clr-text-secondary);
 }
 
 .modal-form {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    min-width: 500px;
-    align-items: flex-start;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  align-items: flex-start;
 }
 
 .modal-form label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .modal-form input {
-    min-width: 250px;
-    margin-left: 2rem;
-    height: 2rem;
-    padding: 0.2rem;
-    margin-bottom: 0.5rem;
-    border-radius: var(--radius);
-    border-top: 0.15rem solid rgba(0, 0, 0, 0.2);
-    border-right: 0.05rem solid rgba(0, 0, 0, 0.1);
-    border-bottom: 0.05rem solid rgba(0, 0, 0, 0.1);
-    border-left: 0.15rem solid rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
+  min-width: 250px;
+  margin-left: 2rem;
+  height: 2rem;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius);
+  border-top: 0.15rem solid rgba(0, 0, 0, 0.2);
+  border-right: 0.05rem solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.05rem solid rgba(0, 0, 0, 0.1);
+  border-left: 0.15rem solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
 }
 
 .modal-form button {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .section-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .detail-box {
+    margin-bottom: 0.5rem;
+  }
 }
