@@ -17,9 +17,7 @@ export const ApplicantTable: React.FC<IApplicantTable> = ({
   return (
     <article key={id} className="applicant-table-content-container">
       <h4>{name}</h4>
-      <div className="vertical" />
       <h4>{currentJob}</h4>
-      <div className="vertical" />
       <h4>{location}</h4>
     </article>
   );

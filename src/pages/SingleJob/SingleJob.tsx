@@ -109,9 +109,7 @@ export const SingleJob: React.FC = (): React.ReactElement => {
                   variants={tableTransitions}
                 >
                   <h3>Name</h3>
-                  <div className="vertical"></div>
                   <h3>Job Title</h3>
-                  <div className="vertical"></div>
                   <h3>Location</h3>
                 </motion.div>
               </article>

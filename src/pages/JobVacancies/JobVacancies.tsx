@@ -68,17 +68,27 @@ export const JobVacancies: React.FC = (): React.ReactElement => {
     >
       <h1>Job Vacancies</h1>
       <div className="search-container">
-        <div className="search-bar">
-          <input
-            type="text"
-            id="candidateSearch"
-            name="candidateSearch"
-            placeholder="Enter your search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <FontAwesomeIcon className="search-icon" icon={faSearch} />
+        <div className="search-bar-container">
+          <div className="search-bar">
+            <input
+              type="text"
+              id="candidateSearch"
+              name="candidateSearch"
+              placeholder="Enter your search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <FontAwesomeIcon className="search-icon" icon={faSearch} />
+          </div>
+          <button
+            onClick={() => setOpenModal()}
+            className="standard-button add-vacancy"
+            type="button"
+          >
+            Add Vacancy
+          </button>
         </div>
+
         <h3 className="radio-container-title">Search by:</h3>
         <div className="radio-container-multiple">
           <div className="radio-container-div">
@@ -135,17 +145,10 @@ export const JobVacancies: React.FC = (): React.ReactElement => {
               variants={tableTransitions}
             >
               <h3>Job Title</h3>
-              <div className="vertical" />
               <h3>Company</h3>
-              <div className="vertical" />
               <h3>Location</h3>
-              <div className="vertical" />
               <h3>Salary</h3>
-              <div className="vertical" />
-              <h3 className="vacancy-card-media-remove">
-                Number of Applicants
-              </h3>
-              <div className="vertical" />
+              <h3 className="vacancy-card-media-remove">Applicants</h3>
               <h3 className="vacancy-card-media-remove">End Date</h3>
             </motion.div>
           </article>
@@ -158,13 +161,7 @@ export const JobVacancies: React.FC = (): React.ReactElement => {
           </div>
         </motion.div>
       </motion.div>
-      <button
-        onClick={() => setOpenModal()}
-        className="standard-button"
-        type="button"
-      >
-        Add Vacancy
-      </button>
+
       <StyledModal
         isOpen={openModal}
         onBackgroundClick={toggleModal}

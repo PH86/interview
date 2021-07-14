@@ -1,107 +1,133 @@
-.search-bar{
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    height: 3rem;
-    width: 300px;
-    background-color: var(--clr-secondary-grey);
-    border: 0.1rem solid rgba(0, 0, 0, 0.1);
-    box-shadow: var(--dark-shadow);
-    border-color: transparent;
-    border-radius: var(--radius);
+.search-bar-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  height: 3rem;
+  width: 300px;
 }
 
-.search-container input{
-    height: 2rem;
-    width: 300px;
-    padding: 0.2rem;
-    font-size: 16px;
-    background-color: var(--clr-secondary-grey);
-    border: 0.1rem solid rgba(0, 0, 0, 0.1);
-    border-color: transparent;
+.search-bar {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  height: 3rem;
+  width: 300px;
+  background-color: var(--clr-secondary-grey);
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  box-shadow: var(--dark-shadow);
+  border-color: transparent;
+  border-radius: var(--radius);
 }
 
-.search-icon{
-    color: var(--clr-text-primary);
-    font-size: 1.5rem;
-    margin-right: 0.8rem;
+.search-container input {
+  height: 2rem;
+  width: 300px;
+  padding: 0.2rem;
+  font-size: 16px;
+  background-color: var(--clr-secondary-grey);
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-color: transparent;
 }
 
-.radio-container-title{
-    margin-bottom: 0;
+.add-vacancy {
+  min-width: 140px;
+  background-color: var(--clr-button-primary);
 }
 
-.radio-container-multiple{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.search-icon {
+  color: var(--clr-text-primary);
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+}
+
+.radio-container-title {
+  margin-bottom: 0;
+}
+
+.radio-container-multiple {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .radio-container {
-    display: block;
-    position: relative;
-    padding-left: 3.1rem;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: start;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  display: block;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: start;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .radio-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 18px;
-    width: 18px;
-    margin-left: 1rem;
-    background-color: var(--clr-text-tertiary);
-    border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  margin-left: 1rem;
+  background-color: var(--clr-text-tertiary);
+  border-radius: 50%;
 }
 
 .radio-container:hover input ~ .checkmark {
-    background-color: var(--clr-button-primary);
+  background-color: var(--clr-button-primary);
 }
 
 .radio-container input:checked ~ .checkmark {
-    background-color: var(--clr-primary-blue);
+  background-color: var(--clr-primary-blue);
 }
 
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
-.radio-container input:checked ~ .checkmark:after{
-    display: block;
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
 }
 
 .radio-container .checkmark:after {
-    top: 5px;
-    left: 5px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--clr-text-secondary);
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clr-text-secondary);
 }
 
-.search-card-container{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+.search-card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 720px) {
+  .search-bar-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .add-vacancy {
+    margin-top: 0.5rem;
+    margin-bottom: -1rem;
+  }
 }
