@@ -176,7 +176,7 @@ export const SingleJob: React.FC = (): React.ReactElement => {
                   Salary: £{singleVacancy.salaryMin}-£{singleVacancy.salaryMax}{" "}
                   per annum
                 </h4>
-                <h4>{singleVacancy.applicants.length} applicants</h4>
+                <h4>{candidates?.length} applicants</h4>
               </SingleJobContainer>
               <SingleJobContainer className="single-job-header">
                 <h2>Description</h2>

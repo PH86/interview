@@ -19,7 +19,6 @@ export const VacancyCard: React.FC<IVacancyCard> = ({
   company,
   location,
   salary,
-  applicants,
   endDate,
 }): React.ReactElement => {
   return (
@@ -29,7 +28,6 @@ export const VacancyCard: React.FC<IVacancyCard> = ({
         <h4>{company}</h4>
         <h4>{location}</h4>
         <h4>{`£${salary}`}</h4>
-        <h4 className="vacancy-card-media-remove">{applicants.length}</h4>
         <h4 className="vacancy-card-media-remove">{endDate}</h4>
       </Link>
     </article>

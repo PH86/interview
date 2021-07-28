@@ -9,7 +9,7 @@ a:active {
 .vacancy-card-container {
   margin: 0rem 0rem;
   display: grid;
-  grid-template-columns: repeat(6, 16.6%);
+  grid-template-columns: repeat(5, 20%);
   text-decoration: none;
   border-bottom: 0.2rem solid var(--clr-secondary-grey);
   transition: all 0.1s ease 0s;

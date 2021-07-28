@@ -148,7 +148,6 @@ export const JobVacancies: React.FC = (): React.ReactElement => {
               <h3>Company</h3>
               <h3>Location</h3>
               <h3>Salary</h3>
-              <h3 className="vacancy-card-media-remove">Applicants</h3>
               <h3 className="vacancy-card-media-remove">End Date</h3>
             </motion.div>
           </article>
