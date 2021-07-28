@@ -1,6 +1,4 @@
-  
 export interface ThemeContext {
-    mode: string,
-    toggle (): void;
-  }
-  
+  mode: string;
+  toggle(): void;
+}

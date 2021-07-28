@@ -10,8 +10,8 @@ export interface IJobData {
   companyDescription: string;
   salaryMin: number;
   salaryMax: number;
-  requirementsEssential: Array<string>;
-  requirementsDesirable: Array<string>;
+  requirementEssential: Array<string>;
+  requirementDesired: Array<string>;
   responsibilities: Array<string>;
 }
 
@@ -30,13 +30,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 40000,
     salaryMax: 45000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -63,13 +63,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 25000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -96,13 +96,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 25000,
     salaryMax: 30000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -129,13 +129,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 30000,
     salaryMax: 35000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -162,13 +162,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 24000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -195,13 +195,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 55000,
     salaryMax: 60000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -228,13 +228,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 40000,
     salaryMax: 45000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -261,13 +261,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 25000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -294,13 +294,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 25000,
     salaryMax: 30000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -327,13 +327,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 30000,
     salaryMax: 35000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -360,13 +360,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 24000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -393,13 +393,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 55000,
     salaryMax: 60000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -426,13 +426,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 40000,
     salaryMax: 45000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -459,13 +459,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 25000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -492,13 +492,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 25000,
     salaryMax: 30000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -525,13 +525,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 30000,
     salaryMax: 35000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -558,13 +558,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 24000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -591,13 +591,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 55000,
     salaryMax: 60000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -624,13 +624,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 40000,
     salaryMax: 45000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -657,13 +657,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 25000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -690,13 +690,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 25000,
     salaryMax: 30000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -723,13 +723,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 30000,
     salaryMax: 35000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -756,13 +756,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 24000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -789,13 +789,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 55000,
     salaryMax: 60000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -822,13 +822,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 40000,
     salaryMax: 45000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -855,13 +855,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 25000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -888,13 +888,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 25000,
     salaryMax: 30000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -921,13 +921,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 30000,
     salaryMax: 35000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -954,13 +954,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 24000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -987,13 +987,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 55000,
     salaryMax: 60000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -1020,13 +1020,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 40000,
     salaryMax: 45000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -1053,13 +1053,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 25000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -1086,13 +1086,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 25000,
     salaryMax: 30000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -1119,13 +1119,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 30000,
     salaryMax: 35000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -1152,13 +1152,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 20000,
     salaryMax: 24000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -1185,13 +1185,13 @@ export const jobData: IJobData[] = [
       "Company description text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     salaryMin: 55000,
     salaryMax: 60000,
-    requirementsEssential: [
+    requirementEssential: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       "Ut enim ad minim veniam",
     ],
-    requirementsDesirable: [
+    requirementDesired: [
       "Lorem ipsum dolor sit amet",
       "consectetur adipiscing elit",
       "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",

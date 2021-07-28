@@ -176,7 +176,7 @@ export const SingleJob: React.FC = (): React.ReactElement => {
                   Salary: £{singleVacancy.salaryMin}-£{singleVacancy.salaryMax}{" "}
                   per annum
                 </h4>
-                <h4>{singleVacancy.applicants} applicants</h4>
+                <h4>{singleVacancy.applicants.length} applicants</h4>
               </SingleJobContainer>
               <SingleJobContainer className="single-job-header">
                 <h2>Description</h2>
@@ -185,13 +185,13 @@ export const SingleJob: React.FC = (): React.ReactElement => {
               <SingleJobContainer className="single-job-header">
                 <h3>Essential Requirements</h3>
                 <ul>
-                  {singleVacancy.requirementsEssential.map((essential) => {
+                  {singleVacancy.requirementEssential.map((essential) => {
                     return <li>{essential}</li>;
                   })}
                 </ul>
                 <h3>Desirable</h3>
                 <ul>
-                  {singleVacancy.requirementsDesirable.map((desirable) => {
+                  {singleVacancy.requirementDesired.map((desirable) => {
                     return <li>{desirable}</li>;
                   })}
                 </ul>
