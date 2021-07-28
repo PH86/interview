@@ -3,7 +3,7 @@ export const url = {
   signIn: "/interview/sign-in",
   passwordReset: "/interview/password-reset",
   register: "/interview/register",
-  jobs: "/interview/jobs",
+  jobs: "/interview/vacancies",
   candidates: "/interview/candidates",
   studio: "/interview/studio",
   settings: "/interview/settings",

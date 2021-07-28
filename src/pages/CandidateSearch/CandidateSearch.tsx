@@ -45,6 +45,8 @@ export const CandidateSearch: React.FC = (): React.ReactElement => {
       const candidateData = await res.json();
       if (candidateData) {
         setCandidates(candidateData);
+        // eslint-disable-next-line no-console
+        console.log(candidateData);
       }
     } catch (error) {
       return error;
