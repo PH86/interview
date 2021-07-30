@@ -1,10 +1,10 @@
 export interface IJobData {
-  id: number;
+  id?: number;
   title: string;
   company: string;
   location: string;
   salary: number;
-  applicants: number;
+  applicants?: number;
   endDate: string;
   jobDescription: string;
   companyDescription: string;

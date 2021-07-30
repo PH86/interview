@@ -10,12 +10,10 @@ export const VacancyFormWrapper = (): React.ReactElement => {
   const { setOpenModal } = useAppContext();
 
   const [jobForm, setJobForm] = useState({
-    id: 0,
     title: "",
     company: "",
     location: "",
     companyDescription: "",
-    applicants: 0,
     salary: 0,
     salaryMin: 0,
     salaryMax: 0,
@@ -27,6 +25,7 @@ export const VacancyFormWrapper = (): React.ReactElement => {
   });
 
   const submitJobForm = () => {
+    console.log(jobForm);
     fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}`, {
       method: "POST",
       headers: {
