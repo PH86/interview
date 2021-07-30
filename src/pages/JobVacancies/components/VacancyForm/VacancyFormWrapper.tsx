@@ -25,13 +25,17 @@ export const VacancyFormWrapper = (): React.ReactElement => {
   });
 
   const submitJobForm = () => {
-    console.log(jobForm);
+    if (jobForm.salaryMax) {
+      jobForm.salary = jobForm.salaryMax;
+    }
+    const bodyData = JSON.stringify(jobForm);
+
     fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(jobForm),
+      body: bodyData,
     })
       .then((res) => {
         // Handle successful api call

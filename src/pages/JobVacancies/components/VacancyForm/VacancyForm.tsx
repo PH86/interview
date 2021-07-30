@@ -32,7 +32,10 @@ export const VacancyForm: React.FC<IVacancyForm> = ({
     (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setJobForm((prev) => ({
         ...prev,
-        [event.target.name]: event.target.value,
+        [event.target.name]:
+          event.target.type === "number"
+            ? parseInt(event.target.value, 10)
+            : event.target.value,
       }));
     },
     [setJobForm]
