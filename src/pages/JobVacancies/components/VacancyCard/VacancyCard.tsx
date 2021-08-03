@@ -4,7 +4,7 @@ import "./VacancyCard.css";
 import { url } from "utils/constants";
 
 interface IVacancyCard {
-  id: string;
+  id?: string;
   title: string;
   company: string;
   location: string;

@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import { useAppContext } from "hooks/useAppContext";
 import { apiUrl } from "utils/constants";
 import "./VacancyForm.css";
-import { VacancyForm } from "./VacancyForm";
+import { IJobData } from "utils/DummyVacancyData";
 import { VacancyFull } from "./VacancyFull";
+import { VacancyUpdateForm } from "./VacancyUpdateForm";
 
-export const VacancyFormWrapper = (): React.ReactElement => {
+interface IVacancyUpdateForm {
+  id: string;
+  singleVacancy: IJobData;
+
+  setToggleFormModal: (active: boolean) => void;
+}
+
+export const VacancyUpdateFormWrapper: React.FC<IVacancyUpdateForm> = ({
+  id,
+  singleVacancy,
+  setToggleFormModal,
+}): React.ReactElement => {
   const [screen, setScreen] = useState("form");
-  const { setOpenModal } = useAppContext();
-
   const [jobForm, setJobForm] = useState({
     title: "",
     company: "",
@@ -30,8 +39,8 @@ export const VacancyFormWrapper = (): React.ReactElement => {
     }
     const bodyData = JSON.stringify(jobForm);
 
-    fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}`, {
-      method: "POST",
+    fetch(`${process.env.REACT_APP_API_URL}${apiUrl.vacancies}/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -46,7 +55,7 @@ export const VacancyFormWrapper = (): React.ReactElement => {
       })
       .catch((err) => err)
       // Remove this line once api call is set up as this is currently bypassing everything above
-      .finally(() => setOpenModal());
+      .finally(() => setToggleFormModal(false));
   };
 
   if (screen === "review") {
@@ -59,8 +68,9 @@ export const VacancyFormWrapper = (): React.ReactElement => {
     );
   }
   return (
-    <VacancyForm
+    <VacancyUpdateForm
       jobForm={jobForm}
+      singleVacancy={singleVacancy}
       setJobForm={setJobForm}
       setScreen={setScreen}
     />

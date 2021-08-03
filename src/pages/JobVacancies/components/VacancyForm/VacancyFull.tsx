@@ -41,13 +41,13 @@ export const VacancyFull: React.FC<IVacancyFull> = ({
         <div className="single-job-header">
           <h3>Essential Requirements</h3>
           <ul>
-            {jobForm?.requirementsEssential?.map((essential: string) => {
+            {jobForm?.requirementEssential?.map((essential: string) => {
               return <li>{essential}</li>;
             })}
           </ul>
           <h3>Desirable</h3>
           <ul>
-            {jobForm?.requirementsDesirable?.map((desirable: string) => {
+            {jobForm?.requirementDesired?.map((desirable: string) => {
               return <li>{desirable}</li>;
             })}
           </ul>

@@ -10,6 +10,7 @@ import {
   tableTransitions,
   modalTransitions,
 } from "utils/Animations";
+import { VacancyUpdateFormWrapper } from "pages/JobVacancies/components";
 import { backgroundColor, shadow, textColor } from "themes/theme";
 import { ApplicantCard, ApplicantTable } from "components";
 import { IApplicantCard } from "components/Applicant/ApplicantCard";
@@ -35,9 +36,26 @@ const StyledModal = Modal.styled`
   border-radius: 15px;
 `;
 
+const StyledFormModal = Modal.styled`
+    width: 90vw;
+    height: 90vh;
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${backgroundColor};
+    overflow-y: scroll;
+`;
+
 export const SingleJob: React.FC = (): React.ReactElement => {
   const { id } = useParams<{ id: string }>();
   const [openModal, setOpenModal] = React.useState<boolean>(false);
+  const [openFormModal, setOpenFormModal] = React.useState<boolean>(false);
   const [applicantId, setApplicantId] = React.useState<string>();
   const [candidates, setCandidates] = React.useState<IApplicantCard[]>();
   const [singleVacancy, setSingleVacancy] = React.useState<IJobData>();
@@ -76,7 +94,7 @@ export const SingleJob: React.FC = (): React.ReactElement => {
     getSingleJob();
     getCandidates();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [!openFormModal]);
 
   const handleClick = (selectId: string) => {
     setApplicantId(selectId);
@@ -85,6 +103,10 @@ export const SingleJob: React.FC = (): React.ReactElement => {
 
   const toggleModal = () => {
     setOpenModal(!openModal);
+  };
+
+  const toggleFormModal = () => {
+    setOpenFormModal(!openFormModal);
   };
 
   return (
@@ -202,10 +224,39 @@ export const SingleJob: React.FC = (): React.ReactElement => {
                   })}
                 </ul>
               </SingleJobContainer>
+              <button
+                onClick={() => setOpenFormModal(true)}
+                className="standard-button"
+                type="button"
+              >
+                Edit
+              </button>
             </article>
           )}
         </div>
       </div>
+      <StyledFormModal
+        isOpen={openFormModal}
+        onBackgroundClick={toggleFormModal}
+        onEscapeKeydown={toggleFormModal}
+      >
+        <motion.div variants={modalTransitions}>
+          <button
+            onClick={() => setOpenFormModal(false)}
+            className="standard-button"
+            type="button"
+          >
+            Close
+          </button>
+          {singleVacancy && (
+            <VacancyUpdateFormWrapper
+              id={id}
+              singleVacancy={singleVacancy}
+              setToggleFormModal={toggleFormModal}
+            />
+          )}
+        </motion.div>
+      </StyledFormModal>
     </motion.div>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useCallback } from "react";
 import "./VacancyForm.css";
 import styled from "styled-components";
@@ -13,20 +14,26 @@ const Shadow = styled.div`
   box-shadow: ${shadow};
 `;
 
-interface IVacancyForm {
+interface IVacancyUpdateForm {
   jobForm: IJobData;
+  singleVacancy: IJobData;
   setJobForm: React.Dispatch<React.SetStateAction<IJobData>>;
   setScreen: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const VacancyForm: React.FC<IVacancyForm> = ({
+export const VacancyUpdateForm: React.FC<IVacancyUpdateForm> = ({
   jobForm,
+  singleVacancy,
   setJobForm,
   setScreen,
 }): React.ReactElement => {
   const [essentialRequirmentInput, setEssentialRequirmentInput] = useState("");
   const [desiredRequirmentInput, setDesiredRequirmentInput] = useState("");
   const [responsibilitiesInput, setResponsibilitiesInput] = useState("");
+
+  React.useEffect(() => {
+    setJobForm(singleVacancy);
+  }, []);
 
   const handleInputOnChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
