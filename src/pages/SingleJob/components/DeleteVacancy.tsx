@@ -31,7 +31,6 @@ export const DeleteVacancy: React.FC<IDeleteVacancy> = ({
       .catch((err) => err);
     setToggleDeleteModal(false);
     history.push("/interview/vacancies");
-    console.log("deleted");
   };
   return (
     <article className="delete-modal">
