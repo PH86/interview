@@ -51,6 +51,7 @@ const StyledFormModal = Modal.styled`
     align-items: center;
     justify-content: center;
     background-color: ${backgroundColor};
+    border-radius: 15px;
     overflow-y: scroll;
 `;
 
