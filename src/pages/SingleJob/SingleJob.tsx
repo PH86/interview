@@ -16,6 +16,7 @@ import { ApplicantCard, ApplicantTable } from "components";
 import { IApplicantCard } from "components/Applicant/ApplicantCard";
 import { IJobData } from "utils/DummyVacancyData";
 import { apiUrl } from "utils/constants";
+import { DeleteVacancy } from "./components/DeleteVacancy";
 
 const SingleJobContainer = styled.div`
   box-shadow: ${shadow};
@@ -34,6 +35,7 @@ const StyledModal = Modal.styled`
   background-color: ${backgroundColor};
   color: ${textColor};
   border-radius: 15px;
+  max-width: 95%;
 `;
 
 const StyledFormModal = Modal.styled`
@@ -56,6 +58,7 @@ export const SingleJob: React.FC = (): React.ReactElement => {
   const { id } = useParams<{ id: string }>();
   const [openModal, setOpenModal] = React.useState<boolean>(false);
   const [openFormModal, setOpenFormModal] = React.useState<boolean>(false);
+  const [openDeleteModal, setOpenDeleteModal] = React.useState<boolean>(false);
   const [applicantId, setApplicantId] = React.useState<string>();
   const [candidates, setCandidates] = React.useState<IApplicantCard[]>();
   const [singleVacancy, setSingleVacancy] = React.useState<IJobData>();
@@ -107,6 +110,10 @@ export const SingleJob: React.FC = (): React.ReactElement => {
 
   const toggleFormModal = () => {
     setOpenFormModal(!openFormModal);
+  };
+
+  const toggleDeleteModal = () => {
+    setOpenDeleteModal(!openDeleteModal);
   };
 
   return (
@@ -231,6 +238,13 @@ export const SingleJob: React.FC = (): React.ReactElement => {
               >
                 Edit
               </button>
+              <button
+                onClick={() => setOpenDeleteModal(true)}
+                className="standard-button"
+                type="button"
+              >
+                Delete
+              </button>
             </article>
           )}
         </div>
@@ -257,6 +271,13 @@ export const SingleJob: React.FC = (): React.ReactElement => {
           )}
         </motion.div>
       </StyledFormModal>
+      <StyledModal
+        isOpen={openDeleteModal}
+        onBackgroundClick={toggleDeleteModal}
+        onEscapeKeydown={toggleDeleteModal}
+      >
+        <DeleteVacancy id={id} setToggleDeleteModal={setOpenDeleteModal} />
+      </StyledModal>
     </motion.div>
   );
 };
