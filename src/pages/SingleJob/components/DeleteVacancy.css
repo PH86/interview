@@ -1,0 +1,9 @@
+.delete-modal-text {
+  padding: 1rem;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
