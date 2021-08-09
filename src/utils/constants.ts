@@ -12,7 +12,7 @@ export const url = {
 
 export const apiUrl = {
   auth: {
-    signIn: "/sign-in",
+    signIn: "/user/login",
     passwordReset: "/password-reset",
   },
   vacancies: "/vacancies",

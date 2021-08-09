@@ -5,12 +5,9 @@ import { motion } from "framer-motion";
 import logo from "images/interview-dark.svg";
 import { pageTransitions } from "utils/Animations";
 import searchIcon from "images/searchIcon.png";
-
-import { useAuthContext } from "hooks/useAuthContext";
 import { apiUrl, url } from "utils/constants";
 
 export const Register: React.FC = (): React.ReactElement => {
-  const { signIn } = useAuthContext();
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const [apiError, setApiError] = useState("");
 
@@ -39,9 +36,9 @@ export const Register: React.FC = (): React.ReactElement => {
           setApiError("There was a problem with your request");
         }
       })
-      .catch((err) => err)
-      // Remove this line once api call is set up as this is currently bypassing everything above
-      .finally(() => signIn("test"));
+      .catch((err) => err);
+    // Remove this line once api call is set up as this is currently bypassing everything above
+    // .finally(() => signIn("test"));
   };
 
   return (
