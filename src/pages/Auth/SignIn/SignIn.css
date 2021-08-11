@@ -12,9 +12,14 @@
   justify-items: center;
 }
 
-.slim-container { 
+.slim-container {
   display: block;
   min-width: auto;
+}
+
+.input-container p {
+  font-size: 0.8rem;
+  color: red;
 }
 
 .form-container-footer {
@@ -67,7 +72,7 @@
 }
 
 @media (max-width: 1100px) {
-  .container{
+  .container {
     display: grid;
     grid-template-columns: none;
     grid-template-rows: 50% 0.1% 40%;
@@ -76,17 +81,17 @@
     min-width: 350px;
   }
 
-  .slim-container { 
+  .slim-container {
     min-width: auto;
-    grid-template-rows: 50%;    
+    grid-template-rows: 50%;
   }
 
-  .info-container h2{
+  .info-container h2 {
     font-size: small;
   }
 }
 
-.error-message { 
+.error-message {
   color: var(--clr-text-error);
 }
 
@@ -94,5 +99,5 @@
   font-size: 2em;
   width: 70%;
   margin: 0 auto 1em;
-  font-family: 'Roboto Slab', 'Open Sans', sans-serif;
+  font-family: "Roboto Slab", "Open Sans", sans-serif;
 }

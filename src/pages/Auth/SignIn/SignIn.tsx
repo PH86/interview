@@ -15,6 +15,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
   const { signIn } = useAuthContext();
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const [apiError, setApiError] = useState("");
+  const [loginError, setLoginError] = useState(false);
 
   const handleOnChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,14 +40,19 @@ export const SignIn: React.FC = (): React.ReactElement => {
         // Handle successful api call
         if (res.ok) {
           res.json();
+          console.log(res);
+          setLoginError(false);
+          signIn("test");
           // Show error message
         } else {
           setApiError("There was a problem with your request");
         }
       })
-      .catch((err) => err)
-      // Remove this line once api call is set up as this is currently bypassing everything above
-      .finally(() => signIn("test"));
+      .catch((err) => err);
+
+    setLoginError(true);
+    console.log(loginError);
+    console.log("log in unsuccessful");
   };
 
   return (
@@ -85,8 +91,11 @@ export const SignIn: React.FC = (): React.ReactElement => {
                   required
                 />
               </label>
+
+              {loginError && <p>* Password or Email invalid</p>}
             </div>
           </form>
+
           <div className="center-text">
             <button className="button" type="submit" form="loginForm">
               LOG IN
