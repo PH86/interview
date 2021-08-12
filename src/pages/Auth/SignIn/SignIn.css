@@ -101,3 +101,22 @@
   margin: 0 auto 1em;
   font-family: "Roboto Slab", "Open Sans", sans-serif;
 }
+
+.register-modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-modal-container button {
+  margin: 1rem auto;
+}
+
+.register-modal-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.register-modal-text {
+  margin: 0 1rem;
+}
