@@ -14,7 +14,6 @@ import { apiUrl, url } from "utils/constants";
 export const SignIn: React.FC = (): React.ReactElement => {
   const { signIn } = useAuthContext();
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
-  const [apiError, setApiError] = useState("");
   const [loginError, setLoginError] = useState(false);
 
   const handleOnChange = useCallback(
@@ -40,19 +39,14 @@ export const SignIn: React.FC = (): React.ReactElement => {
         // Handle successful api call
         if (res.ok) {
           res.json();
-          console.log(res);
           setLoginError(false);
           signIn("test");
           // Show error message
         } else {
-          setApiError("There was a problem with your request");
+          setLoginError(true);
         }
       })
       .catch((err) => err);
-
-    setLoginError(true);
-    console.log(loginError);
-    console.log("log in unsuccessful");
   };
 
   return (
@@ -66,7 +60,6 @@ export const SignIn: React.FC = (): React.ReactElement => {
       <div className="form-container">
         <article className="form-container">
           <img className="form-logo" src={logo} alt="Interview Logo" />
-          {apiError && <p className="error-message">{apiError}</p>}
           <form id="loginForm" onSubmit={handleSubmit}>
             <div className="input-container">
               <label htmlFor="email">

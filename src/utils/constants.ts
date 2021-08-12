@@ -12,6 +12,7 @@ export const url = {
 
 export const apiUrl = {
   auth: {
+    createUser: "/user",
     signIn: "/user/login",
     passwordReset: "/password-reset",
   },
